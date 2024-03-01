@@ -21,7 +21,7 @@ export const Navbar = ({ title }: { title: string }) => {
 
         <div className="flex items-center gap-3 mr-2 sm:mr-4 xxl:mr-0">
           <a
-            href="https://github.com/tookender/Korino-Website"
+            href="https://github.com/tookender/website"
             aria-label="Korino Website Github"
             className="text-neutral-300 hover:text-white hover:scale-105 duration-150"
             target="_blank"
