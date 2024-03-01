@@ -2,7 +2,15 @@
 import React, { useEffect } from "react";
 import { Card } from "../components/card";
 import { motion } from "framer-motion";
-import { IconChevronDown, IconSwords, IconRobot, IconWorld, IconBrandPython, IconBrandTypescript, IconCoffee } from "@tabler/icons-react";
+import {
+  IconChevronDown,
+  IconSwords,
+  IconRobot,
+  IconWorld,
+  IconBrandPython,
+  IconBrandTypescript,
+  IconCoffee,
+} from "@tabler/icons-react";
 
 export default function Home() {
   useEffect(() => {
