@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Navbar } from "@/components/navbar";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,6 +15,9 @@ export const metadata: Metadata = {
     description:
       "Website to showcase Korino projects such as Korino PvP, Korii Bot, and more.",
   },
+  other: {
+    "darkreader-lock": "darkreader-lock",
+  }
 };
 
 let title: string;
@@ -34,6 +38,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navbar title={title} />
         {children}
+        <SpeedInsights/>
       </body>
     </html>
   );
