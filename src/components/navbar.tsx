@@ -4,7 +4,7 @@ import Image from "next/image";
 import { IconBrandGithub } from "@tabler/icons-react";
 import { TemplateString } from "next/dist/lib/metadata/types/metadata-types";
 
-export const Navbar = ({ title }: { title: string | TemplateString | null | undefined }) => {
+export const Navbar = ({ title }: { title: string }) => {
   return (
     <header className="flex flex-col fixed top-0 justify-around items-center w-full h-16 border-b border-b-white/10 bg-black/80 backdrop-blur-sm z-50">
       <nav className="w-full flex items-center max-w-[1400px] relative flex-1">

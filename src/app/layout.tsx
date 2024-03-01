@@ -16,6 +16,14 @@ export const metadata: Metadata = {
   },
 };
 
+let title: string;
+
+if (typeof metadata.title == "string") {
+  title = metadata.title.toString();
+} else {
+  title = "Korino";
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar title={metadata.title} />
+        <Navbar title={title} />
         {children}
       </body>
     </html>
