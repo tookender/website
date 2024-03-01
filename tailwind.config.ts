@@ -10,23 +10,23 @@ module.exports = {
   content: ["./src/**/*.{ts,tsx}"],
   theme: {
     screens: {
-      'xxl': '1400px',
-      ...defaultTheme.screens
+      xxl: "1400px",
+      ...defaultTheme.screens,
     },
     extend: {
-			spacing: {
-				"34": "34vmax",
-			},
+      spacing: {
+        "34": "34vmax",
+      },
 
-			borderRadius: {
-				"1/2": "50%",
-			},
-			blur: {
-				"12": "12vmax",
-			},
+      borderRadius: {
+        "1/2": "50%",
+      },
+      blur: {
+        "12": "12vmax",
+      },
       animation: {
-        "blob": "blob 10s infinite",
-        "rotate": "rotate 5s infinite",
+        blob: "blob 10s infinite",
+        rotate: "rotate 5s infinite",
       },
       keyframes: {
         blob: {
@@ -44,9 +44,9 @@ module.exports = {
           },
         },
         rotate: {
-          "from": { transform: "rotate(0deg)" },
+          from: { transform: "rotate(0deg)" },
           "50%": { transform: "scale(1 1.5)" },
-          "to": { transform: "rotate(360deg)"},
+          to: { transform: "rotate(360deg)" },
         },
       },
     },

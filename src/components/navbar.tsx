@@ -2,7 +2,6 @@
 import React from "react";
 import Image from "next/image";
 import { IconBrandGithub } from "@tabler/icons-react";
-import { TemplateString } from "next/dist/lib/metadata/types/metadata-types";
 
 export const Navbar = ({ title }: { title: string }) => {
   return (
@@ -21,7 +20,12 @@ export const Navbar = ({ title }: { title: string }) => {
         </div>
 
         <div className="flex items-center gap-3 mr-2 sm:mr-4 xxl:mr-0">
-          <a href="https://github.com/tookender/Korino-Website" aria-label="Korino Website Github" className="text-neutral-300 hover:text-white hover:scale-105 duration-150" target="_blank">
+          <a
+            href="https://github.com/tookender/Korino-Website"
+            aria-label="Korino Website Github"
+            className="text-neutral-300 hover:text-white hover:scale-105 duration-150"
+            target="_blank"
+          >
             <IconBrandGithub />
           </a>
         </div>
@@ -43,7 +47,6 @@ export const NavbarElement = ({
       href={href}
     >
       {text}
-      {/* <IconArrowUpRight className="absolute -top-[2px] -right-[14px]" height={14} width={14}/> */}
     </a>
   );
 };
