@@ -1,5 +1,5 @@
 {
-  "name": "website",
+  "name": "websitee",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,27 +10,23 @@
   },
   "dependencies": {
     "@tabler/icons-react": "^2.47.0",
-    "@tsparticles/engine": "^3.2.2",
-    "@tsparticles/react": "^3.0.0",
-    "@tsparticles/slim": "^3.2.2",
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
     "clsx": "^2.1.0",
-    "framer-motion": "^11.0.6",
+    "framer-motion": "^11.0.8",
     "mini-svg-data-uri": "^1.4.4",
-    "next": "14.1.0",
+    "next": "14.1.1",
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
-    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
-    "eslint-config-next": "14.1.0",
+    "eslint-config-next": "14.1.1",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"

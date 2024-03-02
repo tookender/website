@@ -1,5 +1,5 @@
-"use client";
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { IconBrandGithub } from "@tabler/icons-react";
 
@@ -9,11 +9,11 @@ export const Navbar = ({ title }: { title: string }) => {
       <nav className="w-full flex items-center max-w-[1400px] relative flex-1">
         <div className="flex flex-row items-center w-full gap-4 sm:gap-6 ml-2 sm:ml-4 xxl:ml-0">
           {/* prettier-ignore */}
-          <a className="group flex flex-row justify-center items-center gap-2 mr-2 sm:mr-4" href="/">
+          <Link className="group flex flex-row justify-center items-center gap-2 mr-2 sm:mr-4" href="/">
             {/* prettier-ignore */}
             <Image className="rounded-full brightness-95 group-hover:brightness-100 duration-150" src="/avatar.webp" alt="Korino Logo" width={50} height={50}/>
             <h1 className="text-xl font-bold text-neutral-300 group-hover:text-white duration-150">{title}</h1>
-          </a>
+          </Link>
 
           <NavbarElement text="Korino PvP" href="/pvp" />
           <NavbarElement text="Korii Bot" href="/bot" />
@@ -42,11 +42,11 @@ export const NavbarElement = ({
   href: string;
 }) => {
   return (
-    <a
+    <Link
       className="relative text-sm text-neutral-400 hover:text-white duration-150 ease-in"
       href={href}
     >
       {text}
-    </a>
+    </Link>
   );
 };
