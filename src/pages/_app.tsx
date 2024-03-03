@@ -55,7 +55,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
         className={`text-white bg-black overflow-x-hidden ${inter.className}`}
       >
         <Navbar title="Korino" />
-        <div
+        <motion.div animate={{ opacity: 0.5 }} initial={{ opacity: 0 }} transition={{ ease: "easeIn", duration: 0.5, delay: 0.5 }}
           id="blob"
           className="animate-rotate bg-white opacity-50 overflow-hidden duration-1000 rounded-1/2 h-34 aspect-square fixed top-1/2 left-1/2"
         />

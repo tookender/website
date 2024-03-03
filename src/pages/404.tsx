@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/button";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -10,8 +11,8 @@ export default function Home() {
         transition={{ ease: "easeIn", duration: 0.5, delay: 0.35 }}
       >
         <div className="flex flex-col items-center justify-center h-screen">
-          <h1 className="text-9xl font-extrabold">404</h1>
-          <h2 className="mt-2 text-2xl">Not Found</h2>
+
+          <Image src="/404.webp" alt="404 Error Status Dog" width={488} height={426} className="rounded-md hover:scale-105 duration-500"/>
 
           <div className="flex flex-row gap-8 mt-12 text-2xl font-semibold">
             <Button text="Home" href="/" />
