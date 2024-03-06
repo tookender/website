@@ -1,14 +1,13 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/button";
-import Image from "next/image";
 import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
     const image = document.getElementById("image") as HTMLImageElement;
-    const description = document.getElementById("description") as HTMLParagraphElement;
+    const description = document.getElementById("description") as HTMLElement;
     const dogImages = {
-      dog1: "this dog just encountered a G-HOOOST",
+      dog1: "this dog just encountered a G-HOOOST 👻👻",
       dog2: "hehe hi",
       dog3: "huh?",
       dog4: "PLEASEE GIVE ME TREATS",
@@ -21,7 +20,10 @@ export default function Home() {
       dog11: "RAWRRRR",
       dog12: ":( i lost my toy",
       dog13: "welp :D",
-      dog14: "hii hooman wana play??"
+      dog14: "i feel like a model",
+      dog15: "hii hooman wana play??",
+      dog16: "zzz...",
+      dog17: "im too old for this 👴",
     };
 
     image.addEventListener("load", (_) => {
@@ -40,7 +42,9 @@ export default function Home() {
         }
       });
       image.classList.add(`rotate-[${Math.floor(Math.random() * 11) - 5}deg]`);
-      const randomIndex = Math.floor(Math.random() * Object.keys(dogImages).length);
+      const randomIndex = Math.floor(
+        Math.random() * Object.keys(dogImages).length
+      );
       image.src = `/dogs/${Object.keys(dogImages)[randomIndex]}.jpeg`;
       description.textContent = Object.values(dogImages)[randomIndex];
     });
@@ -72,12 +76,12 @@ export default function Home() {
             alt="404 Error Status Dog"
             width={488}
             height={426}
-            className="hover:scale-105 active:scale-95 duration-100 rounded-md"
+            className="hover:scale-105 active:scale-95 duration-500 rounded-md"
           />
 
           {/* rounded-md hover:scale-105 duration-500 */}
           <p className="text-center mt-8 font-semibold" id="description">
-            this dog just encountered a G-HOOOST
+            this dog just encountered a G-HOOOST 👻👻
           </p>
 
           <div className="flex flex-row gap-8 mt-6 text-2xl font-semibold">
