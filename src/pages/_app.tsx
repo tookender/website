@@ -5,6 +5,7 @@ import { Navbar } from "@/components/navbar";
 import type { AppProps } from "next/app";
 import { motion } from "framer-motion";
 import { Inter } from "next/font/google";
+import { Footer } from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -55,7 +56,10 @@ export default function App({ Component, pageProps, router }: AppProps) {
         className={`text-white bg-black overflow-x-hidden ${inter.className}`}
       >
         <Navbar title="Korino" />
-        <motion.div animate={{ opacity: 0.5 }} initial={{ opacity: 0 }} transition={{ ease: "easeIn", duration: 0.5, delay: 0.5 }}
+        <motion.div
+          animate={{ opacity: 0.5 }}
+          initial={{ opacity: 0 }}
+          transition={{ ease: "easeIn", duration: 0.5, delay: 0.5 }}
           id="blob"
           className="animate-rotate bg-white opacity-50 overflow-hidden duration-1000 rounded-1/2 h-34 aspect-square fixed top-1/2 left-1/2"
         />
@@ -69,6 +73,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
         >
           <Component {...pageProps} key={router.pathname} />
         </motion.div>
+        <Footer />
       </div>
     </>
   );
