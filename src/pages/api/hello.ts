@@ -18,7 +18,7 @@ export default async function handler(
     // Code for IP-API.com (45 requests per minute)
     const locationData = await (await fetch(`http://ip-api.com/json/${ipAddress}?fields=status,message,continent,country,regionName,city,zip,lat,lon,timezone,offset,currency,isp,org,as,reverse,mobile,proxy,hosting,query`)).json();
     const { country, city, continent, regionName, zip, lat, lon, timezone, currency, as, org, reverse, mobile, proxy, hosting, isp } = locationData;
-    const data: string = `Hello ${userAgent} \n\n${ipAddress}\n${continent}, ${country}, ${regionName}\n${city} (${zip})\nLAT ${lat} LON ${lon}\n${timezone} ${currency}\n${as} - ${org}\n${isp}\n${reverse}\n\nMOBILE: ${mobile}\nPROXY: ${proxy}\nHOSTING: ${hosting}`;
+    const data: string = `Hello ${userAgent} \n\n${ipAddress}\n${continent}, ${country}, ${regionName}\n${city} (${zip})\nLAT ${lat} LON ${lon}\n${timezone} ${currency}\n${as} - ${org} (${isp})\n${reverse}\n\nMOBILE: ${mobile}\nPROXY: ${proxy}\nHOSTING: ${hosting}`;
   
     res.setHeader("Content-Type", "text/plain");
     res.status(200).send(data);
