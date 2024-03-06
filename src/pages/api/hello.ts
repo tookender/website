@@ -1,13 +1,13 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 
-type Data = {
-  name: string;
+type ResponseData = {
+  message: string;
 };
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>,
+  res: NextApiResponse<ResponseData>
 ) {
-  res.status(200).json({ name: "John Doe" });
+  const secretKey = "123456789";
+  res.status(200).json({ message: "wsg" });
 }
