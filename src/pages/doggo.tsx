@@ -45,7 +45,7 @@ export default function Home() {
       const randomIndex = Math.floor(
         Math.random() * Object.keys(dogImages).length
       );
-      image.src = `/dogs/${Object.keys(dogImages)[randomIndex]}.jpeg`;
+      image.src = `/dogs/${Object.keys(dogImages)[randomIndex]}.webp`;
       description.textContent = Object.values(dogImages)[randomIndex];
     });
   });
@@ -72,14 +72,13 @@ export default function Home() {
 
           <img
             id="image"
-            src="/dogs/dog1.jpeg"
+            src="/dogs/dog1.webp"
             alt="404 Error Status Dog"
             width={488}
             height={426}
             className="hover:scale-105 active:scale-95 duration-500 rounded-md"
           />
 
-          {/* rounded-md hover:scale-105 duration-500 */}
           <p className="text-center mt-8 font-semibold" id="description">
             this dog just encountered a G-HOOOST 👻👻
           </p>
