@@ -7,8 +7,9 @@ export default async function handler(
 ) {
   try {
 
-    const ipAddress = req.headers['x-forwarded-for'] as string || req.connection.remoteAddress;
-    res.status(200).json({ ip: ipAddress });
+    const ipAddress = req.headers['x-forwarded-for'] as string || req.connection.remoteAddress || 'Unknown';
+    res.setHeader("Content-Type", "text/plain");
+    res.status(200).send(`${ipAddress}`);
     
     // const userAgent = req.headers['user-agent'];
     
