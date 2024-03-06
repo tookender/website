@@ -6,7 +6,6 @@ export default async function handler(
   res: NextApiResponse<string>
 ) {
   try {
-
     const ipAddress = req.headers['x-forwarded-for'] as string || req.connection.remoteAddress || 'Unknown';
     const userAgent = req.headers['user-agent'];
   
