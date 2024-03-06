@@ -1,40 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# website 🌐
+A website built with [Next.js](https://nextjs.org/) bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<br>
+Primarily for showcasing my projects under "Korino Development" and my portfolio.
 
-## Getting Started
+## installing & running 📩
+I don't recommend you running it yourself, you can visit a live demo of the website at [korino.dev](https://korino.dev), but here is the guide anyways:
+0. Make sure you have installed [Node.js](https://nodejs.org/en/download/)
+<details>
+    <summary>using `npm`</summary>
+    1. Install all the requirements with: `npm i`
+    2. Run a live development server: `npm run dev`
+</details>
 
-First, run the development server:
+<details>
+    <summary>using `yarn`</summary>
+    1. Install all the requirements with: `yarn i`
+    2. Run a live development server: `yarn dev`
+</details>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<details>
+    <summary>using `pnpm`</summary>
+    1. Install all the requirements with: `pnpm i`
+    2. Run a live development server: `pnpm dev`
+</details>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<details>
+    <summary>using `bun`</summary>
+    1. Install all the requirements with: `bun install`
+    2. Run a live development server: `bun dev`
+</details>
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Open [localhost:3000](http://localhost:3000) in your browser to see the page live.
+If you update any file, for example `pages/index.tsx`, it will automatically update in the browser.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## contributing 💁
+If you want to contribute to this project for some reason, just make sure you use Prettier on the code after editing it.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## license 📜
+This project is licensed under the [`AGPLv3`](https://www.gnu.org/licenses/agpl-3.0.de.html) license. See the [`LICENSE`](https://github.com/tookender/website/LICENSE) file for more information.
