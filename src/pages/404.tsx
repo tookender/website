@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/button";
 import Image from "next/image";
+import { useEffect } from "react";
 
 export default function Home() {
   return (
@@ -11,6 +12,18 @@ export default function Home() {
         transition={{ ease: "easeIn", duration: 0.5, delay: 0.35 }}
       >
         <div className="flex flex-col items-center justify-center h-screen">
+          <div className="hidden rotate-[-5deg]" />
+          <div className="hidden rotate-[-4deg]" />
+          <div className="hidden rotate-[-3deg]" />
+          <div className="hidden rotate-[-2deg]" />
+          <div className="hidden rotate-[-1deg]" />
+          <div className="hidden rotate-[0deg]" />
+          <div className="hidden rotate-[1deg]" />
+          <div className="hidden rotate-[2deg]" />
+          <div className="hidden rotate-[3deg]" />
+          <div className="hidden rotate-[4deg]" />
+          <div className="hidden rotate-[5deg]" />
+
           <Image
             src="/404.webp"
             alt="404 Error Status Dog"
@@ -19,7 +32,7 @@ export default function Home() {
             className="rounded-md hover:scale-105 duration-500"
           />
 
-          <p className="text-center mt-3 font-semibold">
+          <p className="text-center mt-8 font-semibold">
             The page you are trying to visit, either does not exist, <br /> or
             it has not yet been implemented.
           </p>
