@@ -99,7 +99,7 @@ export default function Home() {
                   whileInView={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ ease: "easeIn", duration: 0.5, delay: 0.25 }}>
           <Card
             title="Python"
-            description="We use Python a lot for it's ease-of-use and great developer experience."
+            description="We use Python a lot for it's ease-of-use and great developer experience with its amazing package manager."
             image="/avatar.webp"
             link="https://python.org/"
           >
@@ -108,7 +108,7 @@ export default function Home() {
 
           <Card
             title="TypeScript"
-            description="TypeScript is mainly utilized for our website, we use it as an alternative to JS."
+            description="TypeScript is mainly utilized for our website, we use it as a typed alternative to JavaScript."
             image="/avatar.webp"
             link="/bot"
           >
