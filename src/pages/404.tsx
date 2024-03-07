@@ -12,18 +12,6 @@ export default function Home() {
         transition={{ ease: "easeIn", duration: 0.5, delay: 0.35 }}
       >
         <div className="flex flex-col items-center justify-center h-screen">
-          <div className="hidden rotate-[-5deg]" />
-          <div className="hidden rotate-[-4deg]" />
-          <div className="hidden rotate-[-3deg]" />
-          <div className="hidden rotate-[-2deg]" />
-          <div className="hidden rotate-[-1deg]" />
-          <div className="hidden rotate-[0deg]" />
-          <div className="hidden rotate-[1deg]" />
-          <div className="hidden rotate-[2deg]" />
-          <div className="hidden rotate-[3deg]" />
-          <div className="hidden rotate-[4deg]" />
-          <div className="hidden rotate-[5deg]" />
-
           <Image
             src="/404.webp"
             alt="404 Error Status Dog"
