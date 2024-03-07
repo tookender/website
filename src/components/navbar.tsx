@@ -20,13 +20,13 @@ export const Navbar = ({ title }: { title: string }) => {
         </div>
 
         <div className="flex items-center gap-3 mr-2 sm:mr-4 xxl:mr-0">
-          <a
+          <Link
             href="/doggo"
             aria-label="DOG PICTURES :D"
             className="text-neutral-300 hover:text-white hover:scale-105 duration-150"
           >
             <IconDog />
-          </a>
+          </Link>
           <a
             href="https://github.com/tookender/website"
             aria-label="Korino Website Github"
