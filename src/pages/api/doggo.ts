@@ -10,7 +10,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  const data = getRandomDog(true)
+  const data = getRandomDog(true);
 
   res.status(200).json({ url: data[0], description: data[1] });
 }
