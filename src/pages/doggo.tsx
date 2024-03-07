@@ -51,6 +51,8 @@ export default function Home() {
           <div className="hidden rotate-[4deg]" />
           <div className="hidden rotate-[5deg]" />
 
+          {/* Ignore warning from Next.js */}
+          {/* Can't use <Image/> since we edit the src attribute */}
           <img
             id="image"
             src="/dogs/dog1.webp"
@@ -67,8 +69,9 @@ export default function Home() {
             </i>
           </p>
 
-          <div className="flex flex-row gap-8 mt-6 text-2xl font-semibold">
-            <Button text="Go Home" href="/" />
+          <div className="flex flex-row gap-4 mt-6 text-2xl font-semibold">
+            <Button text="Home" href="/" />
+            <Button text="API" href="/api/doggo" />
           </div>
         </div>
       </motion.div>

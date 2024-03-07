@@ -14,6 +14,8 @@ export default async function handler(
       <li><a href="/api/hello">Hello</a> - gives info about IP and user agent</li>
       <li><a href="/api/doggo">Doggo</a> - random picture of dog</li>
     </ol>
+    <p>You are free to use this API anywhere you want, but credit would be appreciated.</p>
+    <p><italic>^^ mainly applies to the doggo endpoint, after all it is my dog lol</italic></p>
   </body>
   <style>
     body, html {
@@ -25,6 +27,10 @@ export default async function handler(
 
     a {
       color: #0ea5e9;
+    }
+
+    italic {
+      font-style: italic;
     }
   </style>
 </html>`;
