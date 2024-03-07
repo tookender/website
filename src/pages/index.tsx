@@ -9,6 +9,7 @@ import {
   IconBrandTypescript,
   IconCoffee,
 } from "@tabler/icons-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -46,7 +47,7 @@ export default function Home() {
         {/* prettier-ignore */}
         <motion.p className="mt-4 text-center text-neutral-400"
         whileInView={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ ease: "easeIn", duration: 0.25, delay: 0.1 }}>
-          All the projects made by Korino Development. <br/> Most of these are mainly developed by <a className=" hover:text-white duration-150 underline" href="/ender">Ender</a>.
+          All the projects made by Korino Development. <br/> Most of these are mainly developed by <Link className=" hover:text-white duration-150 underline" href="/ender">Ender</Link>.
         </motion.p>
 
         {/* prettier-ignore */}
