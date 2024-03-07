@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { IconBrandGithub } from "@tabler/icons-react";
+import { IconBrandGithub, IconDog } from "@tabler/icons-react";
 
 export const Navbar = ({ title }: { title: string }) => {
   return (
@@ -20,6 +20,13 @@ export const Navbar = ({ title }: { title: string }) => {
         </div>
 
         <div className="flex items-center gap-3 mr-2 sm:mr-4 xxl:mr-0">
+          <a
+            href="/doggo"
+            aria-label="DOG PICTURES :D"
+            className="text-neutral-300 hover:text-white hover:scale-105 duration-150"
+          >
+            <IconDog />
+          </a>
           <a
             href="https://github.com/tookender/website"
             aria-label="Korino Website Github"

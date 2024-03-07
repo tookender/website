@@ -80,7 +80,8 @@ export default function Home() {
           />
 
           <p className="text-center mt-8 font-semibold" id="description">
-            this dog just encountered a G-HOOOST 👻👻
+            this dog just encountered a G-HOOOST 👻👻 <br/>
+            <i className="text-neutral-400 italic">click the dog for another picture</i>
           </p>
 
           <div className="flex flex-row gap-8 mt-6 text-2xl font-semibold">
