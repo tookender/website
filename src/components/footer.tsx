@@ -33,7 +33,7 @@ export const Footer = () => {
       </p>
 
       <a href="https://winworldpc.com/product/netscape-navigator/30x" target="_blank" className="flex items-center justify-center">
-        <Image src="/netscape.webp" alt="This page is best viewed with Netscape." width={88} height={31} className="mt-4"/>
+        <Image src="/netscape.webp" alt="This page is best viewed with Netscape." width={88} height={31} className="mt-4" unoptimized/>
       </a>
     </footer>
   );
