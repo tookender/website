@@ -12,20 +12,6 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function App({ Component, pageProps, router }: AppProps) {
   useEffect(() => {
-    const blob = document.getElementById("blob");
-    if (blob && window.matchMedia("(pointer:fine)").matches) {
-      window.addEventListener("mousemove", (event) => {
-        const { clientX, clientY } = event;
-        blob.animate(
-          {
-            left: `${clientX}px`,
-            top: `${clientY}px`,
-          },
-          { duration: 3000, fill: "forwards" }
-        );
-      });
-    }
-
     // Pop sound effect on load
     if (typeof window === "undefined") {
       return;

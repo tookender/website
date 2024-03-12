@@ -17,7 +17,7 @@ export default function Home() {
             alt="404 Error Status Dog"
             width={488}
             height={426}
-            className="rounded-md hover:scale-105 duration-500"
+            className="rounded-md active:scale-95 hover:scale-105 duration-500"
           />
 
           <p className="text-center mt-8 font-semibold">
