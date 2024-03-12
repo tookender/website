@@ -55,7 +55,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
 
       <div
         id="body"
-        className={`text-white bg-black overflow-x-hidden ${inter.className}`}
+        className={`text-white bg-gradient-to-br from-[#0a0a0a] to-black overflow-x-hidden ${inter.className}`}
       >
         {/* <Sidebar/> */}
         <Navbar title="Korino" />

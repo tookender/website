@@ -22,3 +22,12 @@ html {
   background: linear-gradient(to right, aquamarine 0%, mediumpurple 100%);
 }
 
+.parallax-slider {
+  transition: all 0.25s ease-in-out;
+  opacity: 1;
+}
+
+.transitioning-src {
+  transition: all 0.25s ease-in-out;
+  opacity: 0;
+}
