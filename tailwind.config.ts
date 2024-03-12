@@ -18,6 +18,9 @@ const config: Config = {
       ...defaultTheme.screens,
     },
     extend: {
+      scale: {
+        "80": "0.8"
+      },
       spacing: {
         "34": "34vmax",
       },

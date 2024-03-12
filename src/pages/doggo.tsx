@@ -20,15 +20,21 @@ export default function Home() {
     });
 
     image.addEventListener("click", (_) => {
-      image.classList.forEach((className) => {
-        if (className.includes("rotate")) {
-          image.classList.remove(className);
-        }
-      });
-      image.classList.add(`rotate-[${Math.floor(Math.random() * 11) - 5}deg]`);
+      image.classList.add("transitioning-src");
 
       const data = getRandomDog(false);
-      image.src = data[0];
+      setTimeout(() => {
+        image.src = data[0];
+        image.classList.remove("transitioning-src");
+        image.classList.forEach((className) => {
+          if (className.includes("rotate")) {
+            image.classList.remove(className);
+          }
+        });
+        image.classList.add(
+          `rotate-[${Math.floor(Math.random() * 11) - 5}deg]`
+        );
+      }, 250);
       description.textContent = data[1];
     });
   });
@@ -62,9 +68,9 @@ export default function Home() {
             id="image"
             src="/dogs/dog1.webp"
             alt="404 Error Status Dog"
-            width={488}
-            height={426}
-            className="scale-75 md:scale-100 hover:scale-[0.8] md:hover:scale-105 active:scale-[0.7] md:active:scale-95 hover:cursor-pointer duration-500 rounded-md mx-16"
+            width={366}
+            height={319}
+            className="parallax-slider max-w-[50vw] mt-36 sm:mt-0 hover:cursor-pointer transition-transform duration-500 rounded-md mx-16 active:scale-95 hover:scale-[1.02]"
           />
 
           <p className="text-center md:mt-8 font-semibold" id="description">

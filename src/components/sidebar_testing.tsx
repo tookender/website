@@ -39,7 +39,7 @@ const SidebarIcon = ({
           height={48}
           width={48}
           alt="Hi"
-          className="rounded-3xl hover:rounded-xl duration-500 aspect-square border-2 border-transparent active:border-white/30"
+          className="rounded-3xl hover:rounded-xl transition-[border-radius] duration-500 aspect-square active:translate-y-[1px]"
         />
       </Link>
       <span className="absolute top-0 left-full ml-2 p-2 bg-[#0b0b0b] text-neutral-200 rounded-lg whitespace-nowrap opacity-0 peer-hover:opacity-100 transition-opacity duration-500 font-semibold">

@@ -1,17 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { IconBrandGithub, IconDog } from "@tabler/icons-react";
+import { IconBrandGithub, IconDog, IconMenuDeep } from "@tabler/icons-react";
 
 export const Navbar = ({ title }: { title: string }) => {
+  useEffect(() => {
+    const menuButton = document.getElementById("menuButton") as HTMLButtonElement;
+    const menu = document.getElementById("menu") as HTMLMenuElement;
+
+    menuButton.addEventListener("click", (_) => {
+      console.log(menu.classList)
+      if (menu.classList.contains("hidden")) {
+        menu.classList.remove("hidden");
+      } else {
+        menu.classList.add("hidden");
+      }
+    });
+  });
+
   return (
-    <header className="flex flex-col fixed top-0 justify-around items-center w-full h-16 border-b border-b-white/10 bg-black/80 backdrop-blur-sm z-50">
+    <header className="flex flex-col fixed top-0 justify-around items-center w-full h-12 sm:h-14 md:h-16 border-b border-b-white/10 bg-black/80 backdrop-blur-sm z-50">
       <nav className="w-full flex items-center max-w-[1400px] relative flex-1">
         <div className="flex flex-row items-center w-full gap-4 sm:gap-6 ml-2 sm:ml-4 xxl:ml-0">
           {/* prettier-ignore */}
           <Link className="group flex flex-row justify-center items-center gap-2 mr-2 sm:mr-4" href="/">
             {/* prettier-ignore */}
-            <Image className="rounded-full brightness-95 group-hover:brightness-100 duration-150" src="/avatar.webp" alt="Korino Logo" width={50} height={50}/>
+            <Image className="rounded-full brightness-95 group-hover:brightness-100 duration-150 scale-75 sm:scale-90 md:scale-100" src="/avatar.webp" alt="Korino Logo" width={50} height={50}/>
             <h1 className="text-xl font-bold text-neutral-300 group-hover:text-white duration-150">{title}</h1>
           </Link>
 
@@ -35,22 +49,28 @@ export const Navbar = ({ title }: { title: string }) => {
           >
             <IconBrandGithub />
           </a>
+          <button className="sm:hidden z-[999]" id="menuButton">
+            <IconMenuDeep />
+          </button>
         </div>
       </nav>
+      <Menu title={title} />
     </header>
   );
 };
 
-export const NavbarElement = ({
-  text,
-  href,
-}: {
-  text: string;
-  href: string;
-}) => {
+const Menu = ({ title }: { title: string }) => {
+  return (
+    <menu className="flex-col items-center justify-center w-screen h-screen z-[99] backdrop-blur-xl hidden" id="menu">
+      Wsg bro {title}
+    </menu>
+  );
+};
+
+const NavbarElement = ({ text, href }: { text: string; href: string }) => {
   return (
     <Link
-      className="relative text-sm text-neutral-400 hover:text-white duration-150 ease-in"
+      className="relative text-sm text-neutral-400 hover:text-white duration-150 ease-in hidden sm:block"
       href={href}
     >
       {text}

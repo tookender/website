@@ -14,9 +14,9 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main>
-      <div className="h-[75vh] bg-grid-white/[0.2] relative flex items-center justify-center">
+      <div className="h-[80vh] bg-grid-white/[0.2] relative flex items-center justify-center">
         <div className="absolute inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-        <div className="flex flex-col items-center justify-center text-center 2xl:mb-24 mt-16">
+        <div className="flex flex-col items-center justify-center text-center 2xl:mb-24 mt-20">
           {/* prettier-ignore */}
           <motion.div className="z-20" animate={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ ease: "easeIn", duration: 0.25 }}>
             <h1 className="font-bold text-8xl md:text-9xl">Korino</h1>
