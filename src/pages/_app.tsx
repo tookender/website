@@ -12,7 +12,6 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function App({ Component, pageProps, router }: AppProps) {
   useEffect(() => {
-    // Pop sound effect on load
     if (typeof window === "undefined") {
       return;
     }
