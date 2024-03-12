@@ -17,17 +17,12 @@ html {
   background-color: rgb(0, 112, 243);
 }
 
-#blob {
-  translate: -50% -50%;
-  background: linear-gradient(to right, aquamarine 0%, mediumpurple 100%);
-}
-
-.parallax-slider {
+.image {
   transition: all 0.25s ease-in-out;
   opacity: 1;
 }
 
-.transitioning-src {
+.hidden-image {
   transition: all 0.25s ease-in-out;
   opacity: 0;
 }
