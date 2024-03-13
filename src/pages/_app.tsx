@@ -15,8 +15,9 @@ export default function App({ Component, pageProps, router }: AppProps) {
     if (typeof window === "undefined") {
       return;
     }
-
-    void new Audio("/pop.mp3").play().catch(() => null);
+    setTimeout(() => {
+      void new Audio("/pop.mp3").play().catch(() => null);
+    }, 500);
   }, [router.pathname]);
 
   return (

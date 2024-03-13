@@ -54,16 +54,13 @@ export const Navbar = ({ title }: { title: string }) => {
           </button>
         </div>
       </nav>
-      <Menu title={title} />
-    </header>
-  );
-};
 
-const Menu = ({ title }: { title: string }) => {
-  return (
-    <menu className="flex-col items-center justify-center w-screen h-screen z-[99] backdrop-blur-xl hidden" id="menu">
-      Wsg bro {title}
-    </menu>
+      <menu className="flex-col items-center justify-center w-screen h-screen z-[999] bg-neutral-600 hidden" id="menu">
+        <h1 className="text-5xl text-white">
+          Wsg bro {title}
+        </h1>
+      </menu>
+    </header>
   );
 };
 
