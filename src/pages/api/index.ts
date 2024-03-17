@@ -13,9 +13,10 @@ export default async function handler(
     <ol>
       <li><a href="/api/hello">Hello</a> - gives info about IP and user agent</li>
       <li><a href="/api/doggo">Doggo</a> - random picture of dog</li>
+      <li><a href="/api/pro">Windows Pro</a> - tutorial to activate windows pro</li>
     </ol>
     <p>You are free to use this API anywhere you want, but credit would be appreciated.</p>
-    <p><italic>^^ mainly applies to the doggo endpoint, after all it is my dog lol</italic></p>
+    <p><i>^^ mainly applies to the doggo endpoint, after all it is my dog lol</i></p>
   </body>
   <style>
     body, html {

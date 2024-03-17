@@ -10,16 +10,16 @@ export const Navbar = ({ title }: { title: string }) => {
 
     menuButton.addEventListener("click", (_) => {
       console.log(menu.classList)
-      if (menu.classList.contains("hidden")) {
-        menu.classList.remove("hidden");
+      if (menu.classList.contains("opacity-0")) {
+        menu.classList.remove("opacity-0");
       } else {
-        menu.classList.add("hidden");
+        menu.classList.add("opacity-0");
       }
     });
   });
 
   return (
-    <header className="flex flex-col fixed top-0 justify-around items-center w-full h-12 sm:h-14 md:h-16 border-b border-b-white/10 bg-black/80 backdrop-blur-sm z-50">
+    <header className="flex flex-col fixed top-0 justify-around items-center w-full h-12 sm:h-14 md:h-16 border-b border-b-white/10 bg-black/10 backdrop-blur-lg z-50">
       <nav className="w-full flex items-center max-w-[1400px] relative flex-1">
         <div className="flex flex-row items-center w-full gap-4 sm:gap-6 ml-2 sm:ml-4 xxl:ml-0">
           {/* prettier-ignore */}
@@ -55,10 +55,12 @@ export const Navbar = ({ title }: { title: string }) => {
         </div>
       </nav>
 
-      <menu className="flex-col items-center justify-center w-screen h-screen z-[999] bg-neutral-600 hidden" id="menu">
-        <h1 className="text-5xl text-white">
-          Wsg bro {title}
-        </h1>
+      <menu className="fixed flex items-center justify-center w-screen h-screen opacity-0 pointer-events-none z-[999]" id="menu">
+        <div className="flex flex-col justify-center items-start gap-2 sm:gap-4 md:gap-6 text-5xl">
+          <h1 className="text-5xl text-white">
+            Wsg bro {title}
+          </h1>
+        </div>
       </menu>
     </header>
   );

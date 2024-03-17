@@ -24,17 +24,19 @@ export const Footer = () => {
 
       <hr className="my-6 w-full md:w-1/3 mx-auto border-[#333]" />
 
-      <p className="text-balance text-center text-sm">
-        &copy; {currentYear}{" "}
-        <Link className="hover:text-white duration-150 underline" href="/">
-          Korino
-        </Link>
-        . All Rights Reserved.
-      </p>
+      <div className="flex flex-col gap-4">
+        <p className="text-balance text-center text-sm">
+          &copy; {currentYear}{" "}
+          <Link className="hover:text-white duration-150 underline" href="/">
+            Korino
+          </Link>
+          . All Rights Reserved.
+        </p>
 
-      <a href="https://winworldpc.com/product/netscape-navigator/30x" target="_blank" className="flex items-center justify-center">
-        <Image src="/netscape.webp" alt="This page is best viewed with Netscape." width={88} height={31} className="mt-4" unoptimized/>
-      </a>
+        <a href="https://winworldpc.com/product/netscape-navigator/30x" target="_blank" className="flex items-center justify-center">
+          <Image src="/netscape.webp" alt="This page is best viewed with Netscape." width={88} height={31} unoptimized/>
+        </a>
+      </div>
     </footer>
   );
 };
