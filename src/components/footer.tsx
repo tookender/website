@@ -55,7 +55,7 @@ export const Footer = ({
         </p>
 
         <p className="text-balance text-center text-sm mt-4">
-          Running on <code>{hash}</code> - {message}
+          Running on <code>{hash}</code> - <span title={commitMessage}>{message}</span>
         </p>
 
         <p className="text-balance text-center text-sm flex flex-row justify-center gap-2">
