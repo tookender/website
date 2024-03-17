@@ -54,7 +54,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
         >
           <Component {...pageProps} key={router.pathname} />
         </motion.div>
-        <Footer />
+        <Footer commitHash={process.env.VERCEL_GIT_COMMIT_SHA} />
       </div>
     </>
   );

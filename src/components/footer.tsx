@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-export const Footer = () => {
+export const Footer = ({ commitHash }: { commitHash: any }) => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -30,11 +30,21 @@ export const Footer = () => {
           <Link className="hover:text-white duration-150 underline" href="/">
             Korino
           </Link>
-          . All Rights Reserved.
+          . All Rights Reserved. {commitHash}
         </p>
 
-        <a href="https://winworldpc.com/product/netscape-navigator/30x" target="_blank" className="flex items-center justify-center">
-          <Image src="/netscape.webp" alt="This page is best viewed with Netscape." width={88} height={31} unoptimized/>
+        <a
+          href="https://winworldpc.com/product/netscape-navigator/30x"
+          target="_blank"
+          className="flex items-center justify-center"
+        >
+          <Image
+            src="/netscape.webp"
+            alt="This page is best viewed with Netscape."
+            width={88}
+            height={31}
+            unoptimized
+          />
         </a>
       </div>
     </footer>
