@@ -25,7 +25,6 @@ export default function Code({
   return (
     <div
       id={lang}
-      className="hidden"
       dangerouslySetInnerHTML={{ __html: html }}
     ></div>
   );

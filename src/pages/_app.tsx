@@ -4,11 +4,9 @@ import { useEffect } from "react";
 import { Navbar } from "@/components/navbar";
 import type { AppProps } from "next/app";
 import { motion } from "framer-motion";
-import { Inter } from "next/font/google";
 import { Footer } from "@/components/footer";
+import { GeistSans } from "geist/font/sans";
 // import { Sidebar } from "@/components/sidebar_testing";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function App({ Component, pageProps, router }: AppProps) {
   useEffect(() => {
@@ -41,7 +39,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
 
       <div
         id="body"
-        className={`text-white bg-gradient-to-br from-[#0a0a0a] to-black overflow-x-hidden ${inter.className}`}
+        className={`text-white bg-gradient-to-br from-[#0a0a0a] to-black overflow-x-hidden ${GeistSans.className}`}
       >
         {/* <Sidebar/> */}
         <Navbar title="Korino" />
@@ -54,7 +52,10 @@ export default function App({ Component, pageProps, router }: AppProps) {
         >
           <Component {...pageProps} key={router.pathname} />
         </motion.div>
-        <Footer commitHash={process.env.NEXT_PUBLIC_SHA} />
+        <Footer
+          commitHash={process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA}
+          commitMessage={process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_MESSAGE}
+        />
       </div>
     </>
   );
