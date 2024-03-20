@@ -85,6 +85,7 @@ export const Footer = ({
               <FooterElementItem text="Home Page" href="/" />
               <FooterElementItem text="Korii Bot" href="/bot" />
               <FooterElementItem text="Korino PvP" href="/pvp" />
+              <FooterElementItem text="Ender" href="/ender" />
               <FooterElementItem text="Doggo" href="/doggo" />
               <FooterElementItem text="API" href="/api" />
             </FooterElement>
