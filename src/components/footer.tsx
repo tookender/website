@@ -1,6 +1,6 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
+import { IconBrandGithub, IconDog, IconWorld } from "@tabler/icons-react";
 
 export const Footer = ({
   commitHash,
@@ -11,6 +11,7 @@ export const Footer = ({
 }) => {
   let hash;
   let message;
+  const currentYear = new Date().getFullYear();
 
   if (!commitHash) {
     hash = "DEVELOPMENT";
@@ -18,68 +19,175 @@ export const Footer = ({
   } else {
     hash = commitHash.slice(0, 7);
     message = commitMessage.slice(0, 12);
-  
+
     if (commitMessage.length > 7) {
       message += "...";
     }
   }
 
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="border-t border-t-[#333] py-12 z-50 relative bg-black text-center text-neutral-300 flex flex-col items-center justify-center">
-      <p className="text-balance text-center text-sm">
-        Built by{" "}
-        <Link className="text-[#0091ff] underline hover:brightness-125 duration-500" href="/ender">
-          Ender
-        </Link>
-        . The source code is available on{" "}
-        <Link
-          className="text-[#0091ff] underline hover:brightness-125 duration-500"
-          href="https://github.com/tookender/website"
-        >
-          GitHub
-        </Link>
-        .
-      </p>
+    <footer className="bg-[#161616] border-t border-t-[#2e2e2e]">
+      <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <div>
+            <div className="flex flex-row items-center gap-4">
+              <Image
+                src="/avatar.webp"
+                alt="Website logo"
+                width={64}
+                height={64}
+                className="rounded-full"
+              />
+              <div className="flex flex-col">
+                <h1 className="text-xl font-semibold">Korino Development</h1>
+                <p
+                  className="italic text-neutral-400"
+                  title="pls give me ideas"
+                >
+                  idk what to write here
+                </p>
+              </div>
+            </div>
 
-      <hr className="my-6 w-full md:w-1/3 mx-auto border-[#333]" />
+            <p className="mt-4 max-w-xs text-neutral-400">
+              A website to show off all the projects made by Korino Development.
+              Most of the work here is done by Ender.
+            </p>
 
-      <div className="flex flex-col items-center justify-center">
-        <p className="text-balance text-center text-sm">
-          &copy; {currentYear}{" "}
-          <Link className="text-[#0091ff] underline hover:brightness-125 duration-500" href="/">
-            Korino
-          </Link>
-          . All Rights Reserved.
+            <ul className="mt-6 flex gap-4">
+              <FooterIconElement
+                text="GitHub"
+                href="https://github.com/tookender"
+              >
+                <IconBrandGithub height={24} width={24} />
+              </FooterIconElement>
+
+              <FooterIconElement text="Doggo" href="/doggo">
+                <IconDog height={24} width={24} />
+              </FooterIconElement>
+
+              <FooterIconElement text="Website" href="/">
+                <IconWorld height={24} width={24} />
+              </FooterIconElement>
+            </ul>
+          </div>
+
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
+            <div className="hidden lg:block" />
+
+            <FooterElement title="Projects">
+              <FooterElementItem text="Korii Bot" href="/bot" />
+              <FooterElementItem text="Korino PvP" href="/pvp" />
+              <FooterElementItem text="Korino Website" href="/" />
+            </FooterElement>
+
+            <FooterElement title="Sitemap">
+              <FooterElementItem text="Home Page" href="/" />
+              <FooterElementItem text="Korii Bot" href="/bot" />
+              <FooterElementItem text="Korino PvP" href="/pvp" />
+              <FooterElementItem text="Doggo" href="/doggo" />
+              <FooterElementItem text="API" href="/api" />
+            </FooterElement>
+
+            <FooterElement title="Technologies">
+              <FooterElementItem text="Python" href="https://python.org" />
+              <FooterElementItem
+                text="TypeScript"
+                href="https://typescriptlang.org"
+              />
+              <FooterElementItem
+                text="TailwindCSS"
+                href="https://tailwindcss.com"
+              />
+              <FooterElementItem text="Next.js" href="https://nextjs.org" />
+              <FooterElementItem text="React.js" href="https://react.dev" />
+              <FooterElementItem text="Java" href="https://java.com" />
+            </FooterElement>
+          </div>
+        </div>
+
+        <p className="text-neutral-400 text-xs flex-col">
+          &copy; {currentYear}. Korino. All rights reserved.
+          <span className="flex flex-row gap-2">
+            Powered by{" "}
+            <Image src="/vercel.svg" width={14} height={14} alt="Vercel Logo" />
+            <a
+              className="hover:brightness-125 duration-500"
+              href="https://vercel.com"
+            >
+              Vercel
+            </a>{" "}
+            and{" "}
+            <Image
+              src="/nextjs.svg"
+              width={14}
+              height={14}
+              alt="Next.js Logo"
+            />
+            <a
+              className="hover:brightness-125 duration-500"
+              href="https://nextjs.org/"
+            >
+              Next.js
+            </a>
+          </span>
+          <span>
+            Running on <code>{hash}</code> -{" "}
+            <span title={commitMessage}>{message}</span>
+          </span>
         </p>
-
-        <p className="text-balance text-center text-sm mt-4">
-          Running on <code>{hash}</code> - <span title={commitMessage}>{message}</span>
-        </p>
-
-        <p className="text-balance text-center text-sm flex flex-row justify-center gap-2">
-          Powered by{" "}
-          <Image src="/vercel.svg" width={16} height={16} alt="Vercel Logomark"/>
-          <a className="text-[#0091ff] underline hover:brightness-125 duration-500" href="https://vercel.com">
-            Vercel
-          </a>{" "}
-          and{" "}
-          <Image src="/nextjs.svg" width={24} height={24} alt="Next.js Logomark"/>
-          <a className="text-[#0091ff] underline hover:brightness-125 duration-500" href="https://nextjs.org/">
-            Next.js
-          </a>
-        </p>
-
-        <Image
-          src="/netscape.webp"
-          alt="This page is best viewed with Netscape."
-          width={88}
-          height={31}
-          unoptimized
-          className="mt-4"
-        />
       </div>
     </footer>
+  );
+};
+
+const FooterIconElement = ({
+  text,
+  href,
+  children,
+}: {
+  text: string;
+  href: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <li title={text}>
+      <a
+        href={href}
+        rel="noreferrer"
+        target="_blank"
+        className="text-neutral-300 hover:text-white duration-500"
+      >
+        <span className="sr-only">{text}</span>
+
+        {children}
+      </a>
+    </li>
+  );
+};
+
+const FooterElementItem = ({ text, href }: { text: string; href: string }) => {
+  return (
+    <li title={text}>
+      <a href={href} className="text-neutral-400 hover:text-white duration-500">
+        {text}
+      </a>
+    </li>
+  );
+};
+
+const FooterElement = ({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <div>
+      <p className="text-white font-bold text-xl">{title}</p>
+
+      <ul className="mt-2 space-y-2 text-sm">{children}</ul>
+    </div>
   );
 };

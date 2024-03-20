@@ -4,8 +4,8 @@ import { useEffect } from "react";
 import { Navbar } from "@/components/navbar";
 import type { AppProps } from "next/app";
 import { motion } from "framer-motion";
-import { Footer } from "@/components/footer";
 import { GeistSans } from "geist/font/sans";
+import { Footer } from "@/components/footer";
 // import { Sidebar } from "@/components/sidebar_testing";
 
 export default function App({ Component, pageProps, router }: AppProps) {
