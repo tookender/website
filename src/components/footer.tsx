@@ -133,8 +133,14 @@ export const Footer = ({
             </a>
           </span>
           <span>
-            Running on <a href={`https://github.com/tookender/website/commit/${commitHash}`}><code>{hash}</code></a> -{" "}
-            <span title={commitMessage}>{message}</span>
+            Running on{" "}
+            <a
+              className="hover:brightness-125 duration-500"
+              href={`https://github.com/tookender/website/commit/${commitHash}`}
+            >
+              <code>{hash}</code>
+            </a>{" "}
+            - <span title={commitMessage}>{message}</span>
           </span>
         </p>
       </div>

@@ -1,40 +1,19 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/button";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getRandomDog } from "@/utils/doggo";
 import Head from "next/head";
 import Image from "next/image";
 
 export default function Home() {
-  const [currentPicture, setCurrentPicture] = useState("/dogs/dog1.webp");
+  const initialData = getRandomDog(false);
+  const [currentPicture, setCurrentPicture] = useState(initialData[0]);
+  const [currentDescription, setCurrentDescription] = useState(initialData[1]);
 
-  useEffect(() => {
-    const image = document.getElementById("image") as HTMLImageElement;
-    const description = document.getElementById("description") as HTMLElement;
-
-    image.addEventListener("load", (_) => {
-      image.classList.add(`rotate-[${Math.floor(Math.random() * 11) - 5}deg]`);
-    });
-
-    image.addEventListener("click", (_) => {
-      image.classList.add("hidden-image");
-
-      const data = getRandomDog(false);
-      setTimeout(() => {
-        setCurrentPicture(data[0]);
-        image.classList.remove("hidden-image");
-        image.classList.forEach((className) => {
-          if (className.includes("rotate")) {
-            image.classList.remove(className);
-          }
-        });
-        image.classList.add(
-          `rotate-[${Math.floor(Math.random() * 11) - 5}deg]`
-        );
-      }, 250);
-      description.textContent = data[1];
-    });
-  });
+  const changeDoggo = () => {
+    const data = getRandomDog(false);
+    setCurrentPicture(data[0]);
+    setCurrentDescription(data[1]);
+  };
 
   return (
     <main>
@@ -48,39 +27,18 @@ export default function Home() {
         transition={{ ease: "easeIn", duration: 0.5, delay: 0.35 }}
       >
         <div className="flex flex-col items-center justify-center h-screen">
-          <div className="hidden rotate-[-5deg]" />
-          <div className="hidden rotate-[-4deg]" />
-          <div className="hidden rotate-[-3deg]" />
-          <div className="hidden rotate-[-2deg]" />
-          <div className="hidden rotate-[-1deg]" />
-          <div className="hidden rotate-[0deg]" />
-          <div className="hidden rotate-[1deg]" />
-          <div className="hidden rotate-[2deg]" />
-          <div className="hidden rotate-[3deg]" />
-          <div className="hidden rotate-[4deg]" />
-          <div className="hidden rotate-[5deg]" />
-
           <Image
-            id="image"
             src={currentPicture}
-            alt="Doggo Picture"
-            width={366}
-            height={319}
-            className="image max-w-[50vw] mt-36 sm:mt-0 hover:cursor-pointer duration-500 rounded-md mx-16 active:scale-95 hover:scale-[1.02]"
-            priority={true}
+            alt={currentDescription}
+            width={500}
+            height={500}
+            className="max-w-[80vw] mt-36 sm:mt-0 hover:cursor-pointer duration-500 rounded-md mx-16 active:scale-95 hover:scale-[1.02]"
+            onClick={changeDoggo}
           />
 
-          <p className="text-center md:mt-8 font-semibold" id="description">
-            this dog just encountered a G-HOOOST 👻👻 <br />
-            <i className="text-neutral-400 italic">
-              click the dog for another picture
-            </i>
+          <p className="text-center md:mt-8 font-semibold mt-2">
+            {currentDescription} <br />
           </p>
-
-          <div className="flex flex-row gap-4 mt-6 text-2xl font-semibold">
-            <Button text="Home" href="/" />
-            <Button text="API" href="/api/doggo" />
-          </div>
         </div>
       </motion.div>
     </main>
