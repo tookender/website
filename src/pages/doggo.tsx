@@ -60,7 +60,6 @@ export default function Home() {
           <div className="hidden rotate-[4deg]" />
           <div className="hidden rotate-[5deg]" />
 
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <Image
             id="image"
             src={currentPicture}
@@ -68,7 +67,6 @@ export default function Home() {
             width={366}
             height={319}
             className="image max-w-[50vw] mt-36 sm:mt-0 hover:cursor-pointer duration-500 rounded-md mx-16 active:scale-95 hover:scale-[1.02]"
-            placeholder="data:image/avatar.webp"
             priority={true}
           />
 
