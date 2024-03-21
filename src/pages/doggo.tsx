@@ -1,20 +1,18 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/button";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getRandomDog } from "@/utils/doggo";
 import Head from "next/head";
+import Image from "next/image";
 
 export default function Home() {
+  const [currentPicture, setCurrentPicture] = useState("/dogs/dog1.webp");
+
   useEffect(() => {
     const image = document.getElementById("image") as HTMLImageElement;
     const description = document.getElementById("description") as HTMLElement;
 
     image.addEventListener("load", (_) => {
-      image.classList.forEach((className) => {
-        if (className.includes("rotate")) {
-          image.classList.remove(className);
-        }
-      });
       image.classList.add(`rotate-[${Math.floor(Math.random() * 11) - 5}deg]`);
     });
 
@@ -23,7 +21,7 @@ export default function Home() {
 
       const data = getRandomDog(false);
       setTimeout(() => {
-        image.src = data[0];
+        setCurrentPicture(data[0]);
         image.classList.remove("hidden-image");
         image.classList.forEach((className) => {
           if (className.includes("rotate")) {
@@ -63,10 +61,10 @@ export default function Home() {
           <div className="hidden rotate-[5deg]" />
 
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             id="image"
-            src="/dogs/dog1.webp"
-            alt="404 Error Status Dog"
+            src={currentPicture}
+            alt="Doggo Picture"
             width={366}
             height={319}
             className="image max-w-[50vw] mt-36 sm:mt-0 hover:cursor-pointer duration-500 rounded-md mx-16 active:scale-95 hover:scale-[1.02]"
