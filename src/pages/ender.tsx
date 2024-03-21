@@ -1,10 +1,17 @@
 import { motion } from "framer-motion";
 import { Block } from "@/components/block";
 import Code from "@/components/shiki";
-import { IconChevronDown, IconChevronRight } from "@tabler/icons-react";
+import { IconChevronDown, IconChevronRight, IconExternalLink } from "@tabler/icons-react";
 import { useEffect } from "react";
+import Image from "next/image";
 
 export default function Home() {
+  useEffect(() => {
+    window.addEventListener("click", (e) => {
+      void new Audio("/pop.mp3").play();
+    });
+  });
+  
   return (
     <main className="mx-4">
       <motion.div
@@ -16,7 +23,7 @@ export default function Home() {
           <h1 className="text-4xl font-extrabold">hey, I&apos;m ender 👋</h1>
 
           <p className="text-base">
-            I&apos;m a full-stack developer, gamer, and Orthodox Christian ☦️
+            I&apos;m a full-stack developer, gamer, and Orthodox Christian.
             <br />I currently work at{" "}
             <Block
               text="Rustbyte"
@@ -34,18 +41,23 @@ export default function Home() {
             , which is just a passion project.
           </p>
 
-          <p className="text-neutral-300">
-            Prefer code?
-            <select className="w-36 ml-2 rounded text-sm outline-none border bg-neutral-800 text-neutral-100 border-neutral-700 focus:bg-neutral-700 focus:border-neutral-500 duration-500">
-              <option disabled={true} className="text-white">
-                Choose a language...
-              </option>
-              <option value="python">🐍 Python</option>
-              <option value="javascript">🚀 JavaScript</option>
-              <option value="java">☕️ Java</option>
-              <option value="html">🌐 HTML</option>
-            </select>
-          </p>
+          <a href="github.com" className="" target="_blank" rel="noreferrer">
+            <div className="flex flex-col gap-1 h-full min-h-36 w-[450px]">
+              <div className="flex flex-row justify-between">
+                <div className="flex flex-row gap-1">
+                  <Image src="/avatar.webp" alt="Avatar" width={16} height={16}/>
+                  <span className="text-sm">
+                    username here
+                  </span>
+                </div>
+
+                <div>
+                  <IconExternalLink width={24} height={24}/>
+                </div>
+              </div>
+            </div>
+          </a>
+
         </div>
       </motion.div>
     </main>
