@@ -18,7 +18,7 @@ export const Footer = ({
     message = "DEVELOPMENT";
   } else {
     hash = commitHash.slice(0, 7);
-    message = commitMessage.slice(0, 12);
+    message = commitMessage.slice(0, 18);
 
     if (commitMessage.length > 7) {
       message += "...";
