@@ -19,12 +19,12 @@ export default function Home() {
     });
 
     image.addEventListener("click", (_) => {
-      // image.classList.add("hidden-image");
+      image.classList.add("hidden-image");
 
       const data = getRandomDog(false);
       setTimeout(() => {
         image.src = data[0];
-        // image.classList.remove("hidden-image");
+        image.classList.remove("hidden-image");
         image.classList.forEach((className) => {
           if (className.includes("rotate")) {
             image.classList.remove(className);
@@ -69,7 +69,7 @@ export default function Home() {
             alt="404 Error Status Dog"
             width={366}
             height={319}
-            className="max-w-[50vw] mt-36 sm:mt-0 hover:cursor-pointer duration-500 rounded-md mx-16 active:scale-95 hover:scale-[1.02]"
+            className="image max-w-[50vw] mt-36 sm:mt-0 hover:cursor-pointer duration-500 rounded-md mx-16 active:scale-95 hover:scale-[1.02]"
           />
 
           <p className="text-center md:mt-8 font-semibold" id="description">
