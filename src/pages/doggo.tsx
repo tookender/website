@@ -32,7 +32,7 @@ export default function Home() {
             alt={currentDescription}
             width={500}
             height={500}
-            className="max-w-[80vw] mt-36 sm:mt-0 hover:cursor-pointer duration-500 rounded-md mx-16 active:scale-95 hover:scale-[1.02]"
+            className="max-w-[80vw] sm:mt-0 hover:cursor-pointer duration-500 rounded-md mx-16 active:scale-95 hover:scale-[1.02]"
             onClick={changeDoggo}
           />
 
