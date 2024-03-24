@@ -19,23 +19,6 @@ export default function Home() {
     <main>
       <Head>
         <title>Doggo</title>
-        <link rel="preload" href="/dogs/dog1.webp" as="image"/>
-        <link rel="preload" href="/dogs/dog2.webp" as="image"/>
-        <link rel="preload" href="/dogs/dog3.webp" as="image"/>
-        <link rel="preload" href="/dogs/dog4.webp" as="image"/>
-        <link rel="preload" href="/dogs/dog5.webp" as="image"/>
-        <link rel="preload" href="/dogs/dog6.webp" as="image"/>
-        <link rel="preload" href="/dogs/dog7.webp" as="image"/>
-        <link rel="preload" href="/dogs/dog8.webp" as="image"/>
-        <link rel="preload" href="/dogs/dog9.webp" as="image"/>
-        <link rel="preload" href="/dogs/dog10.webp" as="image"/>
-        <link rel="preload" href="/dogs/dog11.webp" as="image"/>
-        <link rel="preload" href="/dogs/dog12.webp" as="image"/>
-        <link rel="preload" href="/dogs/dog13.webp" as="image"/>
-        <link rel="preload" href="/dogs/dog14.webp" as="image"/>
-        <link rel="preload" href="/dogs/dog15.webp" as="image"/>
-        <link rel="preload" href="/dogs/dog16.webp" as="image"/>
-        <link rel="preload" href="/dogs/dog17.webp" as="image"/>
       </Head>
 
       <motion.div
@@ -51,6 +34,7 @@ export default function Home() {
             height={500}
             className="max-w-[80vw] sm:mt-0 hover:cursor-pointer duration-500 rounded-md mx-16 active:scale-95 hover:scale-[1.02]"
             onClick={changeDoggo}
+            decoding="async"
           />
 
           <p className="text-center md:mt-8 font-semibold mt-2">
