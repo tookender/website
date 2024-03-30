@@ -1,28 +1,44 @@
 import React from "react";
 
-export const Button = ({
+const baseButtonStyles =
+  "flex justify-center items-center px-4 py-2 gap-2 text-sm rounded-md duration-300";
+
+export const PrimaryButton = ({
   text,
-  href,
-  id,
+  link,
+  children,
 }: {
   text: string;
-  href?: string;
-  id?: string;
-}) =>
-  href ? (
-    <a href={href}>
-      <button
-        className="py-2 px-4 rounded-md bg-[#0a0a0a] hover:bg-neutral-800 border border-white/10 hover:border-white/20 duration-500"
-        id={id}
-      >
-        {text}
+  link: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <a href={link}>
+      <button className={`bg-white text-black ${baseButtonStyles}`}>
+        {children}
+        <span>{text}</span>
       </button>
     </a>
-  ) : (
-    <button
-      className="py-2 px-4 rounded-md bg-[#0a0a0a] hover:bg-neutral-800 border border-white/10 hover:border-white/20 duration-500"
-      id={id}
-    >
-      {text}
-    </button>
   );
+};
+
+export const SecondaryButton = ({
+  text,
+  link,
+  children,
+}: {
+  text: string;
+  link: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <a href={link}>
+      <button
+        className={`border border-zinc-800 hover:bg-zinc-800 ${baseButtonStyles}`}
+      >
+        {children}
+        <span>{text}</span>
+      </button>
+    </a>
+  );
+};

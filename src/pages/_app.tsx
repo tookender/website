@@ -3,10 +3,8 @@ import Head from "next/head";
 import { useEffect } from "react";
 import { Navbar } from "@/components/navbar";
 import type { AppProps } from "next/app";
-import { motion } from "framer-motion";
 import { GeistSans } from "geist/font/sans";
 import { Footer } from "@/components/footer";
-// import { Sidebar } from "@/components/sidebar_testing";
 
 export default function App({ Component, pageProps, router }: AppProps) {
   useEffect(() => {
@@ -39,19 +37,14 @@ export default function App({ Component, pageProps, router }: AppProps) {
 
       <div
         id="body"
-        className={`text-white bg-gradient-to-br from-[#0a0a0a] to-black overflow-x-hidden ${GeistSans.className}`}
+        className={`text-white overflow-x-hidden ${GeistSans.className} antialiased`}
       >
-        {/* <Sidebar/> */}
-        <Navbar title="Korino" />
+        <Navbar />
 
-        <motion.div
-          className="z-10 relative"
-          animate={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: -20 }}
-          transition={{ ease: "easeIn", duration: 0.5, delay: 0.35 }}
-        >
+        <div className="min-h-screen">
           <Component {...pageProps} key={router.pathname} />
-        </motion.div>
+        </div>
+
         <Footer
           commitHash={process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA}
           commitMessage={process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_MESSAGE}

@@ -13,7 +13,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main>
+    <>
       <div className="h-[80vh] bg-grid-white/[0.2] relative flex items-center justify-center">
         <div className="absolute inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
         <div className="flex flex-col items-center justify-center text-center 2xl:mb-24 mt-20">
@@ -51,7 +51,7 @@ export default function Home() {
         </motion.p>
 
         {/* prettier-ignore */}
-        <motion.div className="flex flex-col md:flex-row items-center justify-center gap-4 mx-4 mt-6 pb-8"
+        <motion.div className="flex flex-col md:flex-row items-center justify-center gap-4 mx-4 mt-6 pb-16"
                   whileInView={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ ease: "easeIn", duration: 0.5, delay: 0.25 }}>
           <Card
             title="Korino PvP"
@@ -81,7 +81,7 @@ export default function Home() {
 
       <div className="flex flex-col items-center justify-center bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-neutral-900 to-black">
         {/* prettier-ignore */}
-        <motion.h1 className="text-5xl font-bold text-center mt-8"
+        <motion.h1 className="text-5xl font-bold text-center mt-16"
         whileInView={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ ease: "easeIn", duration: 0.25, delay: 0.1 }}>
           Technologies
         </motion.h1>
@@ -93,7 +93,7 @@ export default function Home() {
         </motion.p>
 
         {/* prettier-ignore */}
-        <motion.div className="flex flex-col md:flex-row items-center justify-center gap-4 mx-4 mt-6 pb-8"
+        <motion.div className="flex flex-col md:flex-row items-center justify-center gap-4 mx-4 mt-6 pb-16"
                   whileInView={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ ease: "easeIn", duration: 0.5, delay: 0.25 }}>
           <Card
             title="Python"
@@ -123,6 +123,6 @@ export default function Home() {
           </Card>
         </motion.div>
       </div>
-    </main>
+    </>
   );
 }

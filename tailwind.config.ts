@@ -13,6 +13,9 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      "whitney": ["Whitney", "Geist Sans", "sans-serif"],
+    },
     screens: {
       xxl: "1400px",
       ...defaultTheme.screens,
@@ -65,7 +68,7 @@ const config: Config = {
         {
           "bg-grid": (value: any) => ({
             backgroundImage: `url("${svgToDataUri(
-              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="42" height="42" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
             )}")`,
           }),
           "bg-grid-small": (value: any) => ({
