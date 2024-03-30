@@ -11,7 +11,11 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Korii Bot</title>
+        <title>korino/bot</title>
+        <meta content="korino/bot" property="og:title" />
+        <meta content="Korii is a fully customizable multi-purpose Discord bot for your Discord server, designed with ease-of-use in mind." property="og:description" />
+        <meta content="https://korino.dev/bot" property="og:url" />
+        <meta content="#10b981" data-react-helmet="true" name="theme-color" />
       </Head>
 
       <div className="mt-36">
@@ -51,9 +55,9 @@ export default function Home() {
             <section className="w-[90vw] xxl:w-[1336px] border border-zinc-800 rounded-md h-[800px]">
               <div className="mx-2 my-2 flex flex-col gap-4">
                 <Message author="ender" picture="/avatar.webp" date="Today at 21:24" text="Hello there!" />
-                <Message author="doggo" picture="/dogs/dog1.webp" date="Today at 21:25" text="Hi ender! How are you?" bot={true} />
+                <Message author="Korii Bot" picture="/bot.webp" date="Today at 21:25" text="Hi ender! How are you?" bot={true} />
                 <Message author="ender" picture="/avatar.webp" date="Today at 21:25" text="I'm doing fine, what about you?" />
-                <Message author="doggo" picture="/dogs/dog1.webp" date="Today at 21:25" text="I'm fine as well!!" bot={true} />
+                <Message author="Korii Bot" picture="/bot<.webp" date="Today at 21:25" text="I'm fine as well!!" bot={true} />
                 <Message author="ender" picture="/avatar.webp" date="Today at 21:26" text="Awesome!" />
               </div>
             </section>
