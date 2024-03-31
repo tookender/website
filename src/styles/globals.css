@@ -55,10 +55,10 @@ html {
 
 @keyframes skeleton-loading {
   0% {
-    background-color: hsl(200, 20%, 20%);
+    background-color: hsl(200, 20%, 10%);
   }
 
   100% {
-    background-color: hsl(200, 20%, 55%);
+    background-color: hsl(200, 20%, 25%);
   }
 }
