@@ -33,7 +33,7 @@ export default function Home() {
             The Discord bot for all your needs.
           </h1>
 
-          <p className="max-w-[520px] text-center text-lg text-neutral-400">
+          <p className="mx-12 md:max-w-[520px] text-center text-lg text-neutral-400">
             Korii is a fully customizable multi-purpose Discord bot for your
             Discord server, designed with ease-of-use in mind.
           </p>
@@ -51,14 +51,17 @@ export default function Home() {
             </SecondaryButton>
           </div>
 
-          <div className="container relative mx-auto px-8 mt-24">
-            <section className="w-[90vw] xxl:w-[1336px] border border-zinc-800 rounded-md h-[800px]">
+          <p className="hidden text-[#FFD17C]"></p>
+          <p className="hidden text-[#9D174D]"></p>
+
+          <div className="flex justify-center px-8 mt-24">
+            <section className="w-[80vw] xxl:w-[1200px] border border-zinc-800 rounded-md h-[800px]">
               <div className="mx-2 my-2 flex flex-col gap-4">
-                <Message author="ender" picture="/avatar.webp" date="Today at 21:24" text="Hello there!" />
-                <Message author="Korii Bot" picture="/bot.webp" date="Today at 21:25" text="Hi ender! How are you?" bot={true} />
-                <Message author="ender" picture="/avatar.webp" date="Today at 21:25" text="I'm doing fine, what about you?" />
-                <Message author="Korii Bot" picture="/bot<.webp" date="Today at 21:25" text="I'm fine as well!!" bot={true} />
-                <Message author="ender" picture="/avatar.webp" date="Today at 21:26" text="Awesome!" />
+                <Message author="ender" picture="/avatar.webp" date="Today at 21:24" text="Hello there!" color="#9D174D" />
+                <Message author="Korii Bot" picture="/bot.webp" date="Today at 21:25" text="Hi ender! How are you?" color="#FFD17C" bot={true} />
+                <Message author="ender" picture="/avatar.webp" date="Today at 21:25" text="I'm doing fine, what about you?" color="#9D174D" />
+                <Message author="Korii Bot" picture="/bot.webp" date="Today at 21:25" text="I'm fine as well!!" color="#FFD17C" bot={true} />
+                <Message author="ender" picture="/avatar.webp" date="Today at 21:26" text="Awesome!" color="#9D174D" />
               </div>
             </section>
           </div>

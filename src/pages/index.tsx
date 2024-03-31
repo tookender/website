@@ -11,7 +11,7 @@ export default function Home() {
         <meta content="korino/home" property="og:title" />
         <meta content="The home page for Korino Development showing off our projects and the technologies we use." property="og:description" />
         <meta content="https://korino.dev" property="og:url" />
-        <meta content="#10b981" data-react-helmet="true" name="theme-color" />
+        <meta content="#43B581" data-react-helmet="true" name="theme-color" />
       </Head>
 
       <Header />

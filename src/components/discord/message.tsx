@@ -7,12 +7,14 @@ export const Message = ({
   picture,
   date,
   text,
+  color,
   bot,
 }: {
   author: string;
   picture: string;
   date: string;
   text: string;
+  color?: string;
   bot?: boolean,
 }) => {
   return (
@@ -23,13 +25,13 @@ export const Message = ({
           height={40}
           width={40}
           alt={`${author}'s profile picture`}
-          className="aspect-square rounded-full"
+          className="aspect-square rounded-full active:translate-y-[1px]"
         />
       </button>
 
       <div className="flex flex-col">
         <div className="flex flex-row gap-1 items-center">
-          <button className="text-base text-white hover:underline font-medium">
+          <button className={`text-base hover:underline font-medium ${color ? `text-[${color}]` : `text-white`}`}>
             {author}
           </button>
 
