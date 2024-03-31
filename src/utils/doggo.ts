@@ -1,21 +1,27 @@
-export const dogImages = {
-  dog1: "this dog just encountered a G-HOOOST 👻👻",
-  dog2: "hehe hi",
-  dog3: "huh?",
+interface DogImages {
+  [key: string]: string;
+}
+
+// DO NOT question the order.
+export const dogImages: DogImages = {
   dog4: "PLEASEE GIVE ME TREATS",
-  dog5: "let me sleep hooman...",
   dog6: "WHAT WAS THAT?",
   dog7: "leave me alone im eepy",
   dog8: "WHY AM I IN A FLOWER POT???",
   dog9: "hiii :D",
   dog10: "zzzzzzz",
-  dog11: "RAWRRRR",
   dog12: ":( i lost my toy",
   dog13: "welp :D",
   dog14: "i feel like a model",
   dog15: "hii hooman wana play??",
   dog16: "zzz...",
   dog17: "im too old for this 👴",
+
+  dog1: "this dog just encountered a G-HOOOST 👻👻",
+  dog2: "hehe hi",
+  dog3: "huh?",
+  dog5: "let me sleep hooman...",
+  dog11: "RAWRRRR",
 };
 
 export function getRandomDog(full: Boolean): string[] {

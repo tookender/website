@@ -1,47 +1,39 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
-import { getRandomDog } from "@/utils/doggo";
+import { dogImages } from "@/utils/doggo";
 import Head from "next/head";
-import Image from "next/image";
 
 export default function Home() {
-  const initialData = getRandomDog(false);
-  const [currentPicture, setCurrentPicture] = useState(initialData[0]);
-  const [currentDescription, setCurrentDescription] = useState(initialData[1]);
-
-  const changeDoggo = () => {
-    const data = getRandomDog(false);
-    setCurrentPicture(data[0]);
-    setCurrentDescription(data[1]);
-  };
-
   return (
     <main>
       <Head>
-        <title>Doggo</title>
+        <title>Doggo Test</title>
       </Head>
 
-      <motion.div
-        animate={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -20 }}
-        transition={{ ease: "easeIn", duration: 0.5, delay: 0.35 }}
-      >
-        <div className="flex flex-col items-center justify-center h-screen">
-          <Image
-            src={currentPicture}
-            alt={currentDescription}
-            width={500}
-            height={500}
-            className="max-w-[80vw] sm:mt-0 hover:cursor-pointer duration-500 rounded-md mx-16 active:scale-95 hover:scale-[1.02]"
-            onClick={changeDoggo}
-            decoding="async"
-          />
+      <div className="min-h-screen mb-12 mt-36 flex flex-col items-center justify-center">
+        <h1 className="text-4xl md:text-6xl xl:text-7xl font-extrabold text-center mb-12">
+          dog pictures gallery :D
+        </h1>
 
-          <p className="text-center md:mt-8 font-semibold mt-2">
-            {currentDescription} <br />
-          </p>
+        <div className="flex flex-col items-center justify-center w-[80vw]">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 items-center">
+            {Object.keys(dogImages).map((dogKey: string) => (
+              <div
+                key={dogKey}
+                className="h-full flex flex-col items-center text-center font-semibold border-2 border-zinc-800 rounded-lg hover:scale-[1.01] active:scale-[0.99] duration-500"
+              >
+                {/* can't use it since we don't know the width/height */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`/dogs/${dogKey}.webp`}
+                  alt={`Dog ${dogKey}`}
+                  className="rounded-t-md"
+                />
+
+                <p className="my-2 mx-2">{dogImages[dogKey]}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </motion.div>
+      </div>
     </main>
   );
 }
