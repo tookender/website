@@ -48,3 +48,17 @@ html {
   src: url('https://cdn.skyra.pw/whitney-font/v2/Bold.woff') format('woff');
   font-weight: 700;
 }
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
