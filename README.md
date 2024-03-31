@@ -9,32 +9,32 @@ I don't recommend you running it yourself, you can visit a live demo of the webs
 <details open>
     <summary>using <code>npm</code></summary>
     <ol>
-        <li>Install all the requirements with: `npm i`</li>
-        <li>Run a live development server: `npm run dev`</li>
+        <li>Install all the requirements with: <code>npm i</code></li>
+        <li>Run a live development server: <code>npm run dev</code></li>
     </ol>
 </details>
 
 <details>
     <summary>using <code>yarn</code></summary>
     <ol>
-        <li>Install all the requirements with: `yarn i`</li>
-        <li>Run a live development server: `yarn dev`</li>
+        <li>Install all the requirements with: <code>yarn i</code></li>
+        <li>Run a live development server: <code>yarn dev</code></li>
     </ol>
 </details>
 
 <details>
     <summary>using <code>pnpm</code></summary>
     <ol>
-        <li>Install all the requirements with: `pnpm i`</li>
-        <li>Run a live development server: `pnpm dev`</li>
+        <li>Install all the requirements with: <code>pnpm i</code></li>
+        <li>Run a live development server: <code>pnpm dev</code></li>
     </ol>
 </details>
 
 <details>
     <summary>using <code>bun</code></summary>
     <ol>
-        <li>Install all the requirements with: `bun install`</li>
-        <li>Run a live development server: `bun dev`</li>
+        <li>Install all the requirements with: <code>bun i</code></li>
+        <li>Run a live development server: <code>bun run dev</code></li>
     </ol>
 </details>
 
