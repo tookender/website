@@ -26,7 +26,6 @@ export default function Home() {
                   src={`/dogs/${dogKey}.webp`}
                   alt={`Dog ${dogKey}`}
                   className="rounded-t-md skeleton"
-                  loading="lazy"
                 />
 
                 <p className="my-2 mx-2">{dogImages[dogKey]}</p>
