@@ -24,7 +24,7 @@ export default function Home() {
             <IconHome height={22} width={22} />
           </PrimaryButton>
 
-          <SecondaryButton text="dog pics :D" link="/dogs">
+          <SecondaryButton text="doggo pics :D" link="/doggo">
             <IconDog height={22} width={22} />
           </SecondaryButton>
         </div>
