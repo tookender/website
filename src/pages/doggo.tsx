@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <main>
       <Head>
-        <title>Doggo Test</title>
+        <title>doggo pics :D</title>
       </Head>
 
       <div
