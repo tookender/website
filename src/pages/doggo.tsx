@@ -11,17 +11,21 @@ export default function Home() {
     if (event.target instanceof HTMLImageElement) {
       setImage(event.target.src);
     }
-    toggleDisplay();
+    toggleDisplay(event);
   };
 
-  const toggleDisplay = () => {
+  const toggleDisplay = (event: MouseEvent<HTMLElement>) => {
     const display = document.getElementById("display") as HTMLElement;
     if (display.classList.contains("flex")) {
-      display.classList.remove("flex");
-      display.classList.add("hidden");
+      if (!(event.target instanceof HTMLImageElement)) {
+        display.classList.remove("flex");
+        display.classList.add("hidden");
+        document.body.style.overflow = "auto";
+      }
     } else {
       display.classList.add("flex");
       display.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
     }
   };
 
@@ -36,7 +40,7 @@ export default function Home() {
         onClick={toggleDisplay}
         id="display"
       >
-        <div className="flex flex-col text-center bg-black backdrop-blur-xl rounded-lg mt-12 border-2 border-zinc-800">
+        <div className="flex flex-col text-center bg-black backdrop-blur-xl rounded-lg mt-12 border-2 border-zinc-800 max-w-[85vw]">
           <img
             src={image}
             className="rounded-t-md max-h-[60vh]"
