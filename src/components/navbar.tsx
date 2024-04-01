@@ -33,7 +33,7 @@ export const Navbar = () => {
 
   return (
     <main>
-      <header className="flex flex-col fixed top-0 justify-around items-center w-full h-14 border-b border-b-zinc-800 bg-background/95 backdrop-blur bg-background/60 z-50">
+      <header className="flex flex-col fixed top-0 justify-around items-center w-full h-14 border-b border-b-zinc-800 bg-black/60 backdrop-blur z-50">
         <nav className="w-full flex items-center max-w-[1400px] relative flex-1">
           <div className="flex flex-row items-center w-full gap-4 sm:gap-6 ml-2 sm:ml-4 xxl:ml-0">
             <Link
