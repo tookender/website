@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -6,14 +7,8 @@ import { IconBrandGithub, IconDog, IconMenuDeep } from "@tabler/icons-react";
 import { usePathname } from "next/navigation";
 
 export const Navbar = () => {
-  let pathname = usePathname();
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-
-  if (pathname == "/") {
-    pathname = "home";
-  } else {
-    pathname.replace("/", "")
-  }
 
   const toggleScrolling = () => {
     if (menuOpen) {
@@ -49,7 +44,7 @@ export const Navbar = () => {
               />
 
               <h1 className="text-base font-bold text-neutral-300 group-hover:text-white duration-150">
-                korino/
+                korino
               </h1>
             </Link>
 
@@ -80,12 +75,17 @@ export const Navbar = () => {
         </nav>
       </header>
       <menu
-        className={`h-screen w-screen bg-neutral-900/10 backdrop-blur-sm items-center justify-center  ${
-            menuOpen ? "flex" : "hidden"
-          }`}
-          id="menu"
-        >
-        <h1 className="text-6xl">Testing</h1>
+        className={`h-screen w-screen bg-gradient-to-br from-neutral-900 to-black items-center justify-center  ${
+          menuOpen ? "flex" : "hidden"
+        }`}
+        id="menu"
+      >
+        <div className="flex flex-col gap-4">
+          <MenuElement text="Korino" href="/" />
+          <MenuElement text="Korino PvP" href="/pvp" />
+          <MenuElement text="Korii Bot" href="/bot" />
+          <MenuElement text="Doggo pics :D" href="/doggo" />
+        </div>
       </menu>
     </main>
   );
@@ -95,6 +95,17 @@ const NavbarElement = ({ text, href }: { text: string; href: string }) => {
   return (
     <Link
       className="relative text-sm text-neutral-400 hover:text-white duration-150 ease-in hidden sm:block"
+      href={href}
+    >
+      {text}
+    </Link>
+  );
+};
+
+const MenuElement = ({ text, href }: { text: string; href: string }) => {
+  return (
+    <Link
+      className="text-6xl font-bold text-neutral-400 hover:text-white duration-500 z-50"
       href={href}
     >
       {text}
