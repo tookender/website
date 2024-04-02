@@ -7,8 +7,14 @@ import { IconBrandGithub, IconDog, IconMenuDeep } from "@tabler/icons-react";
 import { usePathname } from "next/navigation";
 
 export const Navbar = () => {
-  const pathname = usePathname();
+  let pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  if (pathname == "/") {
+    pathname = "/home";
+  } else {
+    pathname.replace("/", "")
+  }
 
   const toggleScrolling = () => {
     if (menuOpen) {
@@ -22,7 +28,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const button = document.getElementById("menuButton") as HTMLButtonElement;
-
+    
     button.addEventListener("click", toggleScrolling);
   });
 
@@ -43,8 +49,8 @@ export const Navbar = () => {
                 height={40}
               />
 
-              <h1 className="text-base font-bold text-neutral-300 group-hover:text-white duration-150">
-                korino
+              <h1 className="text-base font-bold text-neutral-300 group-hover:text-white duration-150" id="title">
+                korino{pathname}
               </h1>
             </Link>
 
@@ -112,3 +118,4 @@ const MenuElement = ({ text, href }: { text: string; href: string }) => {
     </Link>
   );
 };
+
