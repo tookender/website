@@ -57,7 +57,7 @@ export default function Home() {
               ]
             }
           />
-          <p className="text-xl font-semibold my-4">
+          <p className="text-xl font-semibold py-2">
             {
               dogImages[
                 image.substring(image.lastIndexOf("/") + 1).replace(".webp", "")
