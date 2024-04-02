@@ -50,7 +50,7 @@ export default function Home() {
         <div className="flex flex-col text-center bg-black backdrop-blur-xl rounded-lg mt-12 border-2 border-zinc-800 max-w-[85vw]">
           <img
             src={image}
-            className="rounded-t-md max-h-[60vh]"
+            className="rounded-t-md skeleton max-h-[60vh]"
             alt={
               dogImages[
                 image.substring(image.lastIndexOf("/") + 1).replace(".webp", "")
