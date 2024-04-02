@@ -3,7 +3,7 @@ import { IconChevronDown } from "@tabler/icons-react";
 export const Header = () => {
   return (
     <div className="h-[80vh] bg-grid-white/[0.2] relative flex items-center justify-center">
-      <div className="absolute inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+      <div className="absolute inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(transparent_10%,black)]"></div>
       <div className="flex flex-col items-center justify-center text-center 2xl:mb-24 mt-20">
         <h1 className="z-20 font-bold text-8xl md:text-9xl">Korino</h1>
 

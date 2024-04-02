@@ -1,49 +1,67 @@
 import React from "react";
 import Image from "next/image";
 import { IconCheck } from "@tabler/icons-react";
+import { profiles } from "@/lib/profiles";
 
 export const Message = ({
-  author,
-  picture,
+  profile,
   date,
   text,
-  color,
-  bot,
+  children,
 }: {
-  author: string;
-  picture: string;
+  profile: string;
   date: string;
-  text: string;
-  color?: string;
-  bot?: boolean,
+  text?: string;
+  children?: React.ReactNode;
 }) => {
+  const data = profiles[profile];
+  const picture = data[0];
+  const color = data[1];
+  let bot: boolean;
+
+  if (data[2] === "true") {
+    bot = true;
+  } else {
+    bot = false;
+  }
+
   return (
-    <main className="flex flex-row gap-3 font-whitney">
-      <button className="rounded-full">
-        <Image
-          src={picture}
-          height={40}
-          width={40}
-          alt={`${author}'s profile picture`}
-          className="aspect-square rounded-full active:translate-y-[1px]"
-        />
-      </button>
+    <main className="flex flex-col font-whitney">
+      <div className="flex flex-row ml-12">{children}</div>
 
-      <div className="flex flex-col">
-        <div className="flex flex-row gap-1 items-center">
-          <button className={`text-base hover:underline font-medium ${color ? `text-[${color}]` : `text-white`}`}>
-            {author}
-          </button>
+      <div className="flex flex-row gap-3">
+        <button className="rounded-full">
+          <Image
+            src={picture}
+            height={46}
+            width={46}
+            alt={`${profile}'s profile picture`}
+            className="aspect-square rounded-full active:translate-y-[1px]"
+          />
+        </button>
 
-          <div className={`items-center justify-center bg-[#5865f2] text-white rounded-md gap-0.5 h-4 px-1 text-[10px] leading-[.9375rem] ${bot ? "flex" : "hidden"}`}>
-            <IconCheck height={12} width={12} />
-            <span>BOT</span>
+        <div className="flex flex-col">
+          <div className="flex flex-row gap-1 items-center">
+            <button
+              className={`text-lg hover:underline font-medium text-[${color}]`}
+            >
+              {profile}
+            </button>
+
+            <div
+              className={`items-center justify-center bg-[#5865f2] text-white rounded-md gap-0.5 h-4 px-1 text-[12px] leading-[.9375rem] ${
+                bot ? "flex" : "hidden"
+              }`}
+            >
+              <IconCheck height={14} width={14} />
+              <span>BOT</span>
+            </div>
+
+            <span className="ml-1 text-neutral-400 text-sm">{date}</span>
           </div>
 
-          <span className="ml-1 text-neutral-400 text-xs">{date}</span>
+          <span className="text-lg font-light leading-[1.375rem]">{text}</span>
         </div>
-
-        <span className="text-base font-light leading-[1.375rem]">{text}</span>
       </div>
     </main>
   );

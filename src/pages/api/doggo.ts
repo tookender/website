@@ -1,4 +1,4 @@
-import { getRandomDog } from "@/utils/doggo";
+import { getRandomDog } from "@/lib/doggo";
 import { NextApiRequest, NextApiResponse } from "next";
 
 type ResponseData = {

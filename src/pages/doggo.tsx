@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 /* can't use it since we don't know the width/height */
-import { dogImages } from "@/utils/doggo";
+import { dogImages } from "@/lib/doggo";
 import Head from "next/head";
 import { MouseEvent, useState } from "react";
 
