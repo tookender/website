@@ -17,7 +17,7 @@ export default function Home() {
   const toggleDisplay = (event: MouseEvent<HTMLElement>) => {
     const display = document.getElementById("display") as HTMLElement;
     if (display.classList.contains("flex")) {
-      if (!(event.target instanceof HTMLImageElement)) {
+      if (!(event.target instanceof HTMLImageElement) && !(event.target instanceof HTMLParagraphElement)) {
         display.classList.remove("flex");
         display.classList.add("hidden");
         document.body.style.overflow = "auto";
@@ -33,6 +33,13 @@ export default function Home() {
     <main>
       <Head>
         <title>doggo pics :D</title>
+        <meta content="doggo pics" property="og:title" />
+        <meta
+          content="a gallery of doggo pictures :D"
+          property="og:description"
+        />
+        <meta content="https://korino.dev/doggo" property="og:url" />
+        <meta content="#10b981" data-react-helmet="true" name="theme-color" />
       </Head>
 
       <div
