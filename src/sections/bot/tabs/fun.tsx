@@ -17,20 +17,21 @@ export const Fun = () => {
           date="Today at 14:05"
           text="i wish i could view some cute doggo pictures :("
         />
+
+        <Command profile="ender" command="dog" />
+
         <Message profile="Korii Bot" date="Today at 14:05">
-          <Command profile="ender" command="dog" />
+          <Embed
+            title="Doggo :D"
+            picture={picture[0]}
+            pictureId="doggoPicture"
+            pictureDescription={picture[1]}
+          />
+
+          <ButtonContainer>
+            <GreenButton text="Random doggo" />
+          </ButtonContainer>
         </Message>
-
-        <Embed
-          title="Doggo :D"
-          picture={picture[0]}
-          pictureId="doggoPicture"
-          pictureDescription={picture[1]}
-        />
-
-        <ButtonContainer>
-          <GreenButton text="Random doggo" />
-        </ButtonContainer>
 
         <Message profile="doggo" date="Today at 14:06" text="HOLY MOLY THATS AWESOME! THANK YOU KORII BOT!!" />
       </TabsContainer>

@@ -45,7 +45,7 @@ export const Embed = ({
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-8 text-base font-light mt-2">
           {/* we don't know the height/width of the image */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={picture} className={`max-w-[256px] ${picture ? "block" : "hidden"}`} id={pictureId} alt={pictureDescription}/>
+          <img src={picture} className={`max-w-[256px] rounded-md ${picture ? "block" : "hidden"}`} id={pictureId} alt={pictureDescription}/>
           {fields && fields.map((field, index) => (
             <div key={index}>
               <h2 className="font-semibold">{field[0]}</h2>

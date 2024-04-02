@@ -23,7 +23,7 @@ export const Command = ({
   }
 
   return (
-    <div className="flex flex-row gap-0.5 items-center">
+    <div className="flex flex-row gap-0.5 items-center ml-12 translate-y-2">
       <Image
         src={picture}
         height={18}

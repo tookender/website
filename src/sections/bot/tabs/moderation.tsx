@@ -16,22 +16,23 @@ export const Moderation = () => {
           date="Today at 21:24"
           text="I HATE DOGS!!!!"
         />
+
+        <Command
+          profile="ender"
+          command="ban"
+          title="member: @dog hater delete_messages: Past 5 days reason: Stinky dog hater, dogs are the best!"
+        />
+
         <Message profile="Korii Bot" date="Today at 21:24">
-          <Command
-            profile="ender"
-            command="ban"
-            title="member: @dog hater delete_messages: Past 5 days reason: Stinky dog hater, dogs are the best!"
+          <Embed
+            title="🛠️ Banned dog hater"
+            footer="Executed by tookender | Soft: No | Notified: Yes"
+            fields={[
+              ["❓ Reason", ["Stinky dog hater, dogs are the best!"]],
+              ["Delete Messages", ["Past 5 days"]],
+            ]}
           />
         </Message>
-
-        <Embed
-          title="🛠️ Banned dog hater"
-          footer="Executed by tookender | Soft: No | Notified: Yes"
-          fields={[
-            ["❓ Reason", ["Stinky dog hater, dogs are the best!"]],
-            ["Delete Messages", ["Past 5 days"]],
-          ]}
-        />
 
         <Message
           profile="doggo"

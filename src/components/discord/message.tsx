@@ -3,6 +3,8 @@ import Image from "next/image";
 import { IconCheck } from "@tabler/icons-react";
 import { profiles } from "@/lib/profiles";
 
+
+
 export const Message = ({
   profile,
   date,
@@ -12,7 +14,7 @@ export const Message = ({
   profile: string;
   date: string;
   text?: string;
-  children?: React.ReactNode;
+  children?: React.ReactNode,
 }) => {
   const data = profiles[profile];
   const picture = data[0];
@@ -27,8 +29,6 @@ export const Message = ({
 
   return (
     <main className="flex flex-col font-whitney">
-      <div className="flex flex-row ml-12">{children}</div>
-
       <div className="flex flex-row gap-3">
         <button className="rounded-full">
           <Image
@@ -62,6 +62,10 @@ export const Message = ({
 
           <span className="text-lg font-light leading-[1.375rem]">{text}</span>
         </div>
+      </div>
+
+      <div className="flex flex-col gap-2 -translate-y-3">
+        {children}
       </div>
     </main>
   );
