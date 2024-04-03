@@ -13,7 +13,7 @@ export const Moderation = () => {
       <TabsContainer>
         <Message
           profile="dog hater"
-          date="Today at 21:24"
+          date="Today at 17:49"
           text="I HATE DOGS!!!!"
         />
 
@@ -23,7 +23,7 @@ export const Moderation = () => {
           title="member: @dog hater delete_messages: Past 5 days reason: Stinky dog hater, dogs are the best!"
         />
 
-        <Message profile="Korii Bot" date="Today at 21:24">
+        <Message profile="Korii Bot" date="Today at 17:49">
           <Embed
             title="🛠️ Banned dog hater"
             footer="Executed by tookender | Soft: No | Notified: Yes"
@@ -36,7 +36,7 @@ export const Moderation = () => {
 
         <Message
           profile="doggo"
-          date="Today at 21:25"
+          date="Today at 17:51"
           text="thank you korii bot you're the best!!"
         />
       </TabsContainer>
