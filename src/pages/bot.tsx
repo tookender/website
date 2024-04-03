@@ -32,7 +32,7 @@ export default function Home() {
         <p className="hidden text-[#DB4039]" />
 
         <div className="flex justify-center px-8 mt-24">
-          <Tabs defaultValue="utility" className="w-[80vw] xxl:w-[1200px]">
+          <Tabs defaultValue="utility" className="w-[95vw] sm:w-[80vw] xxl:w-[1200px]">
             <TabsList>
               <TabsTrigger value="utility">Utility</TabsTrigger>
               <TabsTrigger value="moderation">Moderation</TabsTrigger>

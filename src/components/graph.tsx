@@ -69,8 +69,8 @@ export default class MemberHappinessGraph extends PureComponent {
   render() {
     return (
       <div className="w-full mx-4">
-        <h1 className="text-2xl font-semibold mb-2">
-          Member happiness after inviting Korii Bot
+        <h1 className="text-xl sm:text-2xl font-semibold mb-2">
+          Member happiness after inviting <span className="text-sky-500">Korii Bot</span> 😎
         </h1>
         <ResponsiveContainer width="100%" height={200}>
           <AreaChart
@@ -106,8 +106,8 @@ export default class MemberHappinessGraph extends PureComponent {
           </AreaChart>
         </ResponsiveContainer>
 
-        <h1 className="text-2xl font-semibold my-2">
-          Member happiness after inviting MEE6 (stinky)
+        <h1 className="text-xl sm:text-2xl font-semibold my-2 ">
+          Member happiness after inviting <span className="text-orange-800">MEE6</span> 💩
         </h1>
         <ResponsiveContainer width="100%" height={200}>
           <AreaChart

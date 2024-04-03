@@ -20,8 +20,7 @@ export const Embed = ({
 
     // Replace each emote placeholder with its corresponding image tag
     let newText = text.replace(emoteRegex, (match, emoteName) => {
-        // Assuming emote images are stored in /emotes/ directory and named textHere.webp
-        return `<img src="/emotes/${emoteName}.webp" width="${height}">`;
+        return `<img src="/emotes/${emoteName}.webp" class="max-h-[28px]" width="${height}" height="${height}">`;
     });
     return newText;
   };
@@ -40,15 +39,15 @@ export const Embed = ({
       <div className="w-1 bg-[#10B981] rounded-l-md" />
 
       <div className="flex flex-col">
-        <h1 className="font-bold text-lg mt-3 flex flex-row gap-2" dangerouslySetInnerHTML={{ __html: formatText(title) }}></h1>
+        <h1 className="font-bold text-base sm:text-lg mt-3 flex flex-row gap-2" dangerouslySetInnerHTML={{ __html: formatText(title) }}></h1>
 
-        <div className="flex flex-col sm:flex-row gap-2 sm:gap-8 text-base font-light mt-2">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-8 text-sm sm:text-base font-light mt-2">
           {/* we don't know the height/width of the image */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={picture} className={`max-w-[256px] rounded-md ${picture ? "block" : "hidden"}`} id={pictureId} alt={pictureDescription}/>
+          <img src={picture} className={`max-w-[256px] w-full rounded-md ${picture ? "block" : "hidden"}`} id={pictureId} alt={pictureDescription}/>
           {fields && fields.map((field, index) => (
             <div key={index}>
-              <h2 className="font-semibold">{field[0]}</h2>
+              <h2 className="font-semibold mb-1 sm:mb-0">{field[0]}</h2>
               {field[1].map((text, index) => (
                 <p key={index} className="flex flex-row gap-1" dangerouslySetInnerHTML={{ __html: formatText(text, 24) }} />
               ))}

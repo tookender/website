@@ -51,7 +51,7 @@ export const Utility = () => {
                   `<emote:text1> **Permissions:** \`Button Below\``,
                   `\n`,
                   `<emote:boost> **Boosted:** \`6 months ago\``,
-                  `<emote:text2> **Full date:** \`8 oCtober 2023 22:44\``,
+                  `<emote:text2> **Full date:** \`8 October 2023 22:44\``,
                   `<emote:text1> **Role:** \`@Server Booster\``,
                 ],
               ],
