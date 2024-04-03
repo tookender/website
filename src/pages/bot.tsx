@@ -2,7 +2,8 @@ import Head from "next/head";
 import { Tabs, TabsList, TabsTrigger } from "@/components/tabs";
 import { Header } from "@/sections/bot/header";
 import { Fun } from "@/sections/bot/tabs/fun";
-import { Utility } from "@/sections/bot/tabs/utility";
+import { UserInfo } from "@/sections/bot/tabs/user_info";
+import { ServerInfo } from "@/sections/bot/tabs/server_info";
 import { Moderation } from "@/sections/bot/tabs/moderation";
 import { Happiness } from "@/sections/bot/tabs/happiness";
 
@@ -32,15 +33,17 @@ export default function Home() {
         <p className="hidden text-[#DB4039]" />
 
         <div className="flex justify-center px-8 mt-24">
-          <Tabs defaultValue="utility" className="w-[95vw] sm:w-[80vw] xxl:w-[1200px]">
+          <Tabs defaultValue="user_info" className="w-[95vw] sm:w-[80vw] xxl:w-[1200px]">
             <TabsList>
-              <TabsTrigger value="utility">Utility</TabsTrigger>
+              <TabsTrigger value="user_info">User Info</TabsTrigger>
+              <TabsTrigger value="server_info">Server Info</TabsTrigger>
               <TabsTrigger value="moderation">Moderation</TabsTrigger>
               <TabsTrigger value="fun">Fun</TabsTrigger>
               <TabsTrigger value="happiness">User Happiness</TabsTrigger>
             </TabsList>
 
-            <Utility />
+            <UserInfo />
+            <ServerInfo />
             <Moderation />
             <Fun />
             <Happiness />

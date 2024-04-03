@@ -41,7 +41,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
       >
         <Navbar />
 
-        <div className="min-h-screen">
+        <div className="min-h-screen mt-24">
           <Component {...pageProps} key={router.pathname} />
         </div>
 

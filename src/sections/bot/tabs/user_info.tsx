@@ -9,9 +9,9 @@ import { Message } from "@/components/discord/message";
 import { TabsContainer } from "@/components/tabs";
 import { TabsContent } from "@radix-ui/react-tabs";
 
-export const Utility = () => {
+export const UserInfo = () => {
   return (
-    <TabsContent value="utility" className="border border-zinc-800 rounded-md">
+    <TabsContent value="user_info" className="border border-zinc-800 rounded-md">
       <TabsContainer>
         <Message
           profile="doggo"

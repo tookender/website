@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { PureComponent } from "react";
 import {
   AreaChart,
@@ -56,7 +57,7 @@ const CustomTooltip = ({
       <div className="bg-black border border-zinc-800 rounded-md">
         <div className="mx-4 my-4">
           <h1 className="text-xl">{label}</h1>
-          <p className="text-md">{payload[0].value}/4000 happy members</p>
+          <p className="text-md">{payload[0].value}/4000 happiness score</p>
         </div>
       </div>
     );
@@ -142,6 +143,7 @@ export default class MemberHappinessGraph extends PureComponent {
             />
           </AreaChart>
         </ResponsiveContainer>
+        <p className="text-lg italic">statistics based on a survey where our <Link className="text-sky-500 underline" href="/doggo">doggo</Link> was asked how he felt</p>
       </div>
     );
   }

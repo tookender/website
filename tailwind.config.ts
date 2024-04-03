@@ -4,6 +4,7 @@ const svgToDataUri = require("mini-svg-data-uri");
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
+const colors = require('tailwindcss/colors')
 
 const config: Config = {
   content: [
@@ -36,6 +37,21 @@ const config: Config = {
         "Courier",
         "monospace",
       ],
+    },
+    colors: {
+      background: "hsl(240, 10%, 4%, 1)",
+      black: colors.black,
+      white: colors.white,
+      gray: colors.slate,
+      purple: colors.violet,
+      zinc: colors.zinc,
+      sky: colors.sky,
+      orange: colors.orange,
+      yellow: colors.yellow,
+      cyan: colors.cyan,
+      blue: colors.blue,
+      neutral: colors.neutral,
+      green: colors.green,
     },
     screens: {
       xxl: "1400px",

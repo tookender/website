@@ -54,12 +54,12 @@ export const Message = ({
               <IconCheck
                 height={12}
                 width={12}
-                className="relative sm:hidden"
+                className="block sm:hidden"
               />
               <IconCheck
                 height={14}
                 width={14}
-                className="hidden sm:relative"
+                className="hidden sm:block"
               />
               <span>BOT</span>
             </div>

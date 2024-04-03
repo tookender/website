@@ -14,7 +14,7 @@ export const Header = () => {
         <IconArrowRight height={15} width={15} />
       </a>
 
-      <h1 className="mt-2 text-center text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
+      <h1 className="mt-2 text-center text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
         The Discord bot for all your needs.
       </h1>
 

@@ -13,9 +13,15 @@ export const Fun = () => {
     <TabsContent value="fun" className="border border-zinc-800 rounded-md">
       <TabsContainer>
         <Message
+          profile="ender"
+          date="Today at 14:04"
+          text="hi doggo, how are you??"
+        />
+
+        <Message
           profile="doggo"
           date="Today at 14:05"
-          text="i wish i could view some cute doggo pictures :("
+          text="im kinda sad.. some dog pictures would help"
         />
 
         <Command profile="ender" command="dog" />
@@ -33,7 +39,11 @@ export const Fun = () => {
           </ButtonContainer>
         </Message>
 
-        <Message profile="doggo" date="Today at 14:06" text="HOLY MOLY THATS AWESOME! THANK YOU KORII BOT!!" />
+        <Message
+          profile="doggo"
+          date="Today at 14:06"
+          text="THAT'S AWESOME!! THANK YOU SO MUCHH"
+        />
       </TabsContainer>
     </TabsContent>
   );
