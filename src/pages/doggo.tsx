@@ -17,7 +17,10 @@ export default function Home() {
   const toggleDisplay = (event: MouseEvent<HTMLElement>) => {
     const display = document.getElementById("display") as HTMLElement;
     if (display.classList.contains("flex")) {
-      if (!(event.target instanceof HTMLImageElement) && !(event.target instanceof HTMLParagraphElement)) {
+      if (
+        !(event.target instanceof HTMLImageElement) &&
+        !(event.target instanceof HTMLParagraphElement)
+      ) {
         display.classList.remove("flex");
         display.classList.add("hidden");
         document.body.style.overflow = "auto";

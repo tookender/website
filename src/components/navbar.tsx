@@ -13,7 +13,7 @@ export const Navbar = () => {
   if (pathname == "/") {
     pathname = "/home";
   } else {
-    pathname.replace("/", "")
+    pathname.replace("/", "");
   }
 
   const toggleScrolling = () => {
@@ -28,7 +28,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const button = document.getElementById("menuButton") as HTMLButtonElement;
-    
+
     button.addEventListener("click", toggleScrolling);
   });
 
@@ -49,8 +49,11 @@ export const Navbar = () => {
                 height={40}
               />
 
-              <h1 className="text-base font-bold text-neutral-300 group-hover:text-white duration-150" id="title">
-                korino
+              <h1
+                className="text-base font-bold text-neutral-300 group-hover:text-white duration-150"
+                id="title"
+              >
+                korino{pathname}
               </h1>
             </Link>
 
@@ -118,4 +121,3 @@ const MenuElement = ({ text, href }: { text: string; href: string }) => {
     </Link>
   );
 };
-

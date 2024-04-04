@@ -1,18 +1,20 @@
 import React from "react";
 
+interface CardProps {
+  title: string;
+  description: string;
+  link: string;
+  target?: string;
+  children: React.ReactNode;
+}
+
 export const Card = ({
   title,
   description,
   link,
   target,
   children,
-}: {
-  title: string;
-  description: string;
-  link: string;
-  target?: string;
-  children: React.ReactNode;
-}) => {
+}: CardProps) => {
   return (
     <a
       className="flex flex-col p-6 rounded-xl w-[90vw] md:w-full md:max-w-sm md:min-h-52 bg-black 

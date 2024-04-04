@@ -43,15 +43,13 @@ const data = [
   },
 ];
 
-const CustomTooltip = ({
-  active,
-  payload,
-  label,
-}: {
+interface CustomTooltipProps {
   active: any;
   payload: any;
   label: any;
-}) => {
+}
+
+const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-black border border-zinc-800 rounded-md">
@@ -71,7 +69,8 @@ export default class MemberHappinessGraph extends PureComponent {
     return (
       <div className="w-full mx-4">
         <h1 className="text-xl sm:text-2xl font-semibold mb-2">
-          Member happiness after inviting <span className="text-sky-500">Korii Bot</span> 😎
+          Member happiness after inviting{" "}
+          <span className="text-sky-500">Korii Bot</span> 😎
         </h1>
         <ResponsiveContainer width="100%" height={200}>
           <AreaChart
@@ -108,7 +107,8 @@ export default class MemberHappinessGraph extends PureComponent {
         </ResponsiveContainer>
 
         <h1 className="text-xl sm:text-2xl font-semibold my-2 ">
-          Member happiness after inviting <span className="text-orange-800">MEE6</span> 💩
+          Member happiness after inviting{" "}
+          <span className="text-orange-800">MEE6</span> 💩
         </h1>
         <ResponsiveContainer width="100%" height={200}>
           <AreaChart
@@ -143,7 +143,13 @@ export default class MemberHappinessGraph extends PureComponent {
             />
           </AreaChart>
         </ResponsiveContainer>
-        <p className="text-lg italic">statistics based on a survey where our <Link className="text-sky-500 underline" href="/doggo">doggo</Link> was asked how he felt</p>
+        <p className="text-lg italic">
+          statistics based on a survey where our{" "}
+          <Link className="text-sky-500 underline" href="/doggo">
+            doggo
+          </Link>{" "}
+          was asked how he felt
+        </p>
       </div>
     );
   }

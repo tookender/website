@@ -3,15 +3,13 @@ import React from "react";
 const baseButtonStyles =
   "flex justify-center items-center px-4 py-2 gap-2 text-sm rounded-md duration-300";
 
-export const PrimaryButton = ({
-  text,
-  link,
-  children,
-}: {
+interface ButtonProps {
   text: string;
   link: string;
   children: React.ReactNode;
-}) => {
+}
+
+export const PrimaryButton = ({ text, link, children }: ButtonProps) => {
   return (
     <a href={link}>
       <button className={`bg-white text-black ${baseButtonStyles}`}>
@@ -22,15 +20,7 @@ export const PrimaryButton = ({
   );
 };
 
-export const SecondaryButton = ({
-  text,
-  link,
-  children,
-}: {
-  text: string;
-  link: string;
-  children: React.ReactNode;
-}) => {
+export const SecondaryButton = ({ text, link, children }: ButtonProps) => {
   return (
     <a href={link}>
       <button

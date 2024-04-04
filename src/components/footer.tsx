@@ -2,13 +2,12 @@ import React from "react";
 import Image from "next/image";
 import { IconBrandGithub, IconDog, IconWorld } from "@tabler/icons-react";
 
-export const Footer = ({
-  commitHash,
-  commitMessage,
-}: {
+interface FooterProps {
   commitHash: any;
   commitMessage: any;
-}) => {
+}
+
+export const Footer = ({ commitHash, commitMessage }: FooterProps) => {
   let hash;
   let message;
   const currentYear = new Date().getFullYear();

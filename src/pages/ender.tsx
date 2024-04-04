@@ -1,28 +1,34 @@
-import type { InferGetStaticPropsType, GetStaticProps } from "next";
-import { useEffect } from "react";
-import { Block } from "@/components/block";
+import { Tooltip } from "react-tippy";
+import { useEffect, useState } from "react";
 import {
-  IconBrandCloudflare,
-  IconBrandCss3,
-  IconBrandDebian,
-  IconBrandDiscord,
-  IconBrandDocker,
-  IconBrandGit,
-  IconBrandGithub,
-  IconBrandHtml5,
-  IconBrandJavascript,
-  IconBrandNextjs,
-  IconBrandNodejs,
-  IconBrandPython,
-  IconBrandReact,
-  IconBrandTailwind,
-  IconBrandTypescript,
-  IconBrandUbuntu,
-  IconBrandVscode,
-  IconBrandWindows,
-  IconCoffee,
-  IconDatabase,
-} from "@tabler/icons-react";
+  SiArchlinux,
+  SiAstro,
+  SiCloudflare,
+  SiCoffeescript,
+  SiCss3,
+  SiDebian,
+  SiDiscord,
+  SiDocker,
+  SiGit,
+  SiGithub,
+  SiHtml5,
+  SiJavascript,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiPython,
+  SiReact,
+  SiSqlite,
+  SiTailwindcss,
+  SiTypescript,
+  SiUbuntu,
+  SiVercel,
+  SiVisualstudiocode,
+  SiWindows11,
+} from "react-icons/si";
+import { IconType } from "react-icons/lib";
+import { Block } from "@/components/block";
+import type { InferGetStaticPropsType } from "next";
 
 export const getStaticProps = async (context: any) => {
   const res = await fetch(
@@ -31,9 +37,21 @@ export const getStaticProps = async (context: any) => {
   const data = await res.json();
   return { props: { data } };
 };
+
 export default function Home({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const [time, setTime] = useState("00:00:00 p.m.");
+  const [awake, setAwake] = useState(true);
+
+  function updateTime() {
+      let current = new Date().toLocaleString("en-GB", { timeZone: "Europe/Berlin" });
+      setTime(`${current.slice(-11, -6)}${current.slice(-3, -1)}.M.`);
+      setTimeout(updateTime, 60 * 1000);
+
+      if (new Date().getHours() < 7) setAwake(false);
+  }
+
   useEffect(() => {
     const cursor = document.getElementById("cursor") as HTMLElement;
 
@@ -78,7 +96,7 @@ export default function Home({
 
   return (
     <>
-      <div className="flex flex-col w-full max-w-4xl min-h-screen mx-auto mt-24 gap-12">
+      <div className="flex flex-col w-[80%] md:w-[45rem] min-h-screen mx-auto mt-24 gap-12 bg-gradient-to-br">
         <div
           className="left-0 top-0 h-[30px] w-[30px] rounded-full border border-zinc-600 z-30 pointer-events-none transition-all duration-300 fixed"
           id="cursor"
@@ -91,14 +109,14 @@ export default function Home({
             currently working at{" "}
             <Block
               text="Rustbyte"
-              href="https://rustbyte.dev"
+              link="https://rustbyte.dev"
               image="rustbyte.svg"
               alt="Rustbyte logomark"
             />{" "}
             as a co-founder, however in my free time I work on{" "}
             <Block
               text="Korino"
-              href="https://korino.dev"
+              link="https://korino.dev"
               image="avatar.webp"
               alt="Ender profile picture"
             />{" "}
@@ -124,30 +142,35 @@ export default function Home({
 
           <p className="text-lg text-zinc-200">
             I use a lot of technologies to streamline my development process and
-            to increase the quality of my code and my projects. Here is a small
-            compact list of technologies I use.
+            to increase the quality of my code and my projects. Here is a
+            compact list of technologies that I use.
           </p>
 
-          <div className="mt-4 flex flex-row border items-center justify-center border-zinc-800 text-zinc-300 rounded-md gap-3 p-2">
-            <IconBrandTypescript height={34} width={34} />
-            <IconBrandJavascript height={34} width={34} />
-            <IconBrandNodejs height={34} width={34} />
-            <IconBrandNextjs height={34} width={34} />
-            <IconBrandReact height={34} width={34} />
-            <IconBrandPython height={34} width={34} />
-            <IconBrandVscode height={34} width={34} />
-            <IconBrandTailwind height={34} width={34} />
-            <IconBrandGit height={34} width={34} />
-            <IconBrandGithub height={34} width={34} />
-            <IconBrandWindows height={34} width={34} />
-            <IconBrandDocker height={34} width={34} />
-            <IconBrandUbuntu height={34} width={34} />
-            <IconBrandDebian height={34} width={34} />
-            <IconCoffee height={34} width={34} />
-            <IconBrandDiscord height={34} width={34} />
-            <IconBrandCloudflare height={34} width={34} />
-            <IconBrandHtml5 height={34} width={34} />
-            <IconBrandCss3 height={34} width={34} />
+          <div className="mt-4 flex flex-wrap flex-row mx-4 md:mx-2 border items-center justify-center border-zinc-800 text-zinc-300 rounded-md gap-3 p-2">
+            <TechItem icon={SiTypescript} name="TypeScript" />
+            <TechItem icon={SiJavascript} name="JavaScript" />
+            <TechItem icon={SiNodedotjs} name="Node.js" />
+            <TechItem icon={SiNextdotjs} name="Next.js" />
+            <TechItem icon={SiReact} name="React" />
+            <TechItem icon={SiAstro} name="Astro" />
+            <TechItem icon={SiTailwindcss} name="TailwindCSS" />
+            <TechItem icon={SiHtml5} name="HTML 5" />
+            <TechItem icon={SiCss3} name="CSS 3" />
+            <TechItem icon={SiPython} name="Python" />
+            <TechItem icon={SiCoffeescript} name="Java" />
+            <TechItem icon={SiGit} name="Git" />
+            <TechItem icon={SiGithub} name="GitHub" />
+            <TechItem icon={SiWindows11} name="Windows 11" />
+            <TechItem icon={SiUbuntu} name="Ubuntu" />
+            <TechItem icon={SiDebian} name="Debian" />
+            <TechItem icon={SiArchlinux} name="Arch Linux" />
+            <TechItem icon={SiDocker} name="Docker" />
+            <TechItem icon={SiVisualstudiocode} name="VSCode" />
+            <TechItem icon={SiCloudflare} name="Cloudflare" />
+            <TechItem icon={SiVercel} name="Vercel" />
+            <TechItem icon={SiDiscord} name="Discord" />
+            <TechItem icon={SiPostgresql} name="PostgreSQL" />
+            <TechItem icon={SiSqlite} name="SQLite" />
           </div>
         </div>
 
@@ -160,3 +183,13 @@ export default function Home({
     </>
   );
 }
+
+const TechItem = ({ name, icon }: { name: string; icon: IconType }) => {
+  return (
+    <li className="flex">
+      <Tooltip title={name} position={"top"} duration={500}>
+        <span>{icon({ className: "w-6 h-6" })}</span>
+      </Tooltip>
+    </li>
+  );
+};

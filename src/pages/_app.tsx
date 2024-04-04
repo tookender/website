@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "react-tippy/dist/tippy.css";
 import Head from "next/head";
 import { useEffect } from "react";
 import { Navbar } from "@/components/navbar";
