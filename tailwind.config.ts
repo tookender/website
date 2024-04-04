@@ -52,6 +52,7 @@ const config: Config = {
       blue: colors.blue,
       neutral: colors.neutral,
       green: colors.green,
+      emerald: colors.emerald,
     },
     screens: {
       xxl: "1400px",
@@ -85,6 +86,11 @@ const config: Config = {
           "bg-grid": (value: any) => ({
             backgroundImage: `url("${svgToDataUri(
               `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="42" height="42" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+            )}")`,
+          }),
+          "bg-big-grid": (value: any) => ({
+            backgroundImage: `url("${svgToDataUri(
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="84" height="84" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
             )}")`,
           }),
         },

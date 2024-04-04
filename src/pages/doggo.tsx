@@ -43,11 +43,11 @@ export default function Home() {
       </Head>
 
       <div
-        className="hidden items-center justify-center w-screen h-screen z-[999] fixed bg-black/70 backdrop-blur-xl select-none"
+        className="hidden items-center justify-center w-screen h-screen z-20 fixed bg-background/60 backdrop-blur select-none"
         onClick={toggleDisplay}
         id="display"
       >
-        <div className="flex flex-col text-center bg-black backdrop-blur-xl rounded-lg mt-12 border-2 border-zinc-800 max-w-[85vw]">
+        <div className="flex flex-col text-center bg-black rounded-lg mt-12 border-2 border-zinc-800 max-w-[85vw] -translate-y-12">
           <img
             src={image}
             className="rounded-t-md skeleton max-h-[60vh]"

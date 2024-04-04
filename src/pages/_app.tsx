@@ -7,15 +7,6 @@ import { GeistSans } from "geist/font/sans";
 import { Footer } from "@/components/footer";
 
 export default function App({ Component, pageProps, router }: AppProps) {
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-    setTimeout(() => {
-      void new Audio("/pop.mp3").play().catch(() => null);
-    }, 500);
-  }, [router.pathname]);
-
   return (
     <>
       <Head>
@@ -41,7 +32,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
       >
         <Navbar />
 
-        <div className="min-h-screen mt-24">
+        <div className="min-h-screen mt-14">
           <Component {...pageProps} key={router.pathname} />
         </div>
 
