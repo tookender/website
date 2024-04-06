@@ -23,7 +23,7 @@ export default function Home() {
         <meta content="#10b981" data-react-helmet="true" name="theme-color" />
       </Head>
 
-      <div className="my-36 flex flex-col gap-2">
+      <div className="h-[115vh] sm:h-fit my-24 sm:my-36 flex flex-col gap-2">
         <Header/>
 
         {/* We have to preload some colors so TailwindCSS recognizes them */}
@@ -32,21 +32,23 @@ export default function Home() {
         <p className="hidden text-[#3498DB]" />
         <p className="hidden text-[#DB4039]" />
 
-        <div className="flex justify-center px-8 mt-24">
-          <Tabs defaultValue="user_info" className="w-[95vw] sm:w-[80vw] xxl:w-[1200px]">
+        <div className="flex justify-center px-8 mt-12 sm:mt-16 md:mt-24">
+          <Tabs defaultValue="user_info" className="w-[95vw] sm:w-[80vw] xxl:w-[1200px] overflow-auto">
             <TabsList>
               <TabsTrigger value="user_info">User Info</TabsTrigger>
               <TabsTrigger value="server_info">Server Info</TabsTrigger>
               <TabsTrigger value="moderation">Moderation</TabsTrigger>
-              <TabsTrigger value="fun">Fun</TabsTrigger>
+              <TabsTrigger value="fun">Fun</TabsTrigger> 
               <TabsTrigger value="happiness">User Happiness</TabsTrigger>
             </TabsList>
 
-            <UserInfo />
-            <ServerInfo />
-            <Moderation />
-            <Fun />
-            <Happiness />
+            <div className="absolute w-[86vw] sm:w-[80vw] xxl:w-[1200px] mt-2">
+              <UserInfo />
+              <ServerInfo />
+              <Moderation />
+              <Fun />
+              <Happiness />
+            </div>
           </Tabs>
         </div>
       </div>

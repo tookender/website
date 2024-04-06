@@ -110,7 +110,7 @@ export const Footer = ({ commitHash, commitMessage }: FooterProps) => {
           &copy; {currentYear}. Korino. All rights reserved.
           <span className="flex flex-row gap-2">
             Powered by{" "}
-            <Image src="/vercel.svg" width={14} height={14} alt="Vercel Logo" />
+            <Image src="/logos/vercel.svg" width={14} height={14} alt="Vercel Logo" />
             <a
               className="duration-500 hover:brightness-125"
               href="https://vercel.com"
@@ -119,7 +119,7 @@ export const Footer = ({ commitHash, commitMessage }: FooterProps) => {
             </a>{" "}
             and{" "}
             <Image
-              src="/nextjs.svg"
+              src="/logos/nextjs.svg"
               width={14}
               height={14}
               alt="Next.js Logo"

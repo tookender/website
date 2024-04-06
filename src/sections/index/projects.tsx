@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Card } from "@/components/card";
-import { IconSwords, IconRobot, IconWorld } from "@tabler/icons-react";
+import { TbSwords, TbRobot, TbWorld  } from "react-icons/tb";
 
 export const Projects = () => {
   return (
@@ -25,7 +25,7 @@ export const Projects = () => {
           description="Mini-game Minecraft server with Skywars, and more to come in the future."
           link="/pvp"
         >
-          <IconSwords className="h-12 w-12 text-cyan-500" />
+          <TbSwords className="h-12 w-12 text-cyan-500" />
         </Card>
 
         <Card
@@ -33,7 +33,7 @@ export const Projects = () => {
           description="A easy-to-use multi-purpose Discord bot for managing servers, and more."
           link="/bot"
         >
-          <IconRobot className="h-12 w-12 text-blue-400" />
+          <TbRobot className="h-12 w-12 text-blue-400" />
         </Card>
 
         <Card
@@ -41,7 +41,7 @@ export const Projects = () => {
           description="The site you are currently viewing. Used to display our projects."
           link="/"
         >
-          <IconWorld className="h-12 w-12 text-purple-500" />
+          <TbWorld className="h-12 w-12 text-purple-500" />
         </Card>
       </div>
     </div>
