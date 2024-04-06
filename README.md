@@ -1,7 +1,9 @@
 # website 🌐
 A website built with [Next.js](https://nextjs.org/) bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 <br>
-Primarily for showcasing my projects under "Korino Development" and my portfolio.
+It uses [`tippy.js-react`](https://github.com/atomiks/tippyjs-react) for tooltips and [`Recharts`](https://recharts.org/en-US/) for custom graphs. 
+<br>
+Primarily for showcasing my projects and my portfolio.
 
 ## installing & running 📩
 I don't recommend you running it yourself, you can visit a live demo of the website at [korino.dev](https://korino.dev), but here is the guide anyways:

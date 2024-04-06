@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { IconCheck } from "@tabler/icons-react";
 import { profiles } from "@/lib/profiles";
+import Tippy from "@tippyjs/react";
 
 export const Message = ({
   profile,
@@ -46,23 +47,25 @@ export const Message = ({
               {profile}
             </button>
 
-            <div
-              className={`items-center justify-center bg-[#5865f2] text-white rounded-md gap-0.5 h-4 px-1 text-[10px] sm:text-xs leading-[.9375rem] ${
-                bot ? "flex" : "hidden"
-              }`}
-            >
-              <IconCheck
-                height={12}
-                width={12}
-                className="block sm:hidden"
-              />
-              <IconCheck
-                height={14}
-                width={14}
-                className="hidden sm:block"
-              />
-              <span>BOT</span>
-            </div>
+            <Tippy content={<span>Verified Bot</span>}>
+              <div
+                className={`items-center justify-center bg-[#5865f2] text-white rounded-md gap-0.5 h-4 px-1 text-[10px] sm:text-xs leading-[.9375rem] ${
+                  bot ? "flex" : "hidden"
+                }`}
+              >
+                <IconCheck
+                  height={12}
+                  width={12}
+                  className="block sm:hidden"
+                />
+                <IconCheck
+                  height={14}
+                  width={14}
+                  className="hidden sm:block"
+                />
+                <span>BOT</span>
+              </div>
+            </Tippy>
 
             <span className="ml-1 text-neutral-400 text-xs sm:text-sm">
               {date}

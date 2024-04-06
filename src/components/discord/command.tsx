@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { profiles } from "@/lib/profiles";
+import Tippy from "@tippyjs/react";
 
 export const Command = ({
   profile,
@@ -11,6 +12,7 @@ export const Command = ({
   command: string;
   title?: string;
 }) => {
+  const actual_title = `/${command} ${title ? title : ''}`;
   const data = profiles[profile];
   const picture = data[0];
   const color = data[1];
@@ -40,12 +42,13 @@ export const Command = ({
 
       <span className="text-zinc-400 mx-0.5 text-base sm:text-lg">used</span>
 
-      <button
-        className="flex items-center justify-center text-base sm:text-lg hover:underline font-medium text-blue-500"
-        title={title}
-      >
-        /{command}
-      </button>
+      <Tippy content={<span className="text-zinc-400">{actual_title}</span>}>
+        <button
+          className="flex items-center justify-center text-base sm:text-lg hover:underline font-medium text-blue-500"
+        >
+          /{command}
+        </button>
+      </Tippy>
     </div>
   );
 };

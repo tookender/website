@@ -53,6 +53,7 @@ const config: Config = {
       neutral: colors.neutral,
       green: colors.green,
       emerald: colors.emerald,
+      red: colors.red,
     },
     screens: {
       xxl: "1400px",

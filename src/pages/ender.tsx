@@ -1,4 +1,4 @@
-import { Tooltip } from "react-tippy";
+import Tippy from '@tippyjs/react';
 import { useEffect, useState } from "react";
 import {
   SiArchlinux,
@@ -29,6 +29,7 @@ import {
 import { IconType } from "react-icons/lib";
 import { Block } from "@/components/block";
 import type { InferGetStaticPropsType } from "next";
+import Head from "next/head";
 
 export const getStaticProps = async (context: any) => {
   const res = await fetch(
@@ -58,45 +59,22 @@ export default function Home({
     window.addEventListener("click", () => {
       void new Audio("/click.ogg").play().catch(() => null);
     });
-
-    window.addEventListener("mousedown", () => {
-      cursor.style.scale = "1.25";
-    });
-
-    window.addEventListener("mouseup", () => {
-      cursor.style.scale = "1";
-    });
-
-    window.addEventListener("mouseenter", (event) => {
-      const clientX = event.clientX;
-      const clientY = event.clientY;
-
-      cursor.animate(
-        {
-          left: `${clientX - 15}px`,
-          top: `${clientY - 15}px`,
-        },
-        { duration: 500, fill: "forwards" }
-      );
-    });
-
-    window.addEventListener("mousemove", (event) => {
-      const clientX = event.clientX;
-      const clientY = event.clientY;
-
-      cursor.animate(
-        {
-          left: `${clientX - 15}px`,
-          top: `${clientY - 15}px`,
-        },
-        { duration: 5000, fill: "forwards" }
-      );
-    });
   });
 
   return (
     <>
-      <div className="flex flex-col w-[80%] md:w-[45rem] min-h-screen mx-auto mt-24 gap-12 bg-gradient-to-br">
+      <Head>
+        <title>ender</title>
+        <meta content="doggo pics" property="og:title" />
+        <meta
+          content="a gallery of doggo pictures :D"
+          property="og:description"
+        />
+        <meta content="https://korino.dev/doggo" property="og:url" />
+        <meta content="#10b981" data-react-helmet="true" name="theme-color" />
+      </Head>
+
+      <div className="flex flex-col w-[80%] md:w-[60rem] min-h-screen mx-auto mt-24 gap-12 bg-gradient-to-br">
         <div
           className="left-0 top-0 h-[30px] w-[30px] rounded-full border border-zinc-600 z-30 pointer-events-none transition-all duration-300 fixed"
           id="cursor"
@@ -187,9 +165,9 @@ export default function Home({
 const TechItem = ({ name, icon }: { name: string; icon: IconType }) => {
   return (
     <li className="flex">
-      <Tooltip title={name} position={"top"} duration={500}>
+      <Tippy content={<span>{name}</span>}>
         <span>{icon({ className: "w-6 h-6" })}</span>
-      </Tooltip>
+      </Tippy>
     </li>
   );
 };
