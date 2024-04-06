@@ -1,12 +1,29 @@
 import "@/styles/globals.css";
-import Head from "next/head";
-import { useEffect } from "react";
-import { Navbar } from "@/components/navbar";
 import type { AppProps } from "next/app";
-import { GeistSans } from "geist/font/sans";
+import Head from "next/head";
+import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 
+import { useEffect } from "react";
+import { Router } from "next/router";
+import { GeistSans } from "geist/font/sans";
+
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
+
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
+
 export default function App({ Component, pageProps, router }: AppProps) {
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    void new Audio("/pop.mp3").play().catch(() => null);
+  }, [router.pathname]);
+
   return (
     <>
       <Head>
@@ -27,8 +44,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
       </Head>
 
       <div
-        id="body"
-        className={`text-white overflow-x-hidden ${GeistSans.className} antialiased`}
+        className={`${GeistSans.className} antialiased`}
       >
         <Navbar />
 

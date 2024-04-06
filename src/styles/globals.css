@@ -2,17 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  -webkit-user-drag: none;
-}
-
-body {
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  color-scheme: dark;
+  color: rgb(255, 255, 255);
   background-color: hsl(240, 10%, 4%, 1);
 }
 
-html {
-  color-scheme: dark;
+* {
+  box-sizing: border-box;
   scroll-behavior: smooth;
+  -webkit-user-drag: none;
 }
 
 @font-face {
