@@ -15,7 +15,7 @@ export default function Home() {
       </Head>
 
       <div className="my-36 flex flex-col gap-2">
-        <h1 className="text-5xl italic text-center font-extrabold">
+        <h1 className="text-center text-5xl font-extrabold italic">
           coming soon...
         </h1>
       </div>

@@ -20,42 +20,61 @@ export const Embed = ({
 
     // Replace each emote placeholder with its corresponding image tag
     let newText = text.replace(emoteRegex, (match, emoteName) => {
-        return `<img src="/emotes/${emoteName}.webp" class="max-h-[28px]" width="${height}" height="${height}">`;
+      return `<img src="/emotes/${emoteName}.webp" class="max-h-[28px]" width="${height}" height="${height}">`;
     });
     return newText;
   };
 
   const formatText = (text: string, height: number = 28) => {
     let newText = addEmotes(text, height);
-    newText = newText.replace(/\*\*(.*?)\*\*/g, '<span class="font-bold">$1</span>');
+    newText = newText.replace(
+      /\*\*(.*?)\*\*/g,
+      '<span class="font-bold">$1</span>',
+    );
     newText = newText.replace(/\*(.*?)\*/g, '<span class="italic">$1</span>');
-    newText = newText.replace(/`(.*?)`/g, '<span class="bg-black/30 px-1 rounded-sm font-code">$1</span>')
-    newText = newText.replace(/\n/g, '<br>');
-    return newText; 
+    newText = newText.replace(
+      /`(.*?)`/g,
+      '<span class="bg-black/30 px-1 rounded-sm font-code">$1</span>',
+    );
+    newText = newText.replace(/\n/g, "<br>");
+    return newText;
   };
 
   return (
-    <div className="max-w-[700px] w-fit pr-4 bg-neutral-900 rounded-md flex flex-row gap-2 ml-14">
-      <div className="w-1 bg-[#10B981] rounded-l-md" />
+    <div className="ml-14 flex w-fit max-w-[700px] flex-row gap-2 rounded-md bg-neutral-900 pr-4">
+      <div className="w-1 rounded-l-md bg-[#10B981]" />
 
       <div className="flex flex-col">
-        <h1 className="font-bold text-base sm:text-lg mt-3 flex flex-row gap-2" dangerouslySetInnerHTML={{ __html: formatText(title) }}></h1>
+        <h1
+          className="mt-3 flex flex-row gap-2 text-base font-bold sm:text-lg"
+          dangerouslySetInnerHTML={{ __html: formatText(title) }}
+        ></h1>
 
-        <div className="flex flex-col sm:flex-row gap-2 sm:gap-8 text-sm sm:text-base font-light mt-2">
+        <div className="mt-2 flex flex-col gap-2 text-sm font-light sm:flex-row sm:gap-8 sm:text-base">
           {/* we don't know the height/width of the image */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={picture} className={`max-w-[256px] w-full rounded-md ${picture ? "block" : "hidden"}`} id={pictureId} alt={pictureDescription}/>
-          {fields && fields.map((field, index) => (
-            <div key={index}>
-              <h2 className="font-semibold mb-1 sm:mb-0">{field[0]}</h2>
-              {field[1].map((text, index) => (
-                <p key={index} className="flex flex-row gap-1" dangerouslySetInnerHTML={{ __html: formatText(text, 24) }} />
-              ))}
-            </div>
-          ))}
+          <img
+            src={picture}
+            className={`w-full max-w-[256px] rounded-md ${picture ? "block" : "hidden"}`}
+            id={pictureId}
+            alt={pictureDescription}
+          />
+          {fields &&
+            fields.map((field, index) => (
+              <div key={index}>
+                <h2 className="mb-1 font-semibold sm:mb-0">{field[0]}</h2>
+                {field[1].map((text, index) => (
+                  <p
+                    key={index}
+                    className="flex flex-row gap-1"
+                    dangerouslySetInnerHTML={{ __html: formatText(text, 24) }}
+                  />
+                ))}
+              </div>
+            ))}
         </div>
 
-        <p className="mt-2 mb-3 text-xs font-medium">{footer}</p>
+        <p className="mb-3 mt-2 text-xs font-medium">{footer}</p>
       </div>
     </div>
   );

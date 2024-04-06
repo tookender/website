@@ -46,21 +46,21 @@ export default function Home() {
       </Head>
 
       <div
-        className="hidden items-center justify-center w-screen h-screen z-20 fixed bg-background/60 backdrop-blur select-none"
+        className="fixed z-20 hidden h-screen w-screen select-none items-center justify-center bg-background/60 backdrop-blur"
         onClick={toggleDisplay}
         id="display"
       >
-        <div className="flex flex-col text-center bg-black rounded-lg mt-12 border-2 border-zinc-800 max-w-[85vw] -translate-y-12">
+        <div className="mt-12 flex max-w-[85vw] -translate-y-12 flex-col rounded-lg border-2 border-zinc-800 bg-black text-center">
           <img
             src={image}
-            className="rounded-t-md skeleton max-h-[60vh]"
+            className="skeleton max-h-[60vh] rounded-t-md"
             alt={
               dogImages[
                 image.substring(image.lastIndexOf("/") + 1).replace(".webp", "")
               ]
             }
           />
-          <p className="text-xl font-semibold py-2">
+          <p className="py-2 text-xl font-semibold">
             {
               dogImages[
                 image.substring(image.lastIndexOf("/") + 1).replace(".webp", "")
@@ -70,26 +70,26 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="min-h-screen mb-12 flex flex-col items-center justify-center">
-        <h1 className="text-4xl md:text-6xl xl:text-7xl font-extrabold text-center mb-12 mt-24">
+      <div className="mb-12 flex min-h-screen flex-col items-center justify-center">
+        <h1 className="mb-12 mt-24 text-center text-4xl font-extrabold md:text-6xl xl:text-7xl">
           dog pictures gallery :D
         </h1>
 
-        <div className="flex flex-col items-center justify-center w-[80vw]">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 items-center">
+        <div className="flex w-[80vw] flex-col items-center justify-center">
+          <div className="grid grid-cols-2 items-center gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {Object.keys(dogImages).map((dogKey: string) => (
               <button
                 key={dogKey}
                 onClick={changeImage}
-                className="h-full flex flex-col items-center text-center font-semibold border-2 border-zinc-800 rounded-lg hover:scale-[1.01] active:scale-[0.99] duration-500"
+                className="flex h-full flex-col items-center rounded-lg border-2 border-zinc-800 text-center font-semibold duration-500 hover:scale-[1.01] active:scale-[0.99]"
               >
                 <img
                   src={`/dogs/${dogKey}.webp`}
                   alt={`Dog ${dogKey}`}
-                  className="rounded-t-md skeleton select-none"
+                  className="skeleton select-none rounded-t-md"
                 />
 
-                <p className="my-2 mx-2">{dogImages[dogKey]}</p>
+                <p className="mx-2 my-2">{dogImages[dogKey]}</p>
               </button>
             ))}
           </div>

@@ -11,7 +11,10 @@ import { TabsContent } from "@radix-ui/react-tabs";
 
 export const UserInfo = () => {
   return (
-    <TabsContent value="user_info" className="border border-zinc-800 rounded-md">
+    <TabsContent
+      value="user_info"
+      className="rounded-md border border-zinc-800"
+    >
       <TabsContainer>
         <Message
           profile="doggo"

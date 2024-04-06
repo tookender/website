@@ -17,8 +17,8 @@ export const Card = ({
 }: CardProps) => {
   return (
     <a
-      className="flex flex-col p-6 rounded-xl w-[90vw] md:w-full md:max-w-sm md:min-h-52 bg-black 
-              border border-white/[0.2] hover:border-white/[0.3] hover:translate-x-2 md:hover:-translate-y-2 md:hover:translate-x-0 duration-500"
+      className="flex w-[90vw] flex-col rounded-xl border border-white/[0.2] bg-black p-6 duration-500 
+              hover:translate-x-2 hover:border-white/[0.3] md:min-h-52 md:w-full md:max-w-sm md:hover:-translate-y-2 md:hover:translate-x-0"
       href={link}
       target={target}
     >

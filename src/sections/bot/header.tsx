@@ -1,12 +1,16 @@
 import { PrimaryButton, SecondaryButton } from "@/components/button";
 import { IconBrandGithub } from "@tabler/icons-react";
-import { IconArrowRight, IconBrandDiscordFilled, IconChevronDown } from "@tabler/icons-react";
+import {
+  IconArrowRight,
+  IconBrandDiscordFilled,
+  IconChevronDown,
+} from "@tabler/icons-react";
 
 export const Header = () => {
   return (
     <div className="flex flex-col items-center gap-2">
       <a
-        className="flex items-center bg-neutral-800 rounded-lg px-3 py-1 text-sm font-medium"
+        className="flex items-center rounded-lg bg-neutral-800 px-3 py-1 text-sm font-medium"
         href=""
       >
         <span className="mr-3">🎉</span>
@@ -18,12 +22,12 @@ export const Header = () => {
         The Discord bot for all your needs.
       </h1>
 
-      <p className="mx-12 md:max-w-[520px] text-center text-lg text-neutral-400">
-        Korii is a fully customizable multi-purpose Discord bot for your
-        Discord server, designed with ease-of-use in mind.
+      <p className="mx-12 text-center text-lg text-neutral-400 md:max-w-[520px]">
+        Korii is a fully customizable multi-purpose Discord bot for your Discord
+        server, designed with ease-of-use in mind.
       </p>
 
-      <div className="flex items-center justify-center gap-4 mt-4">
+      <div className="mt-4 flex items-center justify-center gap-4">
         <PrimaryButton text="Add to Discord" link="https://discord.com">
           <IconBrandDiscordFilled height={22} width={22} />
         </PrimaryButton>

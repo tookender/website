@@ -29,7 +29,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
       <Head>
         <meta charSet="utf-8" />
         <title>Korino</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.png" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         <meta
@@ -43,12 +43,10 @@ export default function App({ Component, pageProps, router }: AppProps) {
         <meta name="author" content="Korino Development" />
       </Head>
 
-      <div
-        className={`${GeistSans.className} antialiased`}
-      >
+      <div className={`${GeistSans.className} antialiased`}>
         <Navbar />
 
-        <div className="min-h-screen mt-14">
+        <div className="mt-14 min-h-screen">
           <Component {...pageProps} key={router.pathname} />
         </div>
 

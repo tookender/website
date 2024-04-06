@@ -8,21 +8,21 @@ import {
 export const Technologies = () => {
   return (
     <div className="flex flex-col items-center justify-center bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-neutral-900 to-black">
-      <h1 className="text-5xl font-bold text-center mt-16">Technologies</h1>
+      <h1 className="mt-16 text-center text-5xl font-bold">Technologies</h1>
 
       <p className="mt-4 text-center text-neutral-400">
         A list of technologies we use at Korino Development <br /> to make what
         we do possible.
       </p>
 
-      <div className="flex flex-col md:flex-row items-center justify-center gap-4 mx-4 mt-6 pb-16">
+      <div className="mx-4 mt-6 flex flex-col items-center justify-center gap-4 pb-16 md:flex-row">
         <Card
           title="Python"
           description="We use Python a lot for it's ease-of-use and great developer experience with its amazing package manager."
           link="https://python.org"
           target="_blank"
         >
-          <IconBrandPython className="w-12 h-12 text-yellow-500" />
+          <IconBrandPython className="h-12 w-12 text-yellow-500" />
         </Card>
 
         <Card
@@ -31,7 +31,7 @@ export const Technologies = () => {
           link="https://typescriptlang.org"
           target="_blank"
         >
-          <IconBrandTypescript className="w-12 h-12 text-sky-500" />
+          <IconBrandTypescript className="h-12 w-12 text-sky-500" />
         </Card>
 
         <Card
@@ -40,7 +40,7 @@ export const Technologies = () => {
           link="https://java.com"
           target="_blank"
         >
-          <IconCoffee className="w-12 h-12 text-orange-400" />
+          <IconCoffee className="h-12 w-12 text-orange-400" />
         </Card>
       </div>
     </div>

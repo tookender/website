@@ -34,11 +34,11 @@ export const Navbar = () => {
 
   return (
     <main>
-      <header className="flex flex-col fixed top-0 justify-around items-center w-full h-14 border-b border-b-zinc-800 bg-background/60 backdrop-blur z-50">
-        <nav className="w-full flex items-center max-w-[1400px] relative flex-1">
-          <div className="flex flex-row items-center w-full gap-4 sm:gap-6 ml-2 sm:ml-4 xxl:ml-0">
+      <header className="fixed top-0 z-50 flex h-14 w-full flex-col items-center justify-around border-b border-b-zinc-800 bg-background/60 backdrop-blur">
+        <nav className="relative flex w-full max-w-[1400px] flex-1 items-center">
+          <div className="ml-2 flex w-full flex-row items-center gap-4 sm:ml-4 sm:gap-6 xxl:ml-0">
             <Link
-              className="flex flex-row justify-center items-center gap-2 mr-2 sm:mr-4"
+              className="mr-2 flex flex-row items-center justify-center gap-2 sm:mr-4"
               href="/"
             >
               <Image
@@ -50,7 +50,7 @@ export const Navbar = () => {
               />
 
               <h1
-                className="text-base font-bold text-neutral-300 group-hover:text-white duration-150"
+                className="text-base font-bold text-neutral-300 duration-150 group-hover:text-white"
                 id="title"
               >
                 korino{pathname}
@@ -59,32 +59,33 @@ export const Navbar = () => {
 
             <NavbarElement text="Korino PvP" href="/pvp" />
             <NavbarElement text="Korii Bot" href="/bot" />
+            <NavbarElement text="Ender" href="/ender" />
           </div>
 
-          <div className="flex items-center gap-3 mr-2 sm:mr-4 xxl:mr-0">
+          <div className="mr-2 flex items-center gap-3 sm:mr-4 xxl:mr-0">
             <Link
               href="/doggo"
               title="DOG PICTURES :D"
-              className="text-neutral-300 hover:text-white hover:scale-105 duration-150"
+              className="text-neutral-300 duration-150 hover:scale-105 hover:text-white"
             >
               <IconDog />
             </Link>
             <a
               href="https://github.com/tookender/website"
               title="Korino Website Github"
-              className="text-neutral-300 hover:text-white hover:scale-105 duration-150"
+              className="text-neutral-300 duration-150 hover:scale-105 hover:text-white"
               target="_blank"
             >
               <IconBrandGithub />
             </a>
-            <button className="sm:hidden z-[999]" id="menuButton">
+            <button className="z-[999] sm:hidden" id="menuButton">
               <IconMenuDeep />
             </button>
           </div>
         </nav>
       </header>
       <menu
-        className={`h-screen w-screen bg-gradient-to-br from-neutral-900 to-black items-center justify-center  ${
+        className={`h-screen w-screen items-center justify-center bg-gradient-to-br from-neutral-900 to-black  ${
           menuOpen ? "flex" : "hidden"
         }`}
         id="menu"
@@ -103,7 +104,7 @@ export const Navbar = () => {
 const NavbarElement = ({ text, href }: { text: string; href: string }) => {
   return (
     <Link
-      className="relative text-sm text-neutral-400 hover:text-white duration-150 ease-in hidden sm:block"
+      className="relative hidden text-sm text-neutral-400 duration-150 ease-in hover:text-white sm:block"
       href={href}
     >
       {text}
@@ -114,7 +115,7 @@ const NavbarElement = ({ text, href }: { text: string; href: string }) => {
 const MenuElement = ({ text, href }: { text: string; href: string }) => {
   return (
     <Link
-      className="text-6xl font-bold text-neutral-400 hover:text-white duration-500 z-50"
+      className="z-50 text-6xl font-bold text-neutral-400 duration-500 hover:text-white"
       href={href}
     >
       {text}

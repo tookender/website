@@ -15,8 +15,8 @@ export const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex h-10 items-center justify-center rounded-lg overflow-x-auto p-1 mb-4",
-      className
+      "mb-4 inline-flex h-10 items-center justify-center overflow-x-auto rounded-lg p-1",
+      className,
     )}
     {...props}
   />
@@ -31,8 +31,8 @@ export const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "inline-flex items-center justify-center whitespace-nowrap rounded-full px-4 py-1 text-md text-zinc-400 font-medium data-[state=active]:bg-zinc-800 data-[state=active]:text-white duration-300",
-      className
+      "text-md inline-flex items-center justify-center whitespace-nowrap rounded-full px-4 py-1 font-medium text-zinc-400 duration-300 data-[state=active]:bg-zinc-800 data-[state=active]:text-white",
+      className,
     )}
     {...props}
   />
@@ -48,7 +48,7 @@ export const TabsContainer = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div className={`flex flex-col gap-2 mx-2 my-2 ${className}`}>
+    <div className={`mx-2 my-2 flex flex-col gap-2 ${className}`}>
       {children}
     </div>
   );

@@ -25,7 +25,7 @@ export const Footer = ({ commitHash, commitMessage }: FooterProps) => {
   }
 
   return (
-    <footer className="bg-[#161616] border-t border-t-[#2e2e2e]">
+    <footer className="border-t border-t-[#2e2e2e] bg-[#161616]">
       <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
@@ -106,13 +106,13 @@ export const Footer = ({ commitHash, commitMessage }: FooterProps) => {
           </div>
         </div>
 
-        <p className="text-neutral-400 text-xs flex-col">
+        <p className="flex-col text-xs text-neutral-400">
           &copy; {currentYear}. Korino. All rights reserved.
           <span className="flex flex-row gap-2">
             Powered by{" "}
             <Image src="/vercel.svg" width={14} height={14} alt="Vercel Logo" />
             <a
-              className="hover:brightness-125 duration-500"
+              className="duration-500 hover:brightness-125"
               href="https://vercel.com"
             >
               Vercel
@@ -125,7 +125,7 @@ export const Footer = ({ commitHash, commitMessage }: FooterProps) => {
               alt="Next.js Logo"
             />
             <a
-              className="hover:brightness-125 duration-500"
+              className="duration-500 hover:brightness-125"
               href="https://nextjs.org/"
             >
               Next.js
@@ -134,7 +134,7 @@ export const Footer = ({ commitHash, commitMessage }: FooterProps) => {
           <span>
             Running on{" "}
             <a
-              className="hover:brightness-125 duration-500"
+              className="duration-500 hover:brightness-125"
               href={`https://github.com/tookender/website/commit/${commitHash}`}
             >
               <code>{hash}</code>
@@ -162,7 +162,7 @@ const FooterIconElement = ({
         href={href}
         rel="noreferrer"
         target="_blank"
-        className="text-neutral-300 hover:text-white duration-500"
+        className="text-neutral-300 duration-500 hover:text-white"
       >
         <span className="sr-only">{text}</span>
 
@@ -175,7 +175,7 @@ const FooterIconElement = ({
 const FooterElementItem = ({ text, href }: { text: string; href: string }) => {
   return (
     <li title={text}>
-      <a href={href} className="text-neutral-400 hover:text-white duration-500">
+      <a href={href} className="text-neutral-400 duration-500 hover:text-white">
         {text}
       </a>
     </li>
@@ -191,7 +191,7 @@ const FooterElement = ({
 }) => {
   return (
     <div>
-      <p className="text-white font-bold text-xl">{title}</p>
+      <p className="text-xl font-bold text-white">{title}</p>
 
       <ul className="mt-2 space-y-2 text-sm">{children}</ul>
     </div>

@@ -1,4 +1,4 @@
-import Tippy from '@tippyjs/react';
+import Tippy from "@tippyjs/react";
 import { useEffect, useState } from "react";
 import {
   SiArchlinux,
@@ -33,7 +33,7 @@ import Head from "next/head";
 
 export const getStaticProps = async (context: any) => {
   const res = await fetch(
-    "https://api.lanyard.rest/v1/users/1022842005920940063"
+    "https://api.lanyard.rest/v1/users/1022842005920940063",
   );
   const data = await res.json();
   return { props: { data } };
@@ -46,11 +46,13 @@ export default function Home({
   const [awake, setAwake] = useState(true);
 
   function updateTime() {
-      let current = new Date().toLocaleString("en-GB", { timeZone: "Europe/Berlin" });
-      setTime(`${current.slice(-11, -6)}${current.slice(-3, -1)}.M.`);
-      setTimeout(updateTime, 60 * 1000);
+    let current = new Date().toLocaleString("en-GB", {
+      timeZone: "Europe/Berlin",
+    });
+    setTime(`${current.slice(-11, -6)}${current.slice(-3, -1)}.M.`);
+    setTimeout(updateTime, 60 * 1000);
 
-      if (new Date().getHours() < 7) setAwake(false);
+    if (new Date().getHours() < 7) setAwake(false);
   }
 
   useEffect(() => {
@@ -74,9 +76,9 @@ export default function Home({
         <meta content="#10b981" data-react-helmet="true" name="theme-color" />
       </Head>
 
-      <div className="flex flex-col w-[80%] md:w-[60rem] min-h-screen mx-auto mt-24 gap-12 bg-gradient-to-br">
+      <div className="mx-auto mt-24 flex min-h-screen w-[80%] flex-col gap-12 bg-gradient-to-br md:w-[60rem]">
         <div
-          className="left-0 top-0 h-[30px] w-[30px] rounded-full border border-zinc-600 z-30 pointer-events-none transition-all duration-300 fixed"
+          className="pointer-events-none fixed left-0 top-0 z-30 h-[30px] w-[30px] rounded-full border border-zinc-600 transition-all duration-300"
           id="cursor"
         />
         <div className="flex flex-col gap-2">
@@ -124,7 +126,7 @@ export default function Home({
             compact list of technologies that I use.
           </p>
 
-          <div className="mt-4 flex flex-wrap flex-row mx-4 md:mx-2 border items-center justify-center border-zinc-800 text-zinc-300 rounded-md gap-3 p-2">
+          <div className="mx-4 mt-4 flex flex-row flex-wrap items-center justify-center gap-3 rounded-md border border-zinc-800 p-2 text-zinc-300 md:mx-2">
             <TechItem icon={SiTypescript} name="TypeScript" />
             <TechItem icon={SiJavascript} name="JavaScript" />
             <TechItem icon={SiNodedotjs} name="Node.js" />
@@ -155,7 +157,7 @@ export default function Home({
         <div className="flex flex-col gap-1">
           <h1 className="text-4xl font-semibold">projects 🛠️</h1>
 
-          <p className="text-lg text-zinc-200 font-extrabold italic">soon™️</p>
+          <p className="text-lg font-extrabold italic text-zinc-200">soon™️</p>
         </div>
       </div>
     </>

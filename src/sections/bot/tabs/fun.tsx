@@ -10,7 +10,7 @@ export const Fun = () => {
   const picture = getRandomDog(false);
 
   return (
-    <TabsContent value="fun" className="border border-zinc-800 rounded-md">
+    <TabsContent value="fun" className="rounded-md border border-zinc-800">
       <TabsContainer>
         <Message
           profile="ender"

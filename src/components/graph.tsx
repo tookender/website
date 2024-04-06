@@ -52,7 +52,7 @@ interface CustomTooltipProps {
 const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-black border border-zinc-800 rounded-md">
+      <div className="rounded-md border border-zinc-800 bg-black">
         <div className="mx-4 my-4">
           <h1 className="text-xl">{label}</h1>
           <p className="text-md">{payload[0].value}/4000 happiness score</p>
@@ -67,8 +67,8 @@ const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
 export default class MemberHappinessGraph extends PureComponent {
   render() {
     return (
-      <div className="w-full mx-4">
-        <h1 className="text-xl sm:text-2xl font-semibold mb-2">
+      <div className="mx-4 w-full">
+        <h1 className="mb-2 text-xl font-semibold sm:text-2xl">
           Member happiness after inviting{" "}
           <span className="text-sky-500">Korii Bot</span> 😎
         </h1>
@@ -106,7 +106,7 @@ export default class MemberHappinessGraph extends PureComponent {
           </AreaChart>
         </ResponsiveContainer>
 
-        <h1 className="text-xl sm:text-2xl font-semibold my-2 ">
+        <h1 className="my-2 text-xl font-semibold sm:text-2xl ">
           Member happiness after inviting{" "}
           <span className="text-orange-800">MEE6</span> 💩
         </h1>

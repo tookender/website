@@ -6,7 +6,7 @@ export const Happiness = () => {
   return (
     <TabsContent
       value="happiness"
-      className="border border-zinc-800 rounded-md"
+      className="rounded-md border border-zinc-800"
     >
       <TabsContainer>
         <MemberHappinessGraph />

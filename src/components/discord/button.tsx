@@ -8,7 +8,9 @@ export const ButtonContainer = ({
 }: {
   children: React.ReactNode;
 }) => {
-  return <div className="flex flex-col sm:flex-row gap-2 ml-14">{children}</div>;
+  return (
+    <div className="ml-14 flex flex-col gap-2 sm:flex-row">{children}</div>
+  );
 };
 
 export const GrayButton = ({ text }: { text: string }) => {

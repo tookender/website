@@ -9,7 +9,10 @@ export default function Home() {
       <Head>
         <title>korino/home</title>
         <meta content="korino/home" property="og:title" />
-        <meta content="Home page for showing off my projects and a little about myself." property="og:description" />
+        <meta
+          content="Home page for showing off my projects and a little about myself."
+          property="og:description"
+        />
         <meta content="https://korino.dev" property="og:url" />
         <meta content="#43B581" data-react-helmet="true" name="theme-color" />
       </Head>

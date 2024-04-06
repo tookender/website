@@ -11,7 +11,10 @@ import { TabsContent } from "@radix-ui/react-tabs";
 
 export const ServerInfo = () => {
   return (
-    <TabsContent value="server_info" className="border border-zinc-800 rounded-md">
+    <TabsContent
+      value="server_info"
+      className="rounded-md border border-zinc-800"
+    >
       <TabsContainer>
         <Message
           profile="doggo"
@@ -70,7 +73,11 @@ export const ServerInfo = () => {
           date="Today at 12:16"
           text="holy moly, that is EPIC."
         />
-        <Message profile="ender" date="Today at 12:16" text="glad you like it :)" />
+        <Message
+          profile="ender"
+          date="Today at 12:16"
+          text="glad you like it :)"
+        />
       </TabsContainer>
     </TabsContent>
   );

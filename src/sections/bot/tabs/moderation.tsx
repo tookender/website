@@ -8,7 +8,7 @@ export const Moderation = () => {
   return (
     <TabsContent
       value="moderation"
-      className="border border-zinc-800 rounded-md"
+      className="rounded-md border border-zinc-800"
     >
       <TabsContainer>
         <Message
