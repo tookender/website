@@ -4,14 +4,15 @@ const svgToDataUri = require("mini-svg-data-uri");
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
-const colors = require('tailwindcss/colors')
+const colors = require("tailwindcss/colors");
+const { nextui } = require("@nextui-org/react");
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.tsx",
-    "./src/components/**/*.tsx",
-    "./src/sections/**/*.tsx",
+    "./src/**/**/*.tsx",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "class",
   theme: {
     fontFamily: {
       whitney: [
@@ -39,7 +40,7 @@ const config: Config = {
       ],
     },
     colors: {
-      background: "hsl(240, 10%, 4%, 1)",
+      "background-color": "hsl(240, 10%, 4%, 1)",
       black: colors.black,
       white: colors.white,
       gray: colors.slate,
@@ -80,22 +81,26 @@ const config: Config = {
     },
   },
   plugins: [
+    nextui(),
     addVariablesForColors,
     function ({ matchUtilities, theme }: any) {
       matchUtilities(
         {
           "bg-grid": (value: any) => ({
             backgroundImage: `url("${svgToDataUri(
-              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="42" height="42" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="42" height="42" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`,
             )}")`,
           }),
           "bg-big-grid": (value: any) => ({
             backgroundImage: `url("${svgToDataUri(
-              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="84" height="84" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="84" height="84" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`,
             )}")`,
           }),
         },
-        { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
+        {
+          values: flattenColorPalette(theme("backgroundColor")),
+          type: "color",
+        },
       );
     },
   ],
@@ -104,7 +109,7 @@ const config: Config = {
 function addVariablesForColors({ addBase, theme }: any) {
   let allColors = flattenColorPalette(theme("colors"));
   let newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val]),
   );
 
   addBase({

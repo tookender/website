@@ -34,7 +34,7 @@ export const Navbar = () => {
 
   return (
     <main>
-      <header className="fixed top-0 z-50 flex h-14 w-full flex-col items-center justify-around border-b border-b-zinc-800 bg-background/60 backdrop-blur">
+      <header className="fixed top-0 z-50 flex h-14 w-full flex-col items-center justify-around border-b border-b-zinc-800 bg-background-color/60 backdrop-blur">
         <nav className="relative flex w-full max-w-[1400px] flex-1 items-center">
           <div className="ml-2 flex w-full flex-row items-center gap-4 sm:ml-4 sm:gap-6 xxl:ml-0">
             <Link

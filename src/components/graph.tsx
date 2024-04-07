@@ -67,7 +67,7 @@ const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
 export default class MemberHappinessGraph extends PureComponent {
   render() {
     return (
-      <div className="mx-4 w-full">
+      <div className="mx-4">
         <h1 className="mb-2 text-xl font-semibold sm:text-2xl">
           Member happiness after inviting{" "}
           <span className="text-sky-500">Korii Bot</span> 😎

@@ -7,6 +7,7 @@ import { Footer } from "@/components/footer";
 import { useEffect } from "react";
 import { Router } from "next/router";
 import { GeistSans } from "geist/font/sans";
+import { NextUIProvider } from "@nextui-org/react";
 
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
@@ -43,12 +44,12 @@ export default function App({ Component, pageProps, router }: AppProps) {
         <meta name="author" content="Korino Development" />
       </Head>
 
-      <div className={`${GeistSans.className} antialiased`}>
+      <div className={`${GeistSans.className} antialiased dark`}>
         <Navbar />
 
-        <div className="mt-14 min-h-screen">
+        <NextUIProvider className="mt-14 min-h-screen">
           <Component {...pageProps} key={router.pathname} />
-        </div>
+        </NextUIProvider>
 
         <Footer
           commitHash={process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA}
