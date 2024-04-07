@@ -31,7 +31,7 @@ export const Footer = ({ commitHash, commitMessage }: FooterProps) => {
           <div>
             <div className="flex flex-row items-center gap-4">
               <Image
-                src="/avatar.webp"
+                src="/avatars/ender.webp"
                 alt="Website logo"
                 width={64}
                 height={64}

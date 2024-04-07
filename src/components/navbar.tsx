@@ -43,7 +43,7 @@ export const Navbar = () => {
             >
               <Image
                 className="rounded-full"
-                src="/avatar.webp"
+                src="/avatars/ender.webp"
                 alt="Korino Logo"
                 width={40}
                 height={40}

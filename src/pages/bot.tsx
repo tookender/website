@@ -31,6 +31,7 @@ export default function Home() {
         <p className="hidden text-[#9D174D]" />
         <p className="hidden text-[#3498DB]" />
         <p className="hidden text-[#DB4039]" />
+        <p className="hidden text-[#F6B5FA]" />
 
         <div className="flex justify-center px-8 mt-12 sm:mt-16 md:mt-24">
           <Tabs defaultValue="user_info" className="w-[95vw] sm:w-[80vw] xxl:w-[1200px] overflow-auto">

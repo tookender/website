@@ -90,14 +90,14 @@ export default function Home({
             <Block
               text="Rustbyte"
               link="https://rustbyte.dev"
-              image="rustbyte.svg"
+              image="/logos/rustbyte.svg"
               alt="Rustbyte logomark"
             />{" "}
             as a co-founder, however in my free time I work on{" "}
             <Block
               text="Korino"
               link="https://korino.dev"
-              image="avatar.webp"
+              image="/avatars/ender.webp"
               alt="Ender profile picture"
             />{" "}
             which is the site you are on right now, which is just a little side

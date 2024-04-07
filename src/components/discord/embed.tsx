@@ -27,6 +27,7 @@ export const Embed = ({
 
   const formatText = (text: string, height: number = 28) => {
     let newText = addEmotes(text, height);
+    newText = newText.replace("\`@Server Booster\`", '<span className="text-[#F6B5FA] bg-[#F6B5FA]/20">Server Booster</span>');
     newText = newText.replace(
       /\*\*(.*?)\*\*/g,
       '<span class="font-bold">$1</span>',
