@@ -15,7 +15,8 @@ const config: Config = {
   darkMode: "class",
   theme: {
     fontFamily: {
-      whitney: [
+      discord: [
+        "gg sans", // If the user somehow has it locally?
         "Whitney",
         "Noto Sans",
         "Helvetica Neue",
@@ -57,7 +58,14 @@ const config: Config = {
       red: colors.red,
     },
     screens: {
+      // :D
       xxl: "1400px",
+      xxxl: "1800px",
+      xxxxl: "2000px",
+      xxxxxl: "2400px",
+      xxxxxxl: "2800px",
+      xxxxxxxl: "3200px",
+      xxxxxxxxl: "3800px",
       ...defaultTheme.screens,
     },
     animation: {

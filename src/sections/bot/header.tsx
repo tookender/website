@@ -1,10 +1,9 @@
 import { PrimaryButton, SecondaryButton } from "@/components/button";
-import { IconBrandGithub } from "@tabler/icons-react";
 import {
   IconArrowRight,
-  IconBrandDiscordFilled,
-  IconChevronDown,
 } from "@tabler/icons-react";
+import { Button, ButtonGroup } from "@nextui-org/react";
+import { SiDiscord, SiGithub } from "react-icons/si";
 
 export const Header = () => {
   return (
@@ -29,14 +28,14 @@ export const Header = () => {
 
       <div className="mt-4 flex items-center justify-center gap-4">
         <PrimaryButton text="Add to Discord" link="https://discord.com">
-          <IconBrandDiscordFilled height={22} width={22} />
+          <SiDiscord className="text-xl" />
         </PrimaryButton>
 
         <SecondaryButton
           text="GitHub"
-          link="https://github.com/tookender/Korii-Bot"
+          link="https://github.com/tookender/website"
         >
-          <IconBrandGithub height={22} width={22} />
+          <SiGithub className="text-xl" />
         </SecondaryButton>
       </div>
     </div>

@@ -42,6 +42,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
           content="A website to display all projects made by Korino Development."
         />
         <meta name="author" content="Korino Development" />
+        <meta name="darkreader" content="korino.dev" />
       </Head>
 
       <div className={`${GeistSans.className} antialiased dark`}>

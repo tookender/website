@@ -3,15 +3,13 @@ import Image from "next/image";
 import { profiles } from "@/lib/profiles";
 import Tippy from "@tippyjs/react";
 
-export const Command = ({
-  profile,
-  command,
-  title,
-}: {
+interface CommandProps {
   profile: string;
   command: string;
   title?: string;
-}) => {
+}
+
+export const Command = ({ profile, command, title }: CommandProps) => {
   const actual_title = `/${command} ${title ? title : ""}`;
   const data = profiles[profile];
   const picture = data[0];

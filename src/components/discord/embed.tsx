@@ -1,5 +1,14 @@
 import React from "react";
 
+interface EmbedProps {
+  title: string;
+  fields?: [string, string[]][];
+  picture?: string;
+  pictureId?: string;
+  pictureDescription?: string;
+  footer?: string;
+}
+
 export const Embed = ({
   title,
   fields,
@@ -7,14 +16,7 @@ export const Embed = ({
   pictureId,
   pictureDescription,
   footer,
-}: {
-  title: string;
-  fields?: [string, string[]][];
-  picture?: string;
-  pictureId?: string;
-  pictureDescription?: string;
-  footer?: string;
-}) => {
+}: EmbedProps) => {
   const addEmotes = (text: string, height: number) => {
     const emoteRegex = /<emote:([^>]+)>/g;
 
@@ -27,7 +29,10 @@ export const Embed = ({
 
   const formatText = (text: string, height: number = 28) => {
     let newText = addEmotes(text, height);
-    newText = newText.replace("\`@Server Booster\`", '<span className="text-[#F6B5FA] bg-[#F6B5FA]/20">Server Booster</span>');
+    newText = newText.replace(
+      "`@Server Booster`",
+      '<span className="text-[#F6B5FA] bg-[#F6B5FA]/20">Server Booster</span>',
+    );
     newText = newText.replace(
       /\*\*(.*?)\*\*/g,
       '<span class="font-bold">$1</span>',

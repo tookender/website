@@ -4,17 +4,14 @@ import { IconCheck } from "@tabler/icons-react";
 import { profiles } from "@/lib/profiles";
 import Tippy from "@tippyjs/react";
 
-export const Message = ({
-  profile,
-  date,
-  text,
-  children,
-}: {
+interface MessageProps {
   profile: string;
   date: string;
   text?: string;
   children?: React.ReactNode;
-}) => {
+}
+
+export const Message = ({ profile, date, text, children }: MessageProps) => {
   const data = profiles[profile];
   const picture = data[0];
   const color = data[1];
@@ -27,7 +24,7 @@ export const Message = ({
   }
 
   return (
-    <main className="flex flex-col font-whitney">
+    <main className="flex flex-col font-discord">
       <div className="flex flex-row gap-3">
         <button className="rounded-full">
           <Image
