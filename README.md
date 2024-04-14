@@ -1,7 +1,7 @@
 # website 🌐
 A website built with [Next.js](https://nextjs.org/) bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 <br>
-It uses [`tippy.js-react`](https://github.com/atomiks/tippyjs-react) for tooltips and [`Recharts`](https://recharts.org/en-US/) for custom graphs. 
+It uses [`NextUI`](https://nextui.org/) for awesome components and [`Recharts`](https://recharts.org/en-US/) for custom graphs. 
 <br>
 Primarily for showcasing my projects and my portfolio.
 

@@ -1,3 +1,4 @@
+import { Image } from "@nextui-org/react";
 import React from "react";
 
 interface EmbedProps {
@@ -59,12 +60,14 @@ export const Embed = ({
         <div className="mt-2 flex flex-col gap-2 text-sm font-light sm:flex-row sm:gap-8 sm:text-base">
           {/* we don't know the height/width of the image */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={picture}
-            className={`w-full max-w-[256px] rounded-md ${picture ? "block" : "hidden"}`}
-            id={pictureId}
-            alt={pictureDescription}
-          />
+          <button className={picture ? "block" : "hidden"}>
+            <Image
+              src={picture}
+              className="w-full max-w-[256px] rounded-md"
+              id={pictureId}
+              alt={pictureDescription}
+            />
+          </button>
           {fields &&
             fields.map((field, index) => (
               <div key={index}>

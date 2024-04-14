@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { profiles } from "@/lib/profiles";
-import Tippy from "@tippyjs/react";
+import { Tooltip } from "@nextui-org/react";
 
 interface CommandProps {
   profile: string;
@@ -40,11 +40,11 @@ export const Command = ({ profile, command, title }: CommandProps) => {
 
       <span className="mx-0.5 text-base text-zinc-400 sm:text-lg">used</span>
 
-      <Tippy content={<span className="text-zinc-400">{actual_title}</span>}>
+      <Tooltip showArrow={true} content={actual_title} radius="sm">
         <button className="flex items-center justify-center text-base font-medium text-blue-500 hover:underline sm:text-lg">
           /{command}
         </button>
-      </Tippy>
+      </Tooltip>
     </div>
   );
 };

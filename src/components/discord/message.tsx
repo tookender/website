@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { IconCheck } from "@tabler/icons-react";
 import { profiles } from "@/lib/profiles";
-import Tippy from "@tippyjs/react";
+import { Tooltip } from "@nextui-org/react";
 
 interface MessageProps {
   profile: string;
@@ -44,17 +44,16 @@ export const Message = ({ profile, date, text, children }: MessageProps) => {
               {profile}
             </button>
 
-            <Tippy content={<span>Verified Bot</span>}>
-              <div
-                className={`h-4 items-center justify-center gap-0.5 rounded-md bg-[#5865f2] px-1 text-[10px] leading-[.9375rem] text-white sm:text-xs ${
-                  bot ? "flex" : "hidden"
-                }`}
-              >
-                <IconCheck height={12} width={12} className="block sm:hidden" />
-                <IconCheck height={14} width={14} className="hidden sm:block" />
-                <span>BOT</span>
-              </div>
-            </Tippy>
+            <div
+              className={`h-4 items-center justify-center gap-0.5 rounded-md bg-[#5865f2] px-1 text-[10px] leading-[.9375rem] text-white sm:text-xs ${
+                bot ? "flex" : "hidden"
+              }`}
+            >
+              <Tooltip showArrow={true} content="Verified Bot" radius="sm">
+                <IconCheck height={14} width={14} className="size-3 md:size-[14px]" />
+              </Tooltip>
+              <span>BOT</span>
+            </div>
 
             <span className="ml-1 text-xs text-neutral-400 sm:text-sm">
               {date}

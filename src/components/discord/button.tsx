@@ -9,7 +9,7 @@ export const ButtonContainer = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div className="ml-14 flex flex-col gap-2 sm:flex-row">{children}</div>
+    <div className="ml-14 flex flex-wrap gap-2">{children}</div>
   );
 };
 
