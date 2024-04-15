@@ -1,9 +1,32 @@
 import { Card } from "@/components/card";
-import {
-  IconBrandPython,
-  IconBrandTypescript,
-  IconCoffee,
-} from "@tabler/icons-react";
+import { SiNextdotjs, SiPython, SiTypescript } from "react-icons/si";
+
+const technologies = [
+  {
+    title: "Python",
+    description:
+      "We use Python a lot for its ease-of-use and great developer experience with its amazing package manager.",
+    link: "https://python.org",
+    icon: SiPython,
+    color: "text-yellow-500",
+  },
+  {
+    title: "TypeScript",
+    description:
+      "TypeScript is mainly utilized for our website, we use it as a typed alternative to JavaScript.",
+    link: "https://typescriptlang.org",
+    icon: SiTypescript,
+    color: "text-sky-500",
+  },
+  {
+    title: "Next.js",
+    description:
+      "We use Next.js to write fast, performant, and accessible sites.",
+    link: "https://nextjs.org",
+    icon: SiNextdotjs,
+    color: "text-blue-200",
+  },
+];
 
 export const Technologies = () => {
   return (
@@ -16,32 +39,17 @@ export const Technologies = () => {
       </p>
 
       <div className="mx-4 mt-6 flex flex-col items-center justify-center gap-4 pb-16 md:flex-row">
-        <Card
-          title="Python"
-          description="We use Python a lot for it's ease-of-use and great developer experience with its amazing package manager."
-          link="https://python.org"
-          target="_blank"
-        >
-          <IconBrandPython className="h-12 w-12 text-yellow-500" />
-        </Card>
-
-        <Card
-          title="TypeScript"
-          description="TypeScript is mainly utilized for our website, we use it as a typed alternative to JavaScript."
-          link="https://typescriptlang.org"
-          target="_blank"
-        >
-          <IconBrandTypescript className="h-12 w-12 text-sky-500" />
-        </Card>
-
-        <Card
-          title="Java"
-          description="We use Java to write custom plugins for the Korino PvP server to customize the game-play."
-          link="https://java.com"
-          target="_blank"
-        >
-          <IconCoffee className="h-12 w-12 text-orange-400" />
-        </Card>
+        {technologies.map((tech, index) => (
+          <Card
+            key={index}
+            title={tech.title}
+            description={tech.description}
+            link={tech.link}
+            target="_blank"
+          >
+            <tech.icon className={`h-12 w-12 ${tech.color}`} />
+          </Card>
+        ))}
       </div>
     </div>
   );

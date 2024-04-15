@@ -1,4 +1,4 @@
-import { IconChevronDown } from "@tabler/icons-react";
+import { TbChevronDown } from "react-icons/tb";
 
 export const Header = () => {
   return (
@@ -9,7 +9,7 @@ export const Header = () => {
 
         <p className="z-20 mt-4 flex flex-col items-center justify-center text-2xl font-extralight text-neutral-300">
           scroll down
-          <IconChevronDown className="animate-bounce h-6 w-6" />
+          <TbChevronDown className="animate-bounce h-6 w-6" />
         </p>
 
         <div className="absolute z-10">

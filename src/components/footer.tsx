@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { IconBrandGithub, IconDog, IconWorld } from "@tabler/icons-react";
-
+import { TbDog, TbWorld } from "react-icons/tb";
+import { SiGithub } from "react-icons/si";
 interface FooterProps {
   commitHash: any;
   commitMessage: any;
@@ -58,15 +58,15 @@ export const Footer = ({ commitHash, commitMessage }: FooterProps) => {
                 text="GitHub"
                 href="https://github.com/tookender"
               >
-                <IconBrandGithub height={24} width={24} />
+                <SiGithub height={24} width={24} />
               </FooterIconElement>
 
               <FooterIconElement text="Doggo" href="/doggo">
-                <IconDog height={24} width={24} />
+                <TbDog height={24} width={24} />
               </FooterIconElement>
 
               <FooterIconElement text="Website" href="/">
-                <IconWorld height={24} width={24} />
+                <TbWorld height={24} width={24} />
               </FooterIconElement>
             </ul>
           </div>
@@ -110,7 +110,12 @@ export const Footer = ({ commitHash, commitMessage }: FooterProps) => {
           &copy; {currentYear}. Korino. All rights reserved.
           <span className="flex flex-row gap-2">
             Powered by{" "}
-            <Image src="/logos/vercel.svg" width={14} height={14} alt="Vercel Logo" />
+            <Image
+              src="/logos/vercel.svg"
+              width={14}
+              height={14}
+              alt="Vercel Logo"
+            />
             <a
               className="duration-500 hover:brightness-125"
               href="https://vercel.com"

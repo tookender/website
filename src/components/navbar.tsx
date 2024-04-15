@@ -3,8 +3,9 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { IconBrandGithub, IconDog, IconMenuDeep } from "@tabler/icons-react";
 import { usePathname } from "next/navigation";
+import { SiGithub } from "react-icons/si";
+import { TbDog, TbMenuDeep } from "react-icons/tb";
 
 export const Navbar = () => {
   let pathname = usePathname();
@@ -68,7 +69,7 @@ export const Navbar = () => {
               title="DOG PICTURES :D"
               className="text-neutral-300 duration-150 hover:scale-105 hover:text-white"
             >
-              <IconDog />
+              <TbDog />
             </Link>
             <a
               href="https://github.com/tookender/website"
@@ -76,10 +77,10 @@ export const Navbar = () => {
               className="text-neutral-300 duration-150 hover:scale-105 hover:text-white"
               target="_blank"
             >
-              <IconBrandGithub />
+              <SiGithub />
             </a>
             <button className="z-[999] sm:hidden" id="menuButton">
-              <IconMenuDeep />
+              <TbMenuDeep />
             </button>
           </div>
         </nav>

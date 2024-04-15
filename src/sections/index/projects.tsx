@@ -1,6 +1,33 @@
 import Link from "next/link";
 import { Card } from "@/components/card";
-import { TbSwords, TbRobot, TbWorld  } from "react-icons/tb";
+import { TbRobot, TbWorld, TbSwords } from "react-icons/tb";
+
+const projects = [
+  {
+    title: "Korino PvP",
+    description:
+      "Mini-game Minecraft server with Skywars, and more to come in the future.",
+    link: "/pvp",
+    icon: TbSwords,
+    color: "text-cyan-500",
+  },
+  {
+    title: "Korii Bot",
+    description:
+      "An easy-to-use multi-purpose Discord bot for managing servers, and more.",
+    link: "/bot",
+    icon: TbRobot,
+    color: "text-blue-400",
+  },
+  {
+    title: "Korino Website",
+    description:
+      "The site you are currently viewing. Used to display our projects.",
+    link: "/",
+    icon: TbWorld,
+    color: "text-purple-500",
+  },
+];
 
 export const Projects = () => {
   return (
@@ -20,29 +47,16 @@ export const Projects = () => {
       </p>
 
       <div className="mx-4 mt-6 flex flex-col items-center justify-center gap-4 pb-16 md:flex-row">
-        <Card
-          title="Korino PvP"
-          description="Mini-game Minecraft server with Skywars, and more to come in the future."
-          link="/pvp"
-        >
-          <TbSwords className="h-12 w-12 text-cyan-500" />
-        </Card>
-
-        <Card
-          title="Korii Bot"
-          description="A easy-to-use multi-purpose Discord bot for managing servers, and more."
-          link="/bot"
-        >
-          <TbRobot className="h-12 w-12 text-blue-400" />
-        </Card>
-
-        <Card
-          title="Korino Website"
-          description="The site you are currently viewing. Used to display our projects."
-          link="/"
-        >
-          <TbWorld className="h-12 w-12 text-purple-500" />
-        </Card>
+        {projects.map((project, index) => (
+          <Card
+            key={index}
+            title={project.title}
+            description={project.description}
+            link={project.link}
+          >
+            <project.icon className={`h-12 w-12 ${project.color}`} />
+          </Card>
+        ))}
       </div>
     </div>
   );

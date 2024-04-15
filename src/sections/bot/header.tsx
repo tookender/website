@@ -1,9 +1,6 @@
-import { PrimaryButton, SecondaryButton } from "@/components/button";
-import {
-  IconArrowRight,
-} from "@tabler/icons-react";
-import { Button, ButtonGroup } from "@nextui-org/react";
+import { TbArrowRight } from "react-icons/tb";
 import { SiDiscord, SiGithub } from "react-icons/si";
+import { PrimaryButton, SecondaryButton } from "@/components/button";
 
 export const Header = () => {
   return (
@@ -14,7 +11,7 @@ export const Header = () => {
       >
         <span className="mr-3">🎉</span>
         <span className="mr-1">v1.0.0 has been released!</span>
-        <IconArrowRight height={15} width={15} />
+        <TbArrowRight height={15} width={15} />
       </a>
 
       <h1 className="mt-2 text-center text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">

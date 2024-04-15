@@ -1,8 +1,8 @@
 import { PrimaryButton, SecondaryButton } from "@/components/button";
-import { IconDog, IconHome } from "@tabler/icons-react";
 import Image from "next/image";
+import { TbHome, TbDog } from "react-icons/tb";
 
-export default function Home() {
+export default function NotFound() {
   return (
     <>
       <div className="flex h-screen flex-col items-center justify-center">
@@ -21,11 +21,11 @@ export default function Home() {
 
         <div className="mt-6 flex flex-row gap-4 text-2xl font-semibold">
           <PrimaryButton text="Home" link="/">
-            <IconHome height={22} width={22} />
+            <TbHome height={22} width={22} />
           </PrimaryButton>
 
           <SecondaryButton text="doggo pics :D" link="/doggo">
-            <IconDog height={22} width={22} />
+            <TbDog height={22} width={22} />
           </SecondaryButton>
         </div>
       </div>

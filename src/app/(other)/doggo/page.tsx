@@ -1,9 +1,8 @@
 import { dogImages } from "@/lib/doggo";
 import Head from "next/head";
-import { MouseEvent, useState } from "react";
 import { Image } from "@nextui-org/react";
 
-export default function Home() {
+export default function DoggoPage() {
   return (
     <main>
       <Head>
