@@ -14,7 +14,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import Head from "next/head";
-import { CiLocationOn, CiMusicNote1 } from "react-icons/ci";
+import { CiLocationOn } from "react-icons/ci";
 import { Block } from "@/components/block";
 import { Project } from "@/components/project";
 import { TechItem } from "@/components/techitem";
@@ -22,14 +22,14 @@ import { useLanyard } from "react-use-lanyard";
 
 export default function EnderPage() {
   let spotify;
-	const lanyard = useLanyard({
-		userId: "1022842005920940063",
-	});
-  
+  const lanyard = useLanyard({
+    userId: "1022842005920940063",
+  });
+
   if (lanyard.data?.data.spotify) {
-    spotify = `${lanyard.data?.data?.spotify?.song} by ${lanyard.data?.data?.spotify?.album_art_url}`
+    spotify = `${lanyard.data?.data?.spotify?.song} by ${lanyard.data?.data?.spotify?.album_art_url}`;
   } else {
-    spotify = "Not listening to anything"
+    spotify = "Not listening to anything";
   }
 
   return (
@@ -56,7 +56,6 @@ export default function EnderPage() {
       <div className="flex w-screen items-center justify-center">
         <div className="mb-12 mt-24 flex w-[90vw] flex-col">
           <div className="flex flex-col items-center gap-6 text-center">
-
             <h1 className="text-5xl font-extrabold sm:text-6xl">
               👋 Hey, I&apos;m Ender. {}
             </h1>
@@ -191,15 +190,18 @@ export default function EnderPage() {
           </div>
 
           <div className="mt-12 flex flex-col items-center justify-center gap-1">
-            <h1 className="text-xl font-bold">
-              Currently listening to:
-            </h1>
+            <h1 className="text-xl font-bold">Currently listening to:</h1>
 
-            <p className={`${lanyard.data?.data?.spotify ? 'hidden' : 'block'}`}>
+            <p
+              className={`${lanyard.data?.data?.spotify ? "hidden" : "block"}`}
+            >
               Nothing at all.
             </p>
 
-            <iframe className={`w-[400px] h-[80px] rounded-2xl ${lanyard.data?.data?.spotify ? 'block' : 'hidden'}`} src={`https://open.spotify.com/embed/track/${lanyard.data?.data?.spotify?.track_id}`}/>
+            <iframe
+              className={`h-[80px] w-[400px] rounded-2xl ${lanyard.data?.data?.spotify ? "block" : "hidden"}`}
+              src={`https://open.spotify.com/embed/track/${lanyard.data?.data?.spotify?.track_id}`}
+            />
           </div>
         </div>
       </div>
