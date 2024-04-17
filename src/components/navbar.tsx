@@ -1,41 +1,21 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { SiGithub } from "react-icons/si";
 import { TbDog, TbMenuDeep } from "react-icons/tb";
+import { auth, signIn } from "@/auth";
+import { Image } from "@nextui-org/image";
+import { Title } from "./navbar/title";
+import { NavbarElement } from "./navbar/element";
+import { Avatar } from "./navbar/avatar";
+import { Menu, MenuElement } from "./navbar/menu";
+import { NavbarIcon } from "./navbar/icon";
 
-export const Navbar = () => {
-  let pathname = usePathname();
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  if (pathname == "/") {
-    pathname = "/home";
-  } else {
-    pathname.replace("/", "");
-  }
-
-  const toggleScrolling = () => {
-    if (menuOpen) {
-      document.body.style.overflow = "auto";
-    } else {
-      document.body.style.overflow = "hidden";
-    }
-
-    setMenuOpen(!menuOpen);
-  };
-
-  useEffect(() => {
-    const button = document.getElementById("menuButton") as HTMLButtonElement;
-
-    button.addEventListener("click", toggleScrolling);
-  });
+export async function AsyncNavbar() {
+  const session = await auth();
+  const menuOpen = false;
 
   return (
     <main>
-      <header className="fixed top-0 z-50 flex h-14 w-full flex-col items-center justify-around border-b border-b-zinc-800 bg-background-color/60 backdrop-blur">
+      <header className="fixed top-0 z-[101] flex h-14 w-full flex-col items-center justify-around border-b border-b-zinc-800 bg-background-color/60 backdrop-blur">
         <nav className="relative flex w-full max-w-[1400px] flex-1 items-center">
           <div className="ml-2 flex w-full flex-row items-center gap-4 sm:ml-4 sm:gap-6 xxl:ml-0">
             <Link
@@ -50,12 +30,7 @@ export const Navbar = () => {
                 height={40}
               />
 
-              <h1
-                className="text-base font-bold text-neutral-300 duration-150 group-hover:text-white"
-                id="title"
-              >
-                korino{pathname}
-              </h1>
+              <Title />
             </Link>
 
             <NavbarElement text="Korino PvP" href="/pvp" />
@@ -64,62 +39,40 @@ export const Navbar = () => {
           </div>
 
           <div className="mr-2 flex items-center gap-3 sm:mr-4 xxl:mr-0">
-            <Link
-              href="/doggo"
-              title="DOG PICTURES :D"
-              className="text-neutral-300 duration-150 hover:scale-105 hover:text-white"
+            <NavbarIcon title="DOG PICTURES :D" href="/doggo">
+              <TbDog className="size-6" />
+            </NavbarIcon>
+
+            <NavbarIcon title="DOG PICTURES :D" href="https://github.com/tookender/website" blank={true}>
+              <SiGithub className="size-6" />
+            </NavbarIcon>
+
+            <NavbarIcon title="Open the menu" className="z-[999] sm:hidden" id="menuButton">
+              <TbMenuDeep className="size-6" />
+            </NavbarIcon>
+
+            <button
+              className={`rounded-md bg-blue-500 px-2 py-1 ${session ? "hidden" : ""}`}
+              onClick={async () => {
+                "use server";
+                await signIn("github");
+              }}
+              title="Login with GitHub"
             >
-              <TbDog />
-            </Link>
-            <a
-              href="https://github.com/tookender/website"
-              title="Korino Website Github"
-              className="text-neutral-300 duration-150 hover:scale-105 hover:text-white"
-              target="_blank"
-            >
-              <SiGithub />
-            </a>
-            <button className="z-[999] sm:hidden" id="menuButton">
-              <TbMenuDeep />
+              Login
             </button>
+
+            <Avatar img={session?.user?.image} name={session?.user?.name}/>
           </div>
         </nav>
       </header>
-      <menu
-        className={`h-screen w-screen items-center justify-center bg-gradient-to-br from-neutral-900 to-black  ${
-          menuOpen ? "flex" : "hidden"
-        }`}
-        id="menu"
-      >
-        <div className="flex flex-col gap-4">
-          <MenuElement text="Korino" href="/" />
-          <MenuElement text="Korino PvP" href="/pvp" />
-          <MenuElement text="Korii Bot" href="/bot" />
-          <MenuElement text="Doggo pics :D" href="/doggo" />
-        </div>
-      </menu>
+      <Menu>
+        <MenuElement text="Korino" href="/" />
+        <MenuElement text="Korino PvP" href="/pvp" />
+        <MenuElement text="Korii Bot" href="/bot" />
+        <MenuElement text="Doggo pics :D" href="/doggo" />
+      </Menu>
     </main>
   );
-};
+}
 
-const NavbarElement = ({ text, href }: { text: string; href: string }) => {
-  return (
-    <Link
-      className="relative hidden text-sm text-neutral-400 duration-150 ease-in hover:text-white sm:block"
-      href={href}
-    >
-      {text}
-    </Link>
-  );
-};
-
-const MenuElement = ({ text, href }: { text: string; href: string }) => {
-  return (
-    <Link
-      className="z-50 text-6xl font-bold text-neutral-400 duration-500 hover:text-white"
-      href={href}
-    >
-      {text}
-    </Link>
-  );
-};

@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 import type { Metadata, Viewport } from "next";
 
 import { Providers } from "./providers";
-import { Navbar } from "@/components/navbar";
+import { AsyncNavbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 
 import { GeistSans } from "geist/font/sans";
@@ -13,7 +13,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  keywords: "korino, korino development, korii bot, korino pvp, korino website, web developer, github, typescript",
+  keywords:
+    "korino, korino development, korii bot, korino pvp, korino website, web developer, github, typescript",
 };
 
 export default function RootLayout({
@@ -24,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${GeistSans.className} antialiased`}>
-        <Navbar />
+        <AsyncNavbar />
 
         <Providers>{children}</Providers>
 
