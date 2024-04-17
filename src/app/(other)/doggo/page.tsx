@@ -1,3 +1,4 @@
+"use client";
 import { dogImages } from "@/lib/doggo";
 import Head from "next/head";
 import { Image } from "@nextui-org/react";
