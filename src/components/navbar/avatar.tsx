@@ -7,12 +7,11 @@ import {
 } from "@nextui-org/dropdown";
 import { Image } from "@nextui-org/image";
 
-interface AvatarProps { 
+interface AvatarProps {
   img: any;
-  name: any;
 }
 
-export const Avatar = ({ img, name }: AvatarProps) => {
+export const Avatar = ({ img }: AvatarProps) => {
   console.log(`IMAGE: ${img}`);
   return (
     <Dropdown>
@@ -21,7 +20,7 @@ export const Avatar = ({ img, name }: AvatarProps) => {
           src={img}
           width={64}
           height={64}
-          alt={`${name}'s profile picture`}
+          alt="Profile picture"
           className="size-6 cursor-pointer rounded-full px-2 py-1 duration-300 active:scale-95"
         />
       </DropdownTrigger>

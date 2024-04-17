@@ -62,7 +62,9 @@ export async function AsyncNavbar() {
               Login
             </button>
 
-            <Avatar img={session?.user?.image} name={session?.user?.name}/>
+            <div className={`${!session ? "hidden" : ""}`}>
+              <Avatar img={session ? session.user ? session.user.name : "/doggo/dog1.webp" : "/doggo/dog1.webp"}/>
+            </div>
           </div>
         </nav>
       </header>

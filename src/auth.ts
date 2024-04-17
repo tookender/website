@@ -1,7 +1,7 @@
 import NextAuth from "next-auth"
-import GitHub from "next-auth/providers/github"
 import PostgresAdapter from "@auth/pg-adapter"
 import { Pool } from "pg"
+import GitHub from "next-auth/providers/github"
  
 const pool = new Pool({
   host: process.env.POSTGRES_HOST,
