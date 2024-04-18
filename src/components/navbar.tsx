@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { SiGithub } from "react-icons/si";
 import { TbDog, TbMenuDeep } from "react-icons/tb";
-import { auth, signIn } from "@/auth";
+import { auth } from "@/auth";
 import { Image } from "@nextui-org/image";
 import { Title } from "./navbar/title";
 import { NavbarElement } from "./navbar/element";
 import { Avatar } from "./navbar/avatar";
 import { Menu, MenuElement } from "./navbar/menu";
 import { NavbarIcon } from "./navbar/icon";
+import { LoginButton } from "./navbar/login";
 
 export async function AsyncNavbar() {
   const session = await auth();
@@ -43,27 +44,36 @@ export async function AsyncNavbar() {
               <TbDog className="size-6" />
             </NavbarIcon>
 
-            <NavbarIcon title="DOG PICTURES :D" href="https://github.com/tookender/website" blank={true}>
+            <NavbarIcon
+              title="DOG PICTURES :D"
+              href="https://github.com/tookender/website"
+              blank={true}
+            >
               <SiGithub className="size-6" />
             </NavbarIcon>
 
-            <NavbarIcon title="Open the menu" className="z-[999] sm:hidden" id="menuButton">
+            <NavbarIcon
+              title="Open the menu"
+              className="z-[999] sm:hidden"
+              id="menuButton"
+            >
               <TbMenuDeep className="size-6" />
             </NavbarIcon>
 
-            <button
-              className={`rounded-md bg-blue-500 px-2 py-1 ${session ? "hidden" : ""}`}
-              onClick={async () => {
-                "use server";
-                await signIn("github");
-              }}
-              title="Login with GitHub"
-            >
-              Login
-            </button>
+            <div className={`${session ? "hidden" : ""}`}>
+              <LoginButton />
+            </div>
 
             <div className={`${!session ? "hidden" : ""}`}>
-              <Avatar img={session ? session.user ? session.user.name : "/doggo/dog1.webp" : "/doggo/dog1.webp"}/>
+              <Avatar
+                img={
+                  session
+                    ? session.user
+                      ? session.user.image
+                      : "/doggo/dog1.webp"
+                    : "/doggo/dog1.webp"
+                }
+              />
             </div>
           </div>
         </nav>
@@ -77,4 +87,3 @@ export async function AsyncNavbar() {
     </main>
   );
 }
-

@@ -1,4 +1,5 @@
 "use client";
+
 import {
   Dropdown,
   DropdownItem,
@@ -6,13 +7,13 @@ import {
   DropdownTrigger,
 } from "@nextui-org/dropdown";
 import { Image } from "@nextui-org/image";
+import { signOut } from "next-auth/react";
 
 interface AvatarProps {
   img: any;
 }
 
 export const Avatar = ({ img }: AvatarProps) => {
-  console.log(`IMAGE: ${img}`);
   return (
     <Dropdown>
       <DropdownTrigger>
@@ -21,13 +22,18 @@ export const Avatar = ({ img }: AvatarProps) => {
           width={64}
           height={64}
           alt="Profile picture"
-          className="size-6 cursor-pointer rounded-full px-2 py-1 duration-300 active:scale-95"
+          className="size-6 h-fit w-fit cursor-pointer rounded-full px-2 py-1"
         />
       </DropdownTrigger>
-      <DropdownMenu aria-label="Static Actions">
+      <DropdownMenu aria-label="Account Actions">
         <DropdownItem key="profile">Profile</DropdownItem>
         <DropdownItem key="settings">Account Settings</DropdownItem>
-        <DropdownItem key="logout" className="text-danger" color="danger">
+        <DropdownItem
+          key="logout"
+          className="text-danger"
+          color="danger"
+          onClick={() => signOut()}
+        >
           Log out
         </DropdownItem>
       </DropdownMenu>
