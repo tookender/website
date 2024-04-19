@@ -45,7 +45,7 @@ export default function HomePage() {
           </p>
 
           <p className="text-neutral-200 text-md">
-            {post.excerpt}
+            {post.description}
           </p>
         </div>)}
       </div>

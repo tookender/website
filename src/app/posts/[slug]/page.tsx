@@ -58,12 +58,14 @@ export function generateMetadata({ params }: Params): Metadata {
     return notFound();
   }
 
-  const title = `${post.title} | Next.js Blog Example with KORINO`;
+  const title = `${post.title}`;
 
   return {
     title,
     openGraph: {
-      title,
+      title: title,
+      url: `htps://korino.dev/posts/${post.slug}`,
+      description: post.description,
       images: [post.ogImage.url],
     },
   };

@@ -1,7 +1,6 @@
 ---
 title: "Windows Pro for free"
 description: "This blog post will guide you on how to get Windows Pro for free on Windows 10 and Windows 11."
-excerpt: "This blog post will guide you on how to get Windows Pro for free on Windows 10 and Windows 11."
 coverImage: "/posts/windows.webp"
 date: "2024-04-19"
 tags: "#windows #software"
