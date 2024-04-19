@@ -22,7 +22,6 @@
     "@types/mdx": "^2.0.12",
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
-    "clsx": "^2.1.0",
     "framer-motion": "^11.1.1",
     "geist": "^1.2.2",
     "gray-matter": "^4.0.3",
@@ -38,13 +37,9 @@
     "react-use-lanyard": "^0.3.1",
     "recharts": "^2.12.3",
     "remark": "^15.0.1",
-    "remark-gfm": "^4.0.0",
     "remark-html": "^16.0.1",
-    "remark-rehype": "^11.1.0",
-    "remark-toc": "^9.0.0",
     "sharp": "^0.33.2",
-    "swr": "^2.2.5",
-    "tailwind-merge": "^2.2.1"
+    "swr": "^2.2.5"
   },
   "devDependencies": {
     "@types/node": "^20",
