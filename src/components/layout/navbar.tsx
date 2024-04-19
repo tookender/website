@@ -3,14 +3,14 @@ import { SiGithub } from "react-icons/si";
 import { TbDog, TbMenuDeep } from "react-icons/tb";
 import { auth } from "@/auth";
 import { Image } from "@nextui-org/image";
-import { Title } from "./navbar/title";
-import { NavbarElement } from "./navbar/element";
-import { Avatar } from "./navbar/avatar";
-import { Menu, MenuElement } from "./navbar/menu";
-import { NavbarIcon } from "./navbar/icon";
-import { LoginButton } from "./navbar/login";
+import { Title } from "@/components/navbar/title";
+import { NavbarElement } from "@/components/navbar/element";
+import { Avatar } from "@/components/navbar/avatar";
+import { Menu, MenuElement } from "@/components/navbar/menu";
+import { NavbarIcon } from "@/components/navbar/icon";
+import { LoginButton } from "@/components/navbar/login";
 
-export async function AsyncNavbar() {
+export async function Navbar() {
   const session = await auth();
   const menuOpen = false;
 
@@ -37,6 +37,7 @@ export async function AsyncNavbar() {
             <NavbarElement text="Korino PvP" href="/pvp" />
             <NavbarElement text="Korii Bot" href="/bot" />
             <NavbarElement text="Ender" href="/ender" />
+            <NavbarElement text="Posts (NEW)" href="/posts" />
           </div>
 
           <div className="mr-2 flex items-center gap-3 sm:mr-4 xxl:mr-0">

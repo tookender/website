@@ -2,8 +2,8 @@ import "@/styles/globals.css";
 import type { Metadata, Viewport } from "next";
 
 import { Providers } from "./providers";
-import { AsyncNavbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
+import { Footer } from "@/components/layout/footer";
+import { Navbar } from "@/components/layout/navbar";
 
 import { GeistSans } from "geist/font/sans";
 import "nprogress/nprogress.css";
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${GeistSans.className} antialiased`}>
-        <AsyncNavbar />
+        <Navbar />
 
         <Providers>{children}</Providers>
 

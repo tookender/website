@@ -15,9 +15,9 @@ import {
 } from "react-icons/si";
 import Head from "next/head";
 import { CiLocationOn } from "react-icons/ci";
-import { Block } from "@/components/block";
+import { Block } from "@/components/portfolio/block";
 import { Project } from "@/components/project";
-import { TechItem } from "@/components/techitem";
+import { TechItem } from "@/components/portfolio/tech_item";
 import { useLanyard } from "react-use-lanyard";
 
 export default function EnderPage() {
