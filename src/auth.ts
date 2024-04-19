@@ -1,7 +1,6 @@
 import NextAuth from "next-auth";
 import GitHub from "next-auth/providers/github";
 import type { Provider } from "next-auth/providers";
-import { SupabaseAdapter } from "@auth/supabase-adapter"
 
 const providers: Provider[] = [GitHub];
 
@@ -16,11 +15,7 @@ export const providerMap = providers.map((provider) => {
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers,
-  adapter: SupabaseAdapter({
-    url: process.env.SUPABASE_URL || "",
-    secret: process.env.SUPABASE_SERVICE_ROLE_KEY || "",
-  }),
-  // pages: {
-  //   signIn: "/signin",
-  // },
+  pages: {
+    signIn: "/signin",
+  },
 });

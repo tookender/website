@@ -11,7 +11,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         height="2px"
         color="#43B581"
         options={{ showSpinner: false }}
-      />
+      />  
     </NextUIProvider>
   );
 }
