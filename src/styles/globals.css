@@ -35,3 +35,7 @@ body {
   src: url("https://cdn.skyra.pw/whitney-font/v2/Semibold.woff") format("woff");
   font-weight: 600;
 }
+
+.glow {
+  background-image: conic-gradient(from 180deg at 50% 50%, #a623fe 0deg, #910024 180deg, #910024 1turn);
+}

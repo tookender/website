@@ -28,6 +28,7 @@ export default function EnderPage() {
       <p className="hidden border hover:border-[#4280b1]" />
       <p className="hidden border hover:border-[#336791]" />
 
+
       <div className="flex w-full flex-col items-center justify-center mt-32">
         <Tabs aria-label="Options" size={"lg"} defaultSelectedKey={"work"}>
           <Tab key="work" title="Work">

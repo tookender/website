@@ -25,6 +25,7 @@ export default function BotPage() {
         <meta content="#10b981" data-react-helmet="true" name="theme-color" />
       </Head>
 
+
       <div className="my-24 flex h-[115vh] flex-col gap-2 sm:my-36 sm:h-fit">
         <Header />
 
