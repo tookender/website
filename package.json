@@ -41,7 +41,9 @@
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
     "sharp": "^0.33.2",
-    "swr": "^2.2.5"
+    "swr": "^2.2.5",
+    "use-lanyard": "^1.5.2",
+    "use-last-fm": "^0.6.1"
   },
   "devDependencies": {
     "@types/node": "^20",

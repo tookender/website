@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { Header } from "@/sections/index/header";
-import { Projects } from "@/sections/index/projects";
-import { Technologies } from "@/sections/index/technologies";
+import { Header } from "./header";
+import { Projects } from "./projects";
+import { Technologies } from "./technologies";
 
 export const metadata: Metadata = {
   title: "korino/home",

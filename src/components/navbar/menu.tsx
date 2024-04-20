@@ -29,14 +29,12 @@ export const Menu = ({ children }: MenuProps) => {
 
   return (
     <menu
-      className={`h-screen w-screen fixed z-[100] items-center justify-center bg-gradient-to-br from-neutral-900 to-black  ${
+      className={`fixed z-[100] h-screen w-screen items-center justify-center bg-gradient-to-br from-neutral-900 to-black  ${
         menuOpen ? "flex" : "hidden"
       }`}
       id="menu"
     >
-      <div className="flex flex-col gap-4">
-        {children}
-      </div>
+      <div className="flex flex-col gap-4">{children}</div>
     </menu>
   );
 };
@@ -44,7 +42,7 @@ export const Menu = ({ children }: MenuProps) => {
 export const MenuElement = ({ text, href }: { text: string; href: string }) => {
   return (
     <Link
-      className="z-50 text-6xl font-bold text-neutral-400 duration-500 hover:text-white"
+      className="z-50 text-6xl text-neutral-400 duration-500 font-bold hover:text-white"
       href={href}
     >
       {text}

@@ -1,11 +1,11 @@
 "use client";
 import Head from "next/head";
-import { Header } from "@/sections/bot/header";
-import { Fun } from "@/sections/bot/tabs/fun";
-import { UserInfo } from "@/sections/bot/tabs/user_info";
-import { ServerInfo } from "@/sections/bot/tabs/server_info";
-import { Moderation } from "@/sections/bot/tabs/moderation";
-import { Happiness } from "@/sections/bot/tabs/happiness";
+import { Header } from "./header";
+import { Fun } from "./tabs/fun";
+import { UserInfo } from "./tabs/user_info";
+import { ServerInfo } from "./tabs/server_info";
+import { Moderation } from "./tabs/moderation";
+import { Happiness } from "./tabs/happiness";
 
 import { Tab, Tabs } from "@nextui-org/react";
 import { TabContainer } from "@/components/tabs";
