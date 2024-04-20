@@ -1,24 +1,47 @@
-import { Metadata } from "next";
-import { Header } from "./header";
-import { Projects } from "./projects";
-import { Technologies } from "./technologies";
+"use client";
 
-export const metadata: Metadata = {
-  title: "korino/home",
-  description: "Home page for showing off my projects.",
-  openGraph: {
-    url: "https://korino.dev",
-    title: "korino/home",
-    description: "Home page for showing off my projects.",
-  },
-};
+import { Work } from "./work";
+import { Activity } from "./activity";
 
-export default function HomePage() {
+import Head from "next/head";
+import { Tab, Tabs } from "@nextui-org/react";
+
+export default function EnderPage() {
   return (
     <>
-      <Header />
-      <Projects />
-      <Technologies />
+      <Head>
+        <title>ender</title>
+        <meta content="doggo pics" property="og:title" />
+        <meta
+          content="a gallery of doggo pictures :D"
+          property="og:description"
+        />
+        <meta content="https://korino.dev/doggo" property="og:url" />
+        <meta content="#10b981" data-react-helmet="true" name="theme-color" />
+      </Head>
+
+      <p className="hidden border hover:border-[#fff]" />
+      <p className="hidden border hover:border-[#df376d]" />
+      <p className="hidden border hover:border-[#149eca]" />
+      <p className="hidden border hover:border-[#38bdf8]" />
+      <p className="hidden border hover:border-[#ffe262]" />
+      <p className="hidden border hover:border-[#4280b1]" />
+      <p className="hidden border hover:border-[#336791]" />
+
+      <div className="flex w-full flex-col items-center justify-center mt-32">
+        <Tabs aria-label="Options" size={"lg"} defaultSelectedKey={"work"}>
+          <Tab key="work" title="Work">
+            <Work />
+          </Tab>
+
+          <Tab key="activity" title="Activity">
+            <Activity />
+          </Tab>
+        </Tabs>
+      </div>
+
+      <div className="flex w-screen items-center justify-center">
+      </div>
     </>
   );
 }

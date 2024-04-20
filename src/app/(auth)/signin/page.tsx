@@ -24,7 +24,7 @@ export default async function SignInPage() {
                 key={provider.id}
                 action={async () => {
                   "use server";
-                  await signIn(provider.id);
+                  await signIn(provider.id, { redirect: false });
                 }}
               >
                 <button

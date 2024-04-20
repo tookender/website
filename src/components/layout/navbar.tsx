@@ -49,7 +49,7 @@ export async function Navbar() {
 
             <NavbarElement text="Korino PvP" href="/pvp" />
             <NavbarElement text="Korii Bot" href="/bot" />
-            <NavbarElement text="Ender" href="/ender" />
+            {/* <NavbarElement text="Ender" href="/ender" /> */}
             <Posts />
           </div>
 
