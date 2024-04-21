@@ -76,8 +76,8 @@ export async function Navbar() {
                   session
                     ? session.user
                       ? session.user.image
-                      : "/doggo/dog1.webp"
-                    : "/doggo/dog1.webp"
+                      : "/dogs/dog1.webp"
+                    : "/dogs/dog1.webp"
                 }
               />
             </div>

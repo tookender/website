@@ -17,14 +17,6 @@ I have personally used this program myself, and I have found myself using it so 
 
 You can use this guide for anything, such as RDP (Remote Desktop Protocol), which is a Windows Pro feature.
 
-<pre><code class="language-js">var name = "World";
-console.warn("Hello, " + name + "!")</code></pre>
-
-```
-console.warn("hello")
-Whats sup
-```
-
 # Installing Windows Pro for free
 1. Open **Powershell** on your PC.
 2. Paste in `irm https://massgrave.dev/get | iex` into the console, and press enter.
