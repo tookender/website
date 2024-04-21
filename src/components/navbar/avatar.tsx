@@ -6,8 +6,8 @@ import {
   DropdownMenu,
   DropdownTrigger,
 } from "@nextui-org/dropdown";
-import { Image } from "@nextui-org/image";
 import { signOut } from "next-auth/react";
+import Image from "next/image";
 
 interface AvatarProps {
   img: any;
@@ -19,10 +19,10 @@ export const Avatar = ({ img }: AvatarProps) => {
       <DropdownTrigger>
         <Image
           src={img}
-          width={64}
-          height={64}
+          width={24}
+          height={24}
           alt="Profile picture"
-          className="size-6 h-fit w-fit cursor-pointer rounded-full px-2 py-1"
+          className="cursor-pointer rounded-full size-6 mr-2"
         />
       </DropdownTrigger>
       <DropdownMenu aria-label="Account Actions">
