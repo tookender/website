@@ -1,3 +1,4 @@
+import { Image } from "@nextui-org/image";
 import { useLanyard } from "use-lanyard";
 import { useLastFM } from "use-last-fm";
 
@@ -25,21 +26,56 @@ export const Activity = () => {
           🏷️ I&apos;m currently...
         </h1>
 
-        <div className="mt-12 flex flex-col items-center justify-center gap-1">
-          <h1 className="text-xl font-bold">Currently listening to:</h1>
+        <div className="mt-6 flex flex-col items-center justify-center gap-2">
+          <h1 className="text-2xl font-bold">
+            Listening to...
+          </h1>
 
-          <p
-            className={`${song ? "hidden" : "block"}`}
+          <p className={`${song ? "hidden" : "block"}`}>nothing, but I like this song</p>
+
+          <div
+            className={`flex flex-row gap-4 cursor-pointer rounded-lg border border-zinc-800 bg-neutral-900 py-2 pl-2 pr-4 duration-300 hover:scale-105 active:scale-95`}
           >
-            Nothing at all.
-          </p>
+            <Image
+              src={lastFM.song ? lastFM.song.art : "https://lastfm.freetls.fastly.net/i/u/300x300/262f8b7d976e084cec735dc2f5259811.jpg"}
+              className="h-[4.5rem] w-[4.5rem]"
+              isBlurred={true}
+              alt={`${lastFM.song ? lastFM.song.name : "Star Shopping"} by ${lastFM.song ? lastFM.song.artist : "Lil Peep"}`}
+            />
 
-          {/* <iframe
-            className={`h-[80px] w-[400px] rounded-2xl$ {song ? "block" : "hidden"}`}
-            src={`https://open.spotify.com/embed/track/${lastFM}`}
-          /> */}
+            <div className="flex flex-col items-start justify-center">
+              <h1 className="text-base font-bold">{lastFM.song ? lastFM.song.name : "Star Shopping"}</h1>
+
+              <p className="text-sm">{lastFM.song ? lastFM.song.artist : "Lil Peep"}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 flex flex-col items-center justify-center gap-2">
+          <h1 className="text-2xl font-bold">
+            Doing...
+          </h1>
+
+          <p className={`${song ? "hidden" : "block"}`}>nothing, but I like coding and playing video games</p>
+
+          <div
+            className={`flex flex-row gap-4 ${song ? "block" : "hidden"} cursor-pointer rounded-lg border border-zinc-800 bg-neutral-900 py-2 pl-2 pr-4 duration-300 hover:scale-105 active:scale-95`}
+          >
+            <Image
+              src={lastFM.song?.art}
+              className="h-[4.5rem] w-[4.5rem]"
+              isBlurred={true}
+              alt={`${lastFM.song?.name} by ${lastFM.song?.artist}`}
+            />
+
+            <div className="flex flex-col items-start justify-center">
+              <h1 className="text-base font-bold">{lastFM.song?.name}</h1>
+
+              <p className="text-sm">{lastFM.song?.artist}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
