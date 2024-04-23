@@ -1,12 +1,55 @@
 "use client";
 
-import { Work } from "./work";
-import { Activity } from "./activity";
-
 import Head from "next/head";
-import { Tab, Tabs } from "@nextui-org/react";
+import { Image, Tab, Tabs } from "@nextui-org/react";
+import { Activity, useLanyard } from "use-lanyard";
+import { useLastFM } from "use-last-fm";
+import { Header } from "./header";
+
+function getImage(activity: Activity, large: boolean) {
+  let image;
+  if (large) {
+    image = activity.assets?.large_image
+  } else {
+    image = activity.assets?.small_image
+  }
+
+  if (image?.startsWith("mp:external")) {
+    return image?.replace(
+      /mp:external\/([^\/]*)\/(http[s])/g,
+      "$2:/",
+    );
+  } else {
+    return `https://cdn.discordapp.com/app-assets/${activity.application_id}/${image}`;
+  }
+}
 
 export default function EnderPage() {
+  let song, activities;
+  const banned_activites = ["Spotify", "ShareX"];
+  const { data } = useLanyard("1022842005920940063");
+  const lastFM = useLastFM("tookender", "e18ea12c25c865552c050a90f7c8b844");
+
+  if (lastFM.status === "playing") {
+    song = true;
+  } else {
+    song = false;
+  }
+
+  if (data) {
+    if (data.discord_status != "offline") {
+      activities = data.activities;
+    }
+  }
+
+  // Will use later
+  const statusColors: { [key: string]: string } = {
+    "online": "#23a55a",
+    "idle": "#f0b232",
+    "dnd": "#f23f43",
+    "offline": "#80848e",
+  };
+
   return (
     <>
       <Head>
@@ -20,6 +63,7 @@ export default function EnderPage() {
         <meta content="#10b981" data-react-helmet="true" name="theme-color" />
       </Head>
 
+      {/* Horrible practice, I'll improve on it later on. */}
       <p className="hidden border hover:border-[#fff]" />
       <p className="hidden border hover:border-[#df376d]" />
       <p className="hidden border hover:border-[#149eca]" />
@@ -30,19 +74,76 @@ export default function EnderPage() {
       <p className="hidden border hover:border-[#f0931c]" />
       <p className="hidden border hover:border-[#24b742]" />
 
-      <div className="flex w-full flex-col items-center justify-center">
-        <Tabs aria-label="Options" size={"lg"} defaultSelectedKey={"work"}>
-          <Tab key="work" title="Work">
-            <Work />
-          </Tab>
+      <p className="hidden bg-[#23a55a]" />
+      <p className="hidden bg-[#f0b232]" />
+      <p className="hidden bg-[#f23f43]" />
+      <p className="hidden bg-[#80848e]" />
 
-          <Tab key="other" title="Other">
-            <Activity />
-          </Tab>
-        </Tabs>
-      </div>
+      <Header />
 
-      <div className="flex w-screen items-center justify-center">
+      <div className="fixed bottom-6 left-6 flex flex-col gap-2">
+        <div className="font-bold flex flex-row items-center gap-2">
+          <h1>
+            Activities:
+          </h1>
+          {/* <div className={`rounded-full bg-[${statusColors[data?.discord_status, "offline"]}] size-3`}/> */}
+          {/* Gonna add some status thingy later */}
+        </div>
+
+        <p
+          className={`${activities ? "hidden" : lastFM.song ? "hidden" : ""} font-light italic text-neutral-400`}
+        >
+          will be shown...
+        </p>
+
+        <div className={`${activities ? "" : "hidden"} flex flex-col gap-2`}>
+          {activities?.map((activity) => (
+            <div
+              key={activity.id}
+              className={`${banned_activites.includes(activity.name) ? "hidden" : ""} flex cursor-pointer flex-row gap-4 rounded-lg border border-zinc-800 bg-neutral-900 py-2 pl-2 pr-4 duration-300 hover:scale-105 active:scale-95`}
+            >
+              <Image
+                src={getImage(activity, true)}
+                className="h-[4.5rem] w-[4.5rem]"
+                isBlurred={true}
+                alt={`${activity.name}`}
+              />
+
+              <div className="flex flex-col items-start justify-center">
+                <h1 className="text-base font-bold">
+                  {activity.name.replace("Code", "Visual Studio Code")}
+                </h1>
+
+                <p className="text-sm">
+                  {activity.details}
+                  <br />
+                  {activity.state}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div
+          className={`${lastFM.song ? "" : "hidden"} flex cursor-pointer flex-row gap-4 rounded-lg border border-zinc-800 bg-neutral-900 py-2 pl-2 pr-4 duration-300 hover:scale-105 active:scale-95`}
+        >
+          <Image
+            src={lastFM.song?.art}
+            className="h-[4.5rem] w-[4.5rem]"
+            isBlurred={true}
+            alt={`${lastFM.song?.name} by ${lastFM.song?.artist}`}
+          />
+
+          <div className="flex flex-col items-start justify-center">
+            <h1 className="text-base font-bold">Spotify</h1>
+
+            <p className="text-sm">
+              {lastFM.song?.name}
+              <br />
+              {lastFM.song?.artist}
+            </p>
+          </div>
+        </div>
       </div>
     </>
   );

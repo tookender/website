@@ -20,7 +20,7 @@ import { Rustbyte } from "./projects/rustbyte";
 import { Bot } from "./projects/bot";
 import { PvP } from "./projects/pvp";
 
-export const Work = () => {
+export const Header = () => {
   return (
     <div className="mb-12 mt-6 flex w-[90vw] flex-col">
       <div className="flex flex-col items-center gap-6 text-center">
