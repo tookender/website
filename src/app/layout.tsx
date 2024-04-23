@@ -5,6 +5,9 @@ import { Providers } from "./providers";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import { GeistSans } from "geist/font/sans";
 import "nprogress/nprogress.css";
 
@@ -33,6 +36,9 @@ export default function RootLayout({
           commitHash={process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA}
           commitMessage={process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_MESSAGE}
         />
+
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
