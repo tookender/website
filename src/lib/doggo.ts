@@ -14,10 +14,12 @@ export const dogImages: DogImages = {
   dog13: "welp :D",
   dog14: "i feel like a model",
   dog15: "hii hooman wana play??",
+
+  dog1: "this dog just encountered a G-HOOOST 👻👻",
+
   dog16: "zzz...",
   dog17: "im too old for this 👴",
 
-  dog1: "this dog just encountered a G-HOOOST 👻👻",
   dog2: "hehe hi",
   dog3: "huh?",
   dog5: "let me sleep hooman...",

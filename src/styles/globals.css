@@ -18,6 +18,12 @@ body {
   -webkit-user-drag: none;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-property: none;
+  }
+}
+
 @font-face {
   font-family: "Whitney";
   src: url("https://cdn.skyra.pw/whitney-font/v2/Book.woff") format("woff");

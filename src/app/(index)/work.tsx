@@ -1,8 +1,24 @@
-import { Block } from "@/components/portfolio/block"
-import { TechItem } from "@/components/portfolio/tech_item"
-import { Project } from "@/components/project"
-import { CiLocationOn } from "react-icons/ci"
-import { SiAstro, SiDiscord, SiDocker, SiGit, SiJavascript, SiNextdotjs, SiPostgresql, SiPython, SiReact, SiTailwindcss, SiTypescript } from "react-icons/si"
+import { Block } from "@/components/portfolio/block";
+import { TechItem } from "@/components/portfolio/tech_item";
+import { CiLocationOn } from "react-icons/ci";
+import {
+  SiAstro,
+  SiDiscord,
+  SiDocker,
+  SiGit,
+  SiJavascript,
+  SiNextdotjs,
+  SiPostgresql,
+  SiPython,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
+import { Tabs, Tab, Image } from "@nextui-org/react";
+import { Korino } from "./projects/korino";
+import { Rustbyte } from "./projects/rustbyte";
+import { Bot } from "./projects/bot";
+import { PvP } from "./projects/pvp";
 
 export const Work = () => {
   return (
@@ -85,76 +101,92 @@ export const Work = () => {
       {/* <h1 className="text-5xl font-bold">
         Projects
       </h1> */}
-      <div className="mt-12 flex flex-col items-center justify-center gap-10 lg:flex-row">
-        <Project
-          title="Korino"
-          rounded={true}
-          icon="korino.webp"
-          link="/"
-          description="You're here! A website for mainly showcasing all of my personal projects and the work I've done."
+      <div className="mt-12 flex flex-col items-center justify-center gap-10">
+        <Tabs
+          aria-label="Options"
+          color="primary"
+          variant="underlined"
+          classNames={{
+            tabList:
+              "gap-6 w-full relative rounded-none p-0 border-b border-divider",
+            cursor: "w-full bg-[#22d3ee]",
+            tab: "max-w-fit px-0 h-12",
+            tabContent: "group-data-[selected=true]:text-[#06b6d4]",
+          }}
         >
-          <TechItem name="Next.js" color="#fff">
-            <SiNextdotjs />
-          </TechItem>
+          <Tab
+            key="korino"
+            title={
+              <div className="flex items-center space-x-2">
+                <Image
+                  src="/logos/korino.webp"
+                  height={24}
+                  width={24}
+                  alt="Korino Logo"
+                  className="min-h-4 min-w-4 rounded-full"
+                />
+                <span>Korino</span>
+              </div>
+            }
+          >
+            <Korino />
+          </Tab>
 
-          <TechItem name="React" color="#149eca">
-            <SiReact />
-          </TechItem>
+          <Tab
+            key="bot"
+            title={
+              <div className="flex items-center space-x-2">
+                <Image
+                  src="/logos/korii.webp"
+                  height={24}
+                  width={24}
+                  alt="Korii Bot Logo"
+                  className="min-h-4 min-w-4 rounded-none"
+                />
+                <span>Korii Bot</span>
+              </div>
+            }
+          >
+            <Bot />
+          </Tab>
 
-          <TechItem name="TailwindCSS" color="#38bdf8">
-            <SiTailwindcss />
-          </TechItem>
-        </Project>
+          <Tab
+            key="pvp"
+            title={
+              <div className="flex items-center space-x-2">
+                <Image
+                  src="/logos/minecraft.webp"
+                  height={24}
+                  width={24}
+                  alt="Korino PvP Logo"
+                  className="min-h-4 min-w-4 rounded-full"
+                />
+                <span>Korino PvP</span>
+              </div>
+            }
+          >
+            <PvP />
+          </Tab>
 
-        <Project
-          title="Korii Bot"
-          rounded={true}
-          icon="korii.webp"
-          link="/bot"
-          description="Korii is a fully customizable multi-purpose Discord bot for your Discord server."
-        >
-          <TechItem name="Python" color="#ffe262">
-            <SiPython />
-          </TechItem>
-
-          <TechItem name="discord.py" color="#4280b1">
-            <SiDiscord />
-          </TechItem>
-        </Project>
-
-        <Project
-          title="Rustbyte"
-          link="https://rustbyte.dev"
-          description="A small studio where we make mods for the game Rust to enhance the game-play and add new features."
-        >
-          <TechItem name="Astro" color="#df376d">
-            <SiAstro />
-          </TechItem>
-
-          <TechItem name="React" color="#149eca">
-            <SiReact />
-          </TechItem>
-
-          <TechItem name="TailwindCSS" color="#38bdf8">
-            <SiTailwindcss />
-          </TechItem>
-        </Project>
+          <Tab
+            key="rustbyte"
+            title={
+              <div className="flex items-center space-x-2">
+                <Image
+                  src="/logos/rustbyte.svg"
+                  height={24}
+                  width={24}
+                  alt="Rustbyte Logo"
+                  className="min-h-4 min-w-4 rounded-none"
+                />
+                <span>Rustbyte</span>
+              </div>
+            }
+          >
+            <Rustbyte />
+          </Tab>
+        </Tabs>
       </div>
-
-      {/* <div className="mt-12 flex flex-col items-center justify-center gap-1">
-        <h1 className="text-xl font-bold">Currently listening to:</h1>
-
-        <p
-          className={`${lanyard.data?.data?.spotify ? "hidden" : "block"}`}
-        >
-          Nothing at all.
-        </p>
-
-        <iframe
-          className={`h-[80px] w-[400px] rounded-2xl ${lanyard.data?.data?.spotify ? "block" : "hidden"}`}
-          src={`https://open.spotify.com/embed/track/${lanyard.data?.data?.spotify?.track_id}`}
-        />
-      </div> */}
     </div>
-  )
-}
+  );
+};

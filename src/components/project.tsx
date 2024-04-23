@@ -20,7 +20,7 @@ export const Project = ({
   const id = title.toLowerCase();
   return (
     <a
-      className="md:px-18 flex h-[570px] max-w-[80vw] flex-col items-center gap-2 overflow-hidden rounded-3xl bg-neutral-900 px-4 pt-8 duration-300 hover:bg-[#1b1b1b] active:scale-[0.97] md:w-[650px] md:max-w-[600px]"
+      className="text-center md:px-18 flex h-[570px] max-w-[80vw] flex-col items-center gap-2 overflow-hidden rounded-3xl bg-neutral-900 px-4 pt-8 duration-300 hover:bg-[#1b1b1b] active:scale-[0.97] md:w-[650px] md:max-w-[600px]"
       href={link}
     >
       <div className="flex flex-col items-center justify-center gap-2">

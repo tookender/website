@@ -6,8 +6,8 @@ import {
   DropdownMenu,
   DropdownTrigger,
 } from "@nextui-org/dropdown";
+import { Image } from "@nextui-org/image";
 import { signOut } from "next-auth/react";
-import Image from "next/image";
 
 interface AvatarProps {
   img: any;
