@@ -26,7 +26,7 @@ export default function BotPage() {
       </Head>
 
 
-      <div className="my-24 flex h-[115vh] flex-col gap-2 sm:my-36 sm:h-fit">
+      <div className="flex h-[115vh] flex-col gap-2 sm:my-36 sm:h-fit">
         <Header />
 
         {/* We have to preload some colors so TailwindCSS recognizes them */}

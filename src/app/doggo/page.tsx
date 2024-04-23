@@ -18,8 +18,8 @@ export default function DoggoPage() {
         <meta content="#10b981" data-react-helmet="true" name="theme-color" />
       </Head>
 
-      <div className="mb-12 flex min-h-screen flex-col items-center justify-center">
-        <h1 className="mt-12 mb-12 text-center mx-12 text-5xl font-extrabold md:text-6xl xl:text-7xl">
+      <div className="flex min-h-screen flex-col items-center justify-center">
+        <h1 className="mb-12 text-center mx-12 text-5xl font-extrabold md:text-6xl xl:text-7xl">
           dog pictures gallery :D
         </h1>
 

@@ -11,7 +11,7 @@ export const Header = () => {
         <TbArrowRight height={15} width={15} />
       </button>
 
-      <div className="glow absolute -top-12 z-0 h-[500px] w-[1000px] rounded-[100%] opacity-[0.15] mix-blend-normal blur-[75px] will-change-[filter]" />
+      <div className="mt-12 w-screen glow absolute -top-12 z-0 h-[500px] rounded-[100%] opacity-[0.15] mix-blend-normal blur-[75px] will-change-[filter]" />
       <div className="z-50 flex flex-col items-center ">
         <h1 className="mt-2 text-center text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
           The Discord bot for all your needs.

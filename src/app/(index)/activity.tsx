@@ -1,3 +1,4 @@
+import { TimeStatus } from "@/components/portfolio/time";
 import { Image } from "@nextui-org/image";
 import { useLanyard } from "use-lanyard";
 import { useLastFM } from "use-last-fm";
@@ -23,10 +24,14 @@ export const Activity = () => {
     <div className="mb-12 mt-6 flex w-[90vw] flex-col">
       <div className="flex flex-col items-center gap-6 text-center">
         <h1 className="text-5xl font-extrabold sm:text-6xl">
-          🏷️ I&apos;m currently...
+          🏷️ Other things
         </h1>
 
         <div className="mt-6 flex flex-col items-center justify-center gap-2">
+          <h1>
+            It&apos;s currently <TimeStatus />
+          </h1>
+
           <h1 className="text-2xl font-bold">
             Listening to...
           </h1>
