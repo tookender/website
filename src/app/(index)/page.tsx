@@ -1,10 +1,12 @@
 "use client";
 
 import Head from "next/head";
-import { Image, Tab, Tabs } from "@nextui-org/react";
 import { Activity, useLanyard } from "use-lanyard";
 import { useLastFM } from "use-last-fm";
 import { Header } from "./header";
+
+import { Image, Accordion, AccordionItem } from "@nextui-org/react";
+
 
 function getImage(activity: Activity, large: boolean) {
   let image;
@@ -81,70 +83,64 @@ export default function EnderPage() {
 
       <Header />
 
-      <div className="fixed bottom-6 left-6 flex flex-col gap-2">
-        <div className="font-bold flex flex-row items-center gap-2">
-          <h1>
-            Activities:
-          </h1>
-          {/* <div className={`rounded-full bg-[${statusColors[data?.discord_status, "offline"]}] size-3`}/> */}
-          {/* Gonna add some status thingy later */}
-        </div>
+      <Accordion className="z-30 flex flex-col">
+        <AccordionItem key="1" aria-label="Activities List" title="Activities" className="backdrop-blur bg-black/20 rounded-lg border border-zinc-800 p-2 font-bold fixed bottom-6 left-6">
+          <p
+            className={`${activities ? "hidden" : lastFM.song ? "hidden" : ""} font-light italic text-neutral-400`}
+          >
+            will be shown...
+          </p>
 
-        <p
-          className={`${activities ? "hidden" : lastFM.song ? "hidden" : ""} font-light italic text-neutral-400`}
-        >
-          will be shown...
-        </p>
-
-        <div className={`${activities ? "" : "hidden"} flex flex-col gap-2`}>
-          {activities?.map((activity) => (
+          <div className={`${activities ? "" : "hidden"} overflow-hidden flex flex-col gap-2 p-2`}>
             <div
-              key={activity.id}
-              className={`${banned_activites.includes(activity.name) ? "hidden" : ""} flex cursor-pointer flex-row gap-4 rounded-lg border border-zinc-800 bg-neutral-900 py-2 pl-2 pr-4 duration-300 hover:scale-105 active:scale-95`}
+              className={`${lastFM.song ? "" : "hidden"} flex cursor-pointer flex-row gap-4 rounded-lg border border-zinc-800 bg-neutral-900 py-2 pl-2 pr-4 duration-300 hover:scale-105 active:scale-95`}
             >
               <Image
-                src={getImage(activity, true)}
+                src={lastFM.song?.art}
                 className="h-[4.5rem] w-[4.5rem]"
                 isBlurred={true}
-                alt={`${activity.name}`}
+                alt={`${lastFM.song?.name} by ${lastFM.song?.artist}`}
               />
 
               <div className="flex flex-col items-start justify-center">
-                <h1 className="text-base font-bold">
-                  {activity.name.replace("Code", "Visual Studio Code")}
-                </h1>
+                <h1 className="text-base font-bold">Spotify</h1>
 
                 <p className="text-sm">
-                  {activity.details}
+                  {lastFM.song?.name}
                   <br />
-                  {activity.state}
+                  {lastFM.song?.artist}
                 </p>
               </div>
             </div>
-          ))}
-        </div>
 
-        <div
-          className={`${lastFM.song ? "" : "hidden"} flex cursor-pointer flex-row gap-4 rounded-lg border border-zinc-800 bg-neutral-900 py-2 pl-2 pr-4 duration-300 hover:scale-105 active:scale-95`}
-        >
-          <Image
-            src={lastFM.song?.art}
-            className="h-[4.5rem] w-[4.5rem]"
-            isBlurred={true}
-            alt={`${lastFM.song?.name} by ${lastFM.song?.artist}`}
-          />
+            {activities?.map((activity) => (
+              <div
+                key={activity.id}
+                className={`${banned_activites.includes(activity.name) ? "hidden" : ""} flex cursor-pointer flex-row gap-4 rounded-lg border border-zinc-800 bg-neutral-900 py-2 pl-2 pr-4 duration-300 hover:scale-105 active:scale-95`}
+              >
+                <Image
+                  src={getImage(activity, true)}
+                  className="h-[4.5rem] w-[4.5rem]"
+                  isBlurred={true}
+                  alt={`${activity.name}`}
+                />
 
-          <div className="flex flex-col items-start justify-center">
-            <h1 className="text-base font-bold">Spotify</h1>
+                <div className="flex flex-col items-start justify-center">
+                  <h1 className="text-base font-bold">
+                    {activity.name.replace("Code", "Visual Studio Code")}
+                  </h1>
 
-            <p className="text-sm">
-              {lastFM.song?.name}
-              <br />
-              {lastFM.song?.artist}
-            </p>
+                  <p className="text-sm">
+                    {activity.details}
+                    <br />
+                    {activity.state}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
-      </div>
+        </AccordionItem>
+      </Accordion>
     </>
   );
 }
