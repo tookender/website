@@ -16,7 +16,7 @@ export const ActivitySection = () => {
   let activities;
   const banned_activites = ["Spotify", "ShareX"];
   const { data } = useLanyard("1022842005920940063");
-  const lastFM = useLastFM("tookender", process.env.LASTFM_KEY);
+  const lastFM = useLastFM("tookender", "07c30fa481f95861b23a8f6a82b303e7");
 
   if (data) {
     if (data.discord_status != "offline") {
