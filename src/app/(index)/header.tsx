@@ -22,7 +22,7 @@ import { PvP } from "./projects/pvp";
 
 export const Header = () => {
   return (
-    <div className="mb-12 mt-6 flex w-[90vw] flex-col">
+    <div className="mb-12 mt-6 flex w-screen flex-col items-center">
       <div className="flex flex-col items-center gap-6 text-center">
         <h1 className="text-5xl font-extrabold sm:text-6xl">
           👋 Hey, I&apos;m Ender.
