@@ -32,7 +32,7 @@ export const Header = () => {
           <CiLocationOn /> Germany
         </div>
 
-        <p className="text-xl sm:w-2/3">
+        <p className="w-[90vw] text-xl sm:w-2/3">
           A passionate developer and student working on{" "}
           <Block
             text="Rustbyte"
@@ -51,7 +51,7 @@ export const Header = () => {
         </p>
 
         {/* :D */}
-        <div className="xl:maw-w-[50vw] flex flex-wrap justify-center gap-2 md:max-w-[75vw] lg:max-w-[60vw] xxxl:max-w-[45vw] xxxxl:max-w-[40vw] xxxxxl:max-w-[35vw] xxxxxxl:max-w-[30vw] xxxxxxxl:max-w-[25vw] xxxxxxxxl:max-w-[20vw]">
+        <div className="xl:maw-w-[50vw] flex w-[90vw] flex-wrap justify-center gap-2 md:max-w-[75vw] lg:max-w-[60vw] xxxl:max-w-[45vw] xxxxl:max-w-[40vw] xxxxxl:max-w-[35vw] xxxxxxl:max-w-[30vw] xxxxxxxl:max-w-[25vw] xxxxxxxxl:max-w-[20vw]">
           <TechItem name="Next.js" color="#fff">
             <SiNextdotjs />
           </TechItem>

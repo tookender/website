@@ -1,55 +1,35 @@
 "use client";
 
 import Head from "next/head";
-import { Activity, useLanyard } from "use-lanyard";
-import { useLastFM } from "use-last-fm";
 import { Header } from "./header";
-
-import { Image, Accordion, AccordionItem } from "@nextui-org/react";
-
-
-function getImage(activity: Activity, large: boolean) {
-  let image;
-  if (large) {
-    image = activity.assets?.large_image
-  } else {
-    image = activity.assets?.small_image
-  }
-
-  if (image?.startsWith("mp:external")) {
-    return image?.replace(
-      /mp:external\/([^\/]*)\/(http[s])/g,
-      "$2:/",
-    );
-  } else {
-    return `https://cdn.discordapp.com/app-assets/${activity.application_id}/${image}`;
-  }
-}
+import { ActivitySection } from "./activity";
+import { useLanyard } from "use-lanyard";
+import { useEffect, useState } from "react";
 
 export default function EnderPage() {
-  let song, activities;
-  const banned_activites = ["Spotify", "ShareX"];
+  const [time, setTime] = useState<string>("00:00:00 p.m.");
+  const [awake, setAwake] = useState<boolean>(true);
+
+  function updateTime() {
+    let current = new Date().toLocaleString("en-US", {
+      timeZone: "America/New_York",
+    });
+    setTime(`${current.slice(-11, -6)}${current.slice(-3, -1)}.M.`);
+    setTimeout(updateTime, 60 * 1000);
+
+    if (new Date().getHours() < 7) setAwake(false);
+  }
+
+  useEffect(() => {
+    updateTime();
+  });
+
   const { data } = useLanyard("1022842005920940063");
-  const lastFM = useLastFM("tookender", "e18ea12c25c865552c050a90f7c8b844");
-
-  if (lastFM.status === "playing") {
-    song = true;
-  } else {
-    song = false;
-  }
-
-  if (data) {
-    if (data.discord_status != "offline") {
-      activities = data.activities;
-    }
-  }
-
-  // Will use later
   const statusColors: { [key: string]: string } = {
-    "online": "#23a55a",
-    "idle": "#f0b232",
-    "dnd": "#f23f43",
-    "offline": "#80848e",
+    online: "#23a55a",
+    idle: "#f0b232",
+    dnd: "#f23f43",
+    offline: "#80848e",
   };
 
   return (
@@ -76,71 +56,42 @@ export default function EnderPage() {
       <p className="hidden border hover:border-[#f0931c]" />
       <p className="hidden border hover:border-[#24b742]" />
 
-      <p className="hidden bg-[#23a55a]" />
-      <p className="hidden bg-[#f0b232]" />
-      <p className="hidden bg-[#f23f43]" />
-      <p className="hidden bg-[#80848e]" />
+      <p className="hidden text-[#23a55a]" />
+      <p className="hidden text-[#f0b232]" />
+      <p className="hidden text-[#f23f43]" />
+      <p className="hidden text-[#80848e]" />
 
       <Header />
+      <div className="flex flex-col items-center justify-center gap-2">
+        <h1 className="mt-8 text-3xl font-bold">🎮 My current activity</h1>
 
-      <Accordion className="z-30 flex flex-col">
-        <AccordionItem key="1" aria-label="Activities List" title="Activities" className="backdrop-blur bg-black/20 rounded-lg border border-zinc-800 p-2 font-bold fixed bottom-6 left-6">
-          <p
-            className={`${activities ? "hidden" : lastFM.song ? "hidden" : ""} font-light italic text-neutral-400`}
+        <div className="flex gap-1 text-lg">
+          <p>I&apos;m currently</p>
+
+          <span
+            className={`font-bold text-[${statusColors[data ? data.discord_status : "offline"]}]`}
           >
-            will be shown...
-          </p>
+            {data?.discord_status}
+          </span>
 
-          <div className={`${activities ? "" : "hidden"} overflow-hidden flex flex-col gap-2 p-2`}>
-            <div
-              className={`${lastFM.song ? "" : "hidden"} flex cursor-pointer flex-row gap-4 rounded-lg border border-zinc-800 bg-neutral-900 py-2 pl-2 pr-4 duration-300 hover:scale-105 active:scale-95`}
-            >
-              <Image
-                src={lastFM.song?.art}
-                className="h-[4.5rem] w-[4.5rem]"
-                isBlurred={true}
-                alt={`${lastFM.song?.name} by ${lastFM.song?.artist}`}
-              />
+          <p>on Discord.</p>
+        </div>
 
-              <div className="flex flex-col items-start justify-center">
-                <h1 className="text-base font-bold">Spotify</h1>
+        <div className="text-lg w-[90vw] sm:w-2/3 text-center">
+          It&apos;s currently <b>{time}</b> for me, so I am most likely <b>{awake ? "awake" : "asleep"}</b>.
+        </div>
 
-                <p className="text-sm">
-                  {lastFM.song?.name}
-                  <br />
-                  {lastFM.song?.artist}
-                </p>
-              </div>
-            </div>
+        <p className="hidden text-lg italic text-neutral-300 lg:block">
+          look at the bottom left for more...
+        </p>
+        <div className="lg:hidden">
+          <ActivitySection />
+        </div>
+      </div>
 
-            {activities?.map((activity) => (
-              <div
-                key={activity.id}
-                className={`${banned_activites.includes(activity.name) ? "hidden" : ""} flex cursor-pointer flex-row gap-4 rounded-lg border border-zinc-800 bg-neutral-900 py-2 pl-2 pr-4 duration-300 hover:scale-105 active:scale-95`}
-              >
-                <Image
-                  src={getImage(activity, true)}
-                  className="h-[4.5rem] w-[4.5rem]"
-                  isBlurred={true}
-                  alt={`${activity.name}`}
-                />
-
-                <div className="flex flex-col items-start justify-center">
-                  <h1 className="text-base font-bold">
-                    {activity.name.replace("Code", "Visual Studio Code")}
-                  </h1>
-
-                  <p className="text-sm">
-                    {activity.details}
-                    <br />
-                    {activity.state}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </AccordionItem>
-      </Accordion>
+      <div className="fixed bottom-3 left-3 z-30 hidden flex-col lg:flex">
+        <ActivitySection />
+      </div>
     </>
   );
 }

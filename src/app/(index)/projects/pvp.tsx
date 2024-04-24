@@ -1,5 +1,5 @@
 import { TechItem } from "@/components/portfolio/tech_item"
-import { Project } from "@/components/project"
+import { Project } from "@/components/portfolio/project"
 import { FaJava } from "react-icons/fa"
 import { SiMinecraft } from "react-icons/si"
 
