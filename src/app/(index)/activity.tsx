@@ -16,6 +16,9 @@ export const ActivitySection = () => {
   let activities;
   const banned_activites = ["Spotify", "ShareX"];
   const { data } = useLanyard("1022842005920940063");
+  // TODO: Create a server component and do this in there using fetch()
+  // So we can access .env securely to get the API key
+  // https://discord.com/channels/752553802359505017/1232738655836180591/1232830500545101925
   const lastFM = useLastFM("tookender", "07c30fa481f95861b23a8f6a82b303e7");
 
   if (data) {
