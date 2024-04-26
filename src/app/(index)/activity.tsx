@@ -1,90 +1,72 @@
-import { Image, Accordion, AccordionItem } from "@nextui-org/react";
-import { Activity, useLanyard } from "use-lanyard";
-import { useLastFM } from "use-last-fm";
+"use client";
+import { Header } from "./header";
+import { ActivitySection } from "./discord";
 
-function getImage(activity: Activity) {
-  let image = activity.assets?.large_image;
+import { useLanyard } from "use-lanyard";
+import { useEffect, useState } from "react";
 
-  if (image?.startsWith("mp:external")) {
-    return image?.replace(/mp:external\/([^\/]*)\/(http[s])/g, "$2:/");
-  } else {
-    return `https://cdn.discordapp.com/app-assets/${activity.application_id}/${image}`;
+export function ActivityComponent({ children }: { children: React.ReactNode }) {
+  const [time, setTime] = useState<string>("00:00:00 p.m.");
+  const [awake, setAwake] = useState<boolean>(true);
+
+  function updateTime() {
+    let current = new Date().toLocaleString("en-US", {
+      timeZone: "America/New_York",
+    });
+    setTime(`${current.slice(-11, -6)}${current.slice(-3, -1)}.M.`);
+    setTimeout(updateTime, 60 * 1000);
+
+    if (new Date().getHours() < 7) setAwake(false);
   }
-}
 
-export const ActivitySection = () => {
-  let activities;
-  const banned_activites = ["Spotify", "ShareX"];
+  useEffect(() => {
+    updateTime();
+  });
+
   const { data } = useLanyard("1022842005920940063");
-  // TODO: Create a server component and do this in there using fetch()
-  // So we can access .env securely to get the API key
-  // https://discord.com/channels/752553802359505017/1232738655836180591/1232830500545101925
-  const lastFM = useLastFM("tookender", "07c30fa481f95861b23a8f6a82b303e7");
-
-  if (data) {
-    if (data.discord_status != "offline") {
-      activities = data.activities;
-    }
-  }
+  const statusColors: { [key: string]: string } = {
+    online: "#23a55a",
+    idle: "#f0b232",
+    dnd: "#f23f43",
+    offline: "#80848e",
+  };
 
   return (
-    <div>
-      <p
-        className={`${activities ? "hidden" : lastFM.song ? "hidden" : ""} font-light italic text-neutral-400`}
-      >
-        will be shown...
-      </p>
+    <>
+      <Header />
+      <div className="flex flex-col items-center justify-center gap-2">
+        <h1 className="mt-8 text-3xl font-bold">🎮 My current activity</h1>
 
-      <div
-        className={`${activities ? "" : "hidden"} flex flex-col gap-2 overflow-hidden p-2`}
-      >
-        <div
-          className={`${lastFM.song ? "" : "hidden"} flex cursor-pointer flex-row gap-4 rounded-lg border border-zinc-800 bg-neutral-900 py-2 pl-2 pr-4 duration-300 hover:scale-105 active:scale-95`}
-        >
-          <Image
-            src={lastFM.song?.art}
-            className="h-[4.5rem] w-[4.5rem]"
-            isBlurred={true}
-            alt={`${lastFM.song?.name} by ${lastFM.song?.artist}`}
-          />
+        <div className="flex gap-1 text-lg">
+          <p>I&apos;m currently</p>
 
-          <div className="flex flex-col items-start justify-center">
-            <h1 className="text-base font-bold">Spotify</h1>
+          <span
+            className={`font-bold text-[${statusColors[data ? data.discord_status : "offline"]}]`}
+          >
+            {data?.discord_status}
+          </span>
 
-            <p className="text-sm">
-              {lastFM.song?.name}
-              <br />
-              {lastFM.song?.artist}
-            </p>
-          </div>
+          <p>on Discord.</p>
         </div>
 
-        {activities?.map((activity) => (
-          <div
-            key={activity.id}
-            className={`${banned_activites.includes(activity.name) ? "hidden" : ""} flex cursor-pointer flex-row gap-4 rounded-lg border border-zinc-800 bg-neutral-900 py-2 pl-2 pr-4 duration-300 hover:scale-105 active:scale-95`}
-          >
-            <Image
-              src={getImage(activity)}
-              className="h-[4.5rem] w-[4.5rem]"
-              isBlurred={true}
-              alt={`${activity.name}`}
-            />
+        <div className="w-[90vw] text-center text-lg sm:w-2/3">
+          It&apos;s currently <b>{time}</b> for me, so I am most likely{" "}
+          <b>{awake ? "awake" : "asleep"}</b>.
+        </div>
 
-            <div className="flex flex-col items-start justify-center">
-              <h1 className="text-base font-bold">
-                {activity.name.replace("Code", "Visual Studio Code")}
-              </h1>
-
-              <p className="text-sm">
-                {activity.details}
-                <br />
-                {activity.state}
-              </p>
-            </div>
-          </div>
-        ))}
+        <p className="hidden text-lg italic text-neutral-300 lg:block">
+          look at the bottom left for more...
+        </p>
+        <div className="lg:hidden">
+          {children}
+          <ActivitySection />
+        </div>
       </div>
-    </div>
+
+      <div className="fixed bottom-3 left-3 z-30 hidden flex-col lg:flex">
+        {children}
+        <ActivitySection />
+      </div>
+    </>
   );
-};
+}
