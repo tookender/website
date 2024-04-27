@@ -33,10 +33,10 @@ export async function Navbar() {
             >
               <Image
                 className="rounded-full"
-                src="/avatars/ender.webp"
+                src="/logos/korino.webp"
                 alt="Korino Logo"
-                width={40}
-                height={40}
+                width={500}
+                height={500}
               />
 
               <h1

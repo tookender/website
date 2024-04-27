@@ -46,6 +46,7 @@ export const Project = ({
           className="relative bottom-10 mt-16 rounded-2xl md:mx-auto md:w-[600px]"
           width="500"
           height="420"
+          loading="eager"
         />
       </div>
     </a>

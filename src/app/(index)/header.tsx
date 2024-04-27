@@ -120,8 +120,8 @@ export const Header = () => {
               <div className="flex items-center space-x-2">
                 <Image
                   src="/logos/korino.webp"
-                  height={24}
-                  width={24}
+                  height={500}
+                  width={500}
                   alt="Korino Logo"
                   className="min-h-4 min-w-4 rounded-full"
                 />
@@ -138,8 +138,8 @@ export const Header = () => {
               <div className="flex items-center space-x-2">
                 <Image
                   src="/logos/korii.webp"
-                  height={24}
-                  width={24}
+                  height={1024}
+                  width={1024}
                   alt="Korii Bot Logo"
                   className="min-h-4 min-w-4 rounded-none"
                 />

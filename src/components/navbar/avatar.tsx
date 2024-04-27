@@ -19,8 +19,8 @@ export const Avatar = ({ img }: AvatarProps) => {
       <DropdownTrigger>
         <Image
           src={img}
-          width={24}
-          height={24}
+          width={128}
+          height={128}
           alt="Profile picture"
           className="cursor-pointer rounded-full size-6 mr-2"
         />
