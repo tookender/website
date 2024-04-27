@@ -18,6 +18,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   keywords:
     "korino, korino development, korii bot, korino pvp, korino website, web developer, github, typescript",
+  themeColor: "#10b981",
 };
 
 export default function RootLayout({

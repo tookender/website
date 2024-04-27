@@ -21,10 +21,9 @@ export default function BotPage() {
         <title>{title}</title>
         <meta content={title} property="og:title" />
         <meta content={description} property="og:description" />
-        <meta content="https://korino.dev/pvp" property="og:url" />
+        <meta content="https://korino.dev/bot" property="og:url" />
         <meta content="#10b981" data-react-helmet="true" name="theme-color" />
       </Head>
-
 
       <div className="flex h-[115vh] flex-col gap-2 sm:my-36 sm:h-fit">
         <Header />

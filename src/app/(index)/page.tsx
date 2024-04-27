@@ -1,22 +1,20 @@
-import Head from "next/head";
+import { Metadata } from "next";
 import { ActivityComponent } from "./activity";
 import { SpotifyComponent } from "./spotify";
+
+export const metadata: Metadata = {
+  title: "korino",
+  description: "Website to showcase my projects, skills and more.",
+  openGraph: {
+    title: "korino",
+    description: "Website to showcase my projects, skills and more.",
+    url: "https://korino.dev",
+  },
+};
 
 export default function EnderPage() {
   return (
     <>
-      <Head>
-        <title>ender</title>
-        <meta content="doggo pics" property="og:title" />
-        <meta
-          content="a gallery of doggo pictures :D"
-          property="og:description"
-        />
-        <meta content="https://korino.dev/doggo" property="og:url" />
-        <meta content="#10b981" data-react-helmet="true" name="theme-color" />
-      </Head>
-
-      {/* Horrible practice, I'll improve on it later on. */}
       <p className="hidden border hover:border-[#fff]" />
       <p className="hidden border hover:border-[#df376d]" />
       <p className="hidden border hover:border-[#149eca]" />

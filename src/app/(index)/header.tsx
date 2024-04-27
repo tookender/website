@@ -101,7 +101,7 @@ export const Header = () => {
       {/* <h1 className="text-5xl font-bold">
         Projects
       </h1> */}
-      <div className="mt-12 flex flex-col items-center justify-center gap-10">
+      <div className="mt-12 flex flex-col items-center justify-center gap-10 mx-2">
         <Tabs
           aria-label="Options"
           color="primary"
@@ -123,7 +123,7 @@ export const Header = () => {
                   height={500}
                   width={500}
                   alt="Korino Logo"
-                  className="min-h-4 min-w-4 rounded-full"
+                  className="min-h-4 min-w-4 rounded-full size-6"
                 />
                 <span>Korino</span>
               </div>
@@ -141,7 +141,7 @@ export const Header = () => {
                   height={1024}
                   width={1024}
                   alt="Korii Bot Logo"
-                  className="min-h-4 min-w-4 rounded-none"
+                  className="min-h-4 min-w-4 rounded-none size-6"
                 />
                 <span>Korii Bot</span>
               </div>

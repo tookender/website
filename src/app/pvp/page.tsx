@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: title,
   description: description,
   openGraph: {
-    url: "https://korino.dev/bot",
+    url: "https://korino.dev/pvp",
     title: title,
     description: description,
   },

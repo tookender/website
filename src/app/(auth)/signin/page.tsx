@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { signIn, providerMap } from "@/auth";
 import { SiDiscord, SiGithub } from "react-icons/si";
 
@@ -5,6 +6,16 @@ const icons: { [key: string]: React.ReactNode } = {
   "github": <SiGithub/>,
   "discord": <SiDiscord/>,
 }
+
+export const metadata: Metadata = {
+  title: "korino/signin",
+  description: "Sign in to Korino with GitHub or Discord.",
+  openGraph: {
+    title: "korino/signin",
+    description: "Sign in to Korino with GitHub or Disc ord.",
+    url: "https://korino.dev/signin",
+  },
+};
 
 export default async function SignInPage() {
   return (

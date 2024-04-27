@@ -32,7 +32,7 @@ export async function Navbar() {
               href="/"
             >
               <Image
-                className="rounded-full"
+                className="rounded-full size-10"
                 src="/logos/korino.webp"
                 alt="Korino Logo"
                 width={500}

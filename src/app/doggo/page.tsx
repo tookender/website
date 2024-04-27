@@ -3,7 +3,6 @@ import { dogImages } from "@/lib/doggo";
 import Head from "next/head";
 import { Image } from "@nextui-org/react";
 
-
 export default function DoggoPage() {
   return (
     <main>
@@ -19,24 +18,24 @@ export default function DoggoPage() {
       </Head>
 
       <div className="flex min-h-screen flex-col items-center justify-center">
-        <h1 className="mb-12 text-center mx-12 text-5xl font-extrabold md:text-6xl xl:text-7xl">
+        <h1 className="mx-12 mb-12 text-center text-5xl font-extrabold md:text-6xl xl:text-7xl">
           dog pictures gallery :D
         </h1>
 
-        <div className="flex w-[90vw] xl:w-[80vw] flex-col items-center justify-center">
+        <div className="flex w-[90vw] flex-col items-center justify-center xl:w-[80vw]">
           <div className="grid grid-cols-2 items-center gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xxxl:grid-cols-6">
             {Object.keys(dogImages).map((dogKey: string) => (
               <button
                 key={dogKey}
-                className="flex flex-col items-center max-h-[367px] max-w-[274px] relative rounded-large transition-transform-background motion-reduce:transition-none cursor-pointer duration-300 h-[367px] hover:scale-[1.01] active:scale-[0.99]"
+                className="relative flex h-[367px] max-h-[367px] max-w-[274px] cursor-pointer flex-col items-center rounded-large duration-300 transition-transform-background hover:scale-[1.01] active:scale-[0.99] motion-reduce:transition-none"
               >
                 <Image
                   src={`/dogs/${dogKey}.webp`}
                   alt={`Dog ${dogKey}`}
-                  className="relative rounded-large w-[274px] h-[367px] object-cover"
+                  className="relative h-[367px] w-[274px] rounded-large object-cover"
                 />
 
-                <p className="p-3 text-center subpixel-antialiased bg-background/10 backdrop-blur backdrop-saturate-150 border-white/20 border-1 py-1 absolute rounded-large bottom-1 shadow-small w-[95%] z-10">
+                <p className="absolute bottom-1 z-10 w-[95%] rounded-large border-1 border-white/20 bg-background/10 p-3 py-1 text-center subpixel-antialiased shadow-small backdrop-blur backdrop-saturate-150">
                   {dogImages[dogKey]}
                 </p>
               </button>
