@@ -13,6 +13,10 @@ export default async function Dashboard() {
         </h1>
 
         Hello, your Discord ID is {discordID}, and your token is ...
+
+        <p className="italic">
+          This is work in progress. More coming soon.
+        </p>
       </div>
     </>
   )
