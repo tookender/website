@@ -7,7 +7,7 @@ import {
   DropdownTrigger,
 } from "@nextui-org/dropdown";
 import { Image } from "@nextui-org/image";
-import { signOut } from "next-auth/react";
+// import { signOut } from "next-auth/react";
 
 interface AvatarProps {
   img: any;
@@ -32,7 +32,7 @@ export const Avatar = ({ img }: AvatarProps) => {
           key="logout"
           className="text-danger"
           color="danger"
-          onClick={() => signOut()}
+          // onClick={() => signOut()}
         >
           Log out
         </DropdownItem>

@@ -1,16 +1,19 @@
-import { TokenSession, auth } from "@/auth"
-import { redirect } from "next/navigation"
- 
-export default async function Dashboard() {
-  const session = await auth() as TokenSession
+import { getDiscordID, getGuilds } from "@/actions/getDiscordID";
 
-  if (!session) {
-    redirect("/api/auth/signin")
-  }
- 
+
+export default async function Dashboard() {
+  const discordID = await getDiscordID();
+  const guilds = await getGuilds();
+
   return (
-    <div>
-      <h1>{session.accessToken}</h1>
-    </div>
+    <>
+      <div className="w-screen flex flex-col items-center">
+        <h1 className="font-black text-5xl">
+          Choose a server to manage
+        </h1>
+
+        Hello, your Discord ID is {discordID}, and your token is ...
+      </div>
+    </>
   )
 }

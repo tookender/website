@@ -1,21 +1,22 @@
+
 import Link from "next/link";
 import { SiGithub } from "react-icons/si";
 import { TbDog, TbMenuDeep } from "react-icons/tb";
-import { auth } from "@/auth";
 import { Image } from "@nextui-org/image";
-import { NavbarElement } from "@/components/navbar/element";
-import { Avatar } from "@/components/navbar/avatar";
-import { Menu, MenuElement } from "@/components/navbar/menu";
 import { NavbarIcon } from "@/components/navbar/icon";
-import { LoginButton } from "@/components/navbar/login";
+import { NavbarElement } from "@/components/navbar/element";
+// import { Avatar } from "@/components/navbar/avatar";
+import { Menu, MenuElement } from "@/components/navbar/menu";
+// import { LoginButton } from "@/components/navbar/login";
 import { Posts } from "../navbar/posts";
+import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 
-export async function Navbar() {
-  const session = await auth();
+export const Navbar = () => {
+  // const session = await auth();
   const menuOpen = false;
 
   return (
-    <main>
+    <>
       <header className="fixed top-0 z-[101] flex h-14 w-full flex-col items-center justify-around border-b border-b-zinc-800 bg-background-color/60 backdrop-blur">
         <nav className="relative flex w-full max-w-[1400px] flex-1 items-center">
           <div className="ml-2 flex w-full flex-row items-center gap-4 sm:ml-4 sm:gap-6 xxl:ml-0">
@@ -32,7 +33,7 @@ export async function Navbar() {
               href="/"
             >
               <Image
-                className="rounded-full size-10"
+                className="size-10 rounded-full"
                 src="/logos/korino.webp"
                 alt="Korino Logo"
                 width={500}
@@ -49,7 +50,6 @@ export async function Navbar() {
 
             <NavbarElement text="Korino PvP" href="/pvp" />
             <NavbarElement text="Korii Bot" href="/bot" />
-            {/* <NavbarElement text="Ender" href="/ender" /> */}
             <Posts />
           </div>
 
@@ -66,21 +66,12 @@ export async function Navbar() {
               <SiGithub className="size-6" />
             </NavbarIcon>
 
-            <div className={`${session ? "hidden" : ""}`}>
-              <LoginButton />
-            </div>
-
-            <div className={`${!session ? "hidden" : ""}`}>
-              <Avatar
-                img={
-                  session
-                    ? session.user
-                      ? session.user.image
-                      : "/avatars/angry_cat.webp"
-                    : "/avatars/angry_cat.webp"
-                }
-              />
-            </div>
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
           </div>
         </nav>
       </header>
@@ -89,6 +80,6 @@ export async function Navbar() {
         <MenuElement text="Korino PvP" href="/pvp" />
         <MenuElement text="Korii Bot" href="/bot" />
       </Menu>
-    </main>
+    </>
   );
 }
