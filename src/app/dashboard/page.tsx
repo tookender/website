@@ -1,8 +1,8 @@
-import { auth } from "@/auth"
+import { TokenSession, auth } from "@/auth"
 import { redirect } from "next/navigation"
  
 export default async function Dashboard() {
-  const session = await auth()
+  const session = await auth() as TokenSession
 
   if (!session) {
     redirect("/api/auth/signin")
@@ -10,7 +10,7 @@ export default async function Dashboard() {
  
   return (
     <div>
-      <h1>{session.user?.name}</h1>
+      <h1>{session.accessToken}</h1>
     </div>
   )
 }
