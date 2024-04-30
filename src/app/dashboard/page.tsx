@@ -1,8 +1,5 @@
 import { getDiscordID, getGuilds } from "@/actions/getDiscordInfo";
-import { PrimaryButton, SecondaryButton } from "@/components/button";
-import { Image } from "@nextui-org/image";
 import { Button } from "@nextui-org/react";
-import { TbHourglassFilled, TbSettings } from "react-icons/tb";
 
 
 export default async function Dashboard() {
