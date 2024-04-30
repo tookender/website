@@ -1,6 +1,11 @@
 "use server";
 
 import { auth, currentUser, clerkClient } from "@clerk/nextjs/server";
+import axios from "axios";
+
+interface OauthAccessToken {
+  token: string;
+}
 
 async function getCurrentUser() {
   const user = auth();
@@ -41,8 +46,12 @@ export async function getGuilds() {
     "oauth_discord"
   );
 
-  const accessToken = clerkResponse[0].token;
+  let accessToken;
 
+  if (Array.isArray(clerkResponse)) {
+    accessToken = clerkResponse[0].token;
+  }
+  
   const discordUrl = "https://discord.com/api/users/@me/guilds";
 
   const discordResponse = await fetch(discordUrl, {
