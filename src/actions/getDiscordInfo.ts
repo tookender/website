@@ -20,12 +20,12 @@ async function getCurrentUser() {
 export async function getDiscordID() {
   const cu = await getCurrentUser();
   let discordId;
-  
+
   if (cu?.externalAccounts) {
     const discordAccountInfo = cu.externalAccounts.find(
       (ea) => ea.provider === "oauth_discord",
     );
-    
+
     if (discordAccountInfo) {
       discordId = discordAccountInfo.externalId;
     }
@@ -35,7 +35,7 @@ export async function getDiscordID() {
 }
 
 export async function getGuilds() {
-  const user = await auth()
+  const user = await auth();
 
   if (!user.userId) {
     throw new Error("User not found");
@@ -43,7 +43,7 @@ export async function getGuilds() {
 
   const clerkResponse = await clerkClient.users.getUserOauthAccessToken(
     user.userId,
-    "oauth_discord"
+    "oauth_discord",
   );
 
   let accessToken;
@@ -51,8 +51,9 @@ export async function getGuilds() {
   if (Array.isArray(clerkResponse)) {
     accessToken = clerkResponse[0].token;
   }
-  
-  const discordUrl = "https://discord.com/api/users/@me/guilds";
+
+  const discordUrl =
+    "https://discord.com/api/v10/users/@me/guilds?with_counts=true";
 
   const discordResponse = await fetch(discordUrl, {
     headers: {
@@ -60,6 +61,6 @@ export async function getGuilds() {
     },
   });
 
-  const json = await discordResponse.json()
+  const json = await discordResponse.json();
   return json;
 }

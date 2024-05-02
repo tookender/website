@@ -1,18 +1,18 @@
-import { TbArrowRight } from "react-icons/tb";
+import { TbArrowRight, TbDashboard, TbSettings } from "react-icons/tb";
 import { SiDiscord, SiGithub } from "react-icons/si";
 import { PrimaryButton, SecondaryButton } from "@/components/button";
 
 export const Header = () => {
   return (
     <div className="flex flex-col items-center gap-2">
-      <button className="z-50 flex items-center rounded-lg bg-neutral-800 px-3 py-1 text-sm font-medium active:scale-[0.98] duration-300">
+      <button className="z-50 flex items-center rounded-lg bg-neutral-800 px-3 py-1 text-sm font-medium duration-300 active:scale-[0.98]">
         <span className="mr-3">🎉</span>
         <span className="mr-1">v1.0.0 has been released!</span>
         <TbArrowRight height={15} width={15} />
       </button>
 
-      <div className="mt-12 w-screen glow absolute -top-12 z-0 h-[500px] rounded-[100%] opacity-[0.15] mix-blend-normal blur-[75px] will-change-[filter]" />
-      <div className="z-50 flex flex-col items-center ">
+      <div className="glow absolute -top-12 z-0 mt-12 h-[500px] w-screen rounded-[100%] opacity-[0.15] mix-blend-normal blur-[75px] will-change-[filter]" />
+      <div className="z-50 flex flex-col items-center">
         <h1 className="mt-2 text-center text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
           The Discord bot for all your needs.
         </h1>
@@ -27,11 +27,8 @@ export const Header = () => {
             <SiDiscord className="text-xl" />
           </PrimaryButton>
 
-          <SecondaryButton
-            text="GitHub"
-            link="https://github.com/tookender/website"
-          >
-            <SiGithub className="text-xl" />
+          <SecondaryButton text="Dashboard" link="/dashboard">
+            <TbSettings className="text-xl" />
           </SecondaryButton>
         </div>
       </div>

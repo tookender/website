@@ -1,82 +1,81 @@
 import { getDiscordID, getGuilds } from "@/actions/getDiscordInfo";
-import { Button } from "@nextui-org/react";
+import { PrimaryButton, SecondaryButton } from "@/components/button";
+import { DiscordPermissions } from "@/lib/discord";
+import { Button, Link } from "@nextui-org/react";
+import { SiDiscord } from "react-icons/si";
 
+export function checkPermissions(
+  permissions: number | string,
+  permission: DiscordPermissions,
+): boolean {
+  return (Number(permissions) & permission) != 0;
+}
 
 export default async function Dashboard() {
-  const discordID = await getDiscordID();
   const guilds: [] = await getGuilds();
+  const guildsWithPerms = guilds.filter((guild) =>
+    checkPermissions(guild["permissions"], DiscordPermissions.manageGuild),
+  );
 
   return (
     <>
-      <div className="w-screen flex items-center justify-center">
-        <div className="w-[80vw] flex flex-col items-center">
-          <h1 className="font-black text-5xl">
-            Choose a server to manage
+      <div className="flex w-screen items-center justify-center">
+        <div className="flex w-[80vw] flex-col items-center">
+          <h1 className="text-5xl font-black text-center mb-6">
+            {guildsWithPerms.length === 0 ? "No servers found" : "Choose a server"}
           </h1>
 
-          Hello, your Discord ID is {discordID}, here is a list of your guilds:
-          
-          <div className="flex flex-wrap gap-6 justify-center w-[50vw]">
-            {guilds.map((guild) =>
-              <div key={guild["id"]} className="relative flex flex-col h-[240px] w-[262px]">
-                <div className="flex h-[152px] relative overflow-hidden items-center justify-center">
-                  <div className="w-full opacity-30 h-full absolute flex items-center justify-center] rounded-lg bg-repeat blur-[10px] bg-center bg-cover bg-[#1f2129]" style={ { backgroundImage: `url("https://cdn.discordapp.com/icons/${guild["id"]}/${guild["icon"]}.webp?size=128")` } }/>
+          <div className={`flex flex-col justify-center items-center text-center ${guildsWithPerms.length === 0 ? "" : "hidden"}`}>
+            <p className="text-xl text-neutral-400 md:max-w-[520px]">
+              I have found no servers which you are either the owner of, or have sufficient permissions in to manage Korii.
+              <br/>
+            </p>
 
-                  {/* next/image requires local files, this is from discord CDN */}
-                  {/* next-ui/image adds dumb default styles which break the entire look */}
+            <PrimaryButton text="Add to Discord" link="/bot">
+              <SiDiscord/>
+            </PrimaryButton>
+          </div>
+
+          <div className={`flex w-[95vw] sm:w-[85vw] md:w-[75vw] xxxl:w-[50vw] xxxxxl:w-[40vw] flex-wrap justify-center gap-6 ${guildsWithPerms.length === 0 ? "hidden" : ""}`}>
+            {guildsWithPerms.map((guild) => (
+              <div
+                key={guild["id"]}
+                className="relative flex h-[240px] w-[262px] flex-col"
+              >
+                <div className="relative flex h-[152px] items-center justify-center overflow-hidden">
+                  <div
+                    className="justify-center] absolute flex h-full w-full items-center rounded-lg bg-[#1f2129] bg-cover bg-center bg-repeat opacity-30 blur-[10px]"
+                    style={{
+                      backgroundImage: `url("https://cdn.discordapp.com/icons/${guild["id"]}/${guild["icon"]}.webp?size=128")`,
+                    }}
+                  />
+
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     width={64}
                     height={64}
-                    className="relative size-16 rounded-full z-2 border-2 bg-neutral-800 border-zinc-800"
+                    className="z-2 absolute size-16 rounded-full border-2 border-zinc-800 bg-neutral-800"
                     src={`https://cdn.discordapp.com/icons/${guild["id"]}/${guild["icon"]}.webp?size=128`}
                     alt={`${guild["name"]} Icon`}
                   />
                 </div>
 
-                <div className="flex flex-row justify-between mt-2">
+                <div className="mt-2 flex flex-row justify-between">
                   <div>
-                    <h1 className="font-bold">
-                      {guild["name"]}
-                    </h1>
+                    <h1 className="font-bold">{guild["name"]}</h1>
 
-                    <p className="text-neutral-300 text-sm font-light">
-                      Owner
+                    <p className="text-sm font-light text-neutral-300" title={guild["owner"] ? "You own this server." : "You have Manage Guild permission in this server."}>
+                      {guild["owner"] ? "Owner" : "Manager"}
                     </p>
                   </div>
 
-                  <Button>
-                    Manage
-                  </Button>
+                  <Button>Manage</Button>
                 </div>
               </div>
-              // // <div key={guild["id"]} className="w-96 items-center rounded-lg bg-neutral-800 border border-zinc-900 py-5 px-2 flex flex-row gap-2">
-              //   {/* <img
-              //     width={64}
-              //     height={64}
-              //     className="size-16 rounded-full"
-              //     src={`https://cdn.discordapp.com/icons/${guild["id"]}/${guild["icon"]}.webp?size=128`}
-              //     alt={`${guild["name"]} Icon`}
-              //   />
-
-              //   <div className="flex flex-col gap-2">
-              //     <h1 className="text-xl font-bold truncate max-w-64" title={guild["name"]}>
-              //       {guild["name"]}
-              //     </h1>
-
-              //     <Button className="w-fit">
-              //       Manage
-              //     </Button>
-              //   </div>
-              // </div> */}
-            )}
+            ))}
           </div>
-
-          <p className="italic">
-            This is work in progress. More coming soon.
-          </p>
         </div>
       </div>
     </>
-  )
+  );
 }
