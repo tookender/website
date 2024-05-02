@@ -4,7 +4,7 @@ import { DiscordPermissions } from "@/lib/discord";
 import { Button, Link } from "@nextui-org/react";
 import { SiDiscord } from "react-icons/si";
 
-export function checkPermissions(
+function checkPermissions(
   permissions: number | string,
   permission: DiscordPermissions,
 ): boolean {
