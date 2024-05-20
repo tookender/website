@@ -20,6 +20,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   keywords:
     "korino, korino development, korii bot, korino pvp, korino website, web developer, github, typescript",
+  robots: "all",
 };
 
 export default function RootLayout({

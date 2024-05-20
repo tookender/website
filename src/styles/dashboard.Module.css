@@ -1,0 +1,8 @@
+html,
+body {
+  overflow-x: hidden;
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  color: rgb(255, 255, 255);
+  background-color: #1c1b29;
+}

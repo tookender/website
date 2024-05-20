@@ -56,6 +56,7 @@ const config: Config = {
       green: colors.green,
       emerald: colors.emerald,
       red: colors.red,
+      slate: colors.slate,
     },
     screens: {
       // :D

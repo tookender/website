@@ -7,6 +7,17 @@ interface OauthAccessToken {
   token: string;
 }
 
+interface Guild {
+  id: string;
+  name: string;
+  icon: string;
+  owner: boolean;
+  permissions: string;
+  features: string[];
+  approximate_member_count: number;
+  approximate_presence_count: number;
+}
+
 async function getCurrentUser() {
   const user = auth();
 
@@ -63,4 +74,24 @@ export async function getGuilds() {
 
   const json = await discordResponse.json();
   return json;
+}
+
+export async function getBotGuilds(guildsWithPerms: Guild[]) {
+  const apiUrl = `${process.env.API_URL}/bot_guilds`;
+
+  const apiResponse = await fetch(apiUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(guildsWithPerms),
+  });
+
+  if (apiResponse.ok) {
+    const responseData = await apiResponse.json();
+    return responseData.guilds;
+  } else {
+    console.error("Error.");
+    return [];
+  }
 }
