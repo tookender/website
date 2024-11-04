@@ -1,50 +1,78 @@
+"use client";
+
 import "@/styles/globals.css";
-import { dark } from "@clerk/themes";
-import type { Metadata, Viewport } from "next";
 
-import { Providers } from "./providers";
-import { Footer } from "@/components/layout/footer";
-import { Navbar } from "@/components/layout/navbar";
+import Head from "next/head";
+import type { Viewport } from "next";
+import { Inter } from "next/font/google";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
-import { ClerkProvider } from "@clerk/nextjs";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Toaster } from "react-hot-toast";
+import NextTopLoader from "nextjs-toploader";
 
-import { GeistSans } from "geist/font/sans";
-import "nprogress/nprogress.css";
+import { motion } from "framer-motion";
+import { Sidebar } from "@/components/sidebar/menu";
+import { Footer } from "@/components/footer/footer";
+
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const viewport: Viewport = {
   themeColor: "#10b981",
 };
 
-export const metadata: Metadata = {
-  keywords:
-    "korino, korino development, korii bot, korino pvp, korino website, web developer, github, typescript",
-  robots: "all",
-};
+// // metadata such as title or description is in all page.tsx files
+// export const metadata = {
+//   keywords:
+//     "korino, korino development, korii bot, korino pvp, korino website, web developer, github, typescript",
+//   robots: "all",
+// };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, [pathname]);
+
   return (
-    <ClerkProvider appearance={{ baseTheme: dark }}>
-      <html lang="en" className="dark">
-        <body className={`${GeistSans.className} antialiased`}>
-          <Navbar />
+    <html lang="en" className="dark">
+      <head>
+        <meta name="keywords" content="korino, "/>
+        <meta name="darkreader-lock"/>
+        <meta name="keywords" content="ender, ender2k89, tookender, korino.dev, korino, korii bot, korii-bot, web developer, full stack developer"/>
+      </head>
 
-          <Providers>{children}</Providers>
-
-          <Footer
-            commitHash={process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA}
-            commitMessage={process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_MESSAGE}
-          />
-
-          <Analytics />
-          <SpeedInsights />
-        </body>
-      </html>
-    </ClerkProvider>
+      <body
+        className={`${inter.className} antialiased`}
+      >
+        <NextTopLoader
+          color={"linear-gradient(to right, #8668ac, #4d7ce5)"}
+        />
+        <div className="flex h-dvh">
+          <Sidebar/>
+          <div className="w-full overflow-y-auto p-4 flex flex-col">
+            <Toaster/>
+            <div className="min-h-12"/>
+            <motion.main
+              className="mx-auto w-full max-w-[950px]"
+              key={pathname}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.3 }}
+            >
+              {children}
+            </motion.main>
+            <Footer/>
+          </div>
+        </div>
+      </body>
+    </html>
   );
 }
