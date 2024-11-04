@@ -4,12 +4,11 @@ import { TechnologyItem } from "@/types/technologies";
 interface ProjectCardProps {
 	title: string;
 	link: string;
-	github_link: string;
 	description: string;
 	languages: TechnologyItem[];
 }
 
-export const ProjectCard = ({ title, link, github_link, description, languages}: ProjectCardProps) => {	
+export const ProjectCard = ({ title, link, description, languages}: ProjectCardProps) => {	
 	return (
 		<a href={link} title={title} target={link.startsWith("/") ? "_self" : "_blank"}>
 			<div className="flex flex-col justify-between p-4 rounded-lg bg-neutral-800/70 border border-transparent hover:border-[#404040] hover:bg-neutral-700/60 group active:scale-[0.98] duration-300 items-start h-[8.5rem]"> 				

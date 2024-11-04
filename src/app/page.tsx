@@ -91,7 +91,6 @@ export default function Home() {
                 <ProjectCard
                   title={project.title}
                   link={project.link}
-                  github_link={project.github_link}
                   description={project.description}
                   languages={project.technologies}
                   aria-label={`${project.title} - ${project.description}`}

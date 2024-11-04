@@ -2,7 +2,6 @@
 
 import "@/styles/globals.css";
 
-import Head from "next/head";
 import type { Viewport } from "next";
 import { Inter } from "next/font/google";
 import { useState, useEffect } from "react";

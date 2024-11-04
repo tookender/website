@@ -9,7 +9,6 @@ export const projects: ProjectItem[] = [
   {
     title: "korino.dev",
     link: "/",
-    github_link: "https://github.com/tookender/website",
     description: "🌐 My personal space on the internet",
     technologies: [
       findTechnology("Next.js"),
@@ -21,7 +20,6 @@ export const projects: ProjectItem[] = [
   {
     title: "Korii-Bot",
     link: "/bot",
-    github_link: "https://github.com/tookender/Korii-Bot",
     description: "🤖 Multi-purpose Discord bot for all your needs",
     technologies: [
       findTechnology("Python"),
@@ -32,7 +30,6 @@ export const projects: ProjectItem[] = [
   {
     title: "rustbyte",
     link: "https://rustbyte.dev",
-    github_link: "https://github.com/rustbyte-solutions/rustbyte-website",
     description: "🌐 Website for Rustbyte Solutions",
     technologies: [
       findTechnology("Astro"),
@@ -45,7 +42,6 @@ export const projects: ProjectItem[] = [
   {
     title: "BandBot",
     link: "https://github.com/tookender/SuitBot",
-    github_link: "https://github.com/tookender/BandBot",
     description: "🎵 Commissioned bot for a local band",
     technologies: [
       findTechnology("Python"),
@@ -55,7 +51,6 @@ export const projects: ProjectItem[] = [
   {
     title: "SuitBot",
     link: "https://github.com/tookender/SuitBot",
-    github_link: "https://github.com/tookender/SuitBot",
     description: "🖼️ Commissioned bot for image editing",
     technologies: [
       findTechnology("Python"),
@@ -65,7 +60,6 @@ export const projects: ProjectItem[] = [
   {
     title: "QuizBot",
     link: "https://github.com/tookender/SuitBot",
-    github_link: "https://github.com/tookender/QuizBot",
     description: "❓ Commissioned bot for interactive quizzes",
     technologies: [
       findTechnology("Python"),
