@@ -22,6 +22,14 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
+      <head>
+        <title>about me</title>
+        <meta property="og:title" content="about me" />
+        <meta property="og:description" content="some useful information about me" />
+        <meta property="og:url" content="https://korino.dev/about" />
+        <meta name="theme-color" content="#10b981" data-react-helmet="true" />
+      </head>
+
       <div className="mx-auto w-full max-w-[950px]">
         <h1 className="text-5xl font-semibold bg-gradient-to-r from-neutral-400 to-neutral-500 text-transparent bg-clip-text">
           About Me

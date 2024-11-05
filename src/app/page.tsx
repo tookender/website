@@ -17,6 +17,14 @@ export default function Home() {
 
   return (
     <>
+      <head>
+        <title>ender</title>
+        <meta property="og:title" content="ender" />
+        <meta property="og:description" content="my little space on the internet" />
+        <meta property="og:url" content="https://korino.dev" />
+        <meta name="theme-color" content="#10b981" data-react-helmet="true" />
+      </head>
+
       <section aria-labelledby="intro-heading">
         <div className="inline-flex items-center gap-1 text-neutral-400/80 mb-2" role="contentinfo">
         <SlLocationPin aria-hidden="true" />

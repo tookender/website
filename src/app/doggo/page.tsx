@@ -44,10 +44,10 @@ export default function DoggoPage() {
     <main>
       <head>
         <title>doggo pics :D</title>
-        <meta content="doggo pics" property="og:title" />
-        <meta content="a gallery of doggo pictures :D" property="og:description" />
-        <meta content="https://korino.dev/doggo" property="og:url" />
-        <meta content="#10b981" data-react-helmet="true" name="theme-color" />
+        <meta property="og:title" content="doggo pics" />
+        <meta property="og:description" content="a gallery of doggo pictures :D" />
+        <meta property="og:url" content="https://korino.dev/doggo" />
+        <meta name="theme-color" content="#10b981" data-react-helmet="true" />
       </head>
 
       <div className="flex min-h-screen flex-col">
