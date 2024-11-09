@@ -17,32 +17,34 @@ export default function Home() {
 
   return (
     <>
-      <head>
+      {/* <head>
         <title>ender</title>
         <meta property="og:title" content="ender" />
         <meta property="og:description" content="my little space on the internet" />
         <meta property="og:url" content="https://korino.dev" />
         <meta name="theme-color" content="#10b981" data-react-helmet="true" />
-      </head>
+      </head> */}
 
       <section aria-labelledby="intro-heading">
-        <div className="inline-flex items-center gap-1 text-neutral-400/80 mb-2" role="contentinfo">
-        <SlLocationPin aria-hidden="true" />
-        <p>Germany</p>
-      </div>
+        <div className="flex flex-row items-center gap-1 mb-2 text-neutral-400/80">
+          <SlLocationPin aria-hidden="true" />
+          <p>Germany</p>
+        </div>
 
-      <h1 id="intro-heading" className="flex flex-row text-4xl md:text-5xl leading-[60px] font-semibold">
-        Hey, I&apos;m Ender 👋
-      </h1>
+        <h1 className="flex flex-row text-4xl md:text-5xl leading-[60px] font-semibold">
+          Hey, I&apos;m Ender 👋
+        </h1>
 
-      <p className="text-neutral-400/80 md:mt-4 text-pretty"> 
-        I&apos;m a 14 year old developer, who loves creating web-applications, and also Discord bots.
-        I&apos;ve been programming since I was about 10 years old, and I&apos;m currently learning Three.JS
-        </p>
+        <p className="text-neutral-400/80 md:mt-4 text-pretty"> 
+          I&apos;m a 14 year old developer, who loves creating web-applications, and also Discord bots.
+          I&apos;ve been programming since I was about 10 years old, and I&apos;m currently learning Three.JS
+          deteste hasse
+          adore liebe
+          </p>
       </section>
 
       <section aria-labelledby="technologies-heading">
-        <h2 id="technologies-heading" className="mt-14 text-3xl font-semibold">
+        <h2 className="mt-14 text-3xl font-semibold">
           My Technologies
         </h2>
         

@@ -69,7 +69,7 @@ export const Sidebar = () => {
           aria-label="Navigate to home"
         >
           <img
-            src="https://korino.dev/avatars/ender.webp"
+            src="/ender.webp"
             className="h-10 w-10 rounded-full"
             alt="My profile picture"
           />
