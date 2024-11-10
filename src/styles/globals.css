@@ -50,6 +50,11 @@ b {
   }
 }
 
+#incorrect {
+  color: rgb(255 120 120);
+  font-weight: 700;
+}
+
 /* .custom_grid {
   background-image: 
     linear-gradient(to bottom, rgba(24, 24, 27, 0) 90%, rgba(24, 24, 27, 1)),
