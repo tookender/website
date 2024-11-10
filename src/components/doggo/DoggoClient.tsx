@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { dogImages } from "@/lib/doggo";
 import { DogImageGrid } from "@/components/doggo/DogImageGrid";
 import { DogImageModal } from "@/components/doggo/DogImageModal";
@@ -15,8 +15,22 @@ export const DoggoClient = () => {
     setLoadedImages((prev) => ({ ...prev, [dogKey]: true }));
   };
 
+  // useEffect(() => {
+  //   const cursor = document.getElementById("cursor");
+
+  //   document.addEventListener("mousemove", function(event) {
+  //     cursor?.animate({ left: `${event.clientX}px`, top: `${event.clientY}px` }, {duration: 2500, fill: "forwards"})
+  //   });
+
+  //   document.addEventListener("mouseenter", function(event) {
+  //     cursor?.animate({ left: `${event.clientX}px`, top: `${event.clientY}px` }, {duration: 1000, fill: "forwards"})
+  //   });
+  // })
+
   return (
     <div className="flex min-h-screen flex-col">
+      {/* <img id="cursor" src="/dogs/dog15.webp" alt="cute cursor ngl..." width={16} height={16} className="w-12 h-12 rounded-full object-cover  absolute z-50"/> */}
+
       <h1 className="mx-12 text-center text-5xl font-extrabold md:text-6xl xl:text-7xl">
         dog pictures gallery :D
       </h1>

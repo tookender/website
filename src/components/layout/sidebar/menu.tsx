@@ -63,11 +63,8 @@ export const Sidebar = () => {
           isOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0 md:relative absolute top-0 left-0`}
       >
-        <Link
-          href="/"
+        <button
           className="flex flex-row p-4 gap-2 items-center active:scale-95 duration-300"
-          title="Navigate to home"
-          aria-label="Navigate to home"
         >
           <Image
             src="/ender.webp"
@@ -77,7 +74,7 @@ export const Sidebar = () => {
             alt="My profile picture"
           />
           <h1 className="font-semibold text-lg">/tookender\</h1>
-        </Link>
+        </button>
 
           <div className="flex flex-col gap-0.5 px-4 py-1">
           <h1 className="text-[15px] mb-2 font-semibold text-neutral-400">
