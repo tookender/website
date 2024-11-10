@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <section aria-labelledby="intro-heading">
+      <section>
         <div className="flex flex-row items-center gap-1 mb-2 text-neutral-400/80">
           <SlLocationPin aria-hidden="true" />
           <p>Germany</p>
@@ -41,7 +41,7 @@ export default function Home() {
         </p>
       </section>
 
-      <section aria-labelledby="technologies-heading">
+      <section>
         <h2 className="mt-14 text-3xl font-semibold">My Technologies</h2>
         
         <p className="text-neutral-400/80 mt-2 text-pretty">
@@ -52,8 +52,8 @@ export default function Home() {
         <TechnologyList />
       </section>
 
-      <section aria-labelledby="projects-heading">
-        <h2 id="projects-heading" className="mt-14 text-3xl font-semibold">
+      <section>
+        <h2 className="mt-14 text-3xl font-semibold">
           My Projects
         </h2>
         

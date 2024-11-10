@@ -13,7 +13,6 @@ interface TechnologyCardProps {
 export const TechnologyCard = ({ text, description, background, index, icon }: TechnologyCardProps) => {	
 	return (
 		<motion.button
-			aria-label={`${text} - ${description}`}
 			initial={{ opacity: 0, y: 20 }}
 			animate={{ opacity: 1, y: 0 }}
 			exit={{ opacity: 0, y: 20 }}

@@ -6,7 +6,7 @@ import { FaDog, FaHouseChimney } from "react-icons/fa6";
 
 export default function Home() {
   return (
-    <section aria-labelledby="not-found" className="flex flex-col items-center justify-center gap-8">
+    <section className="flex flex-col items-center justify-center gap-8">
       <div className="relative active:scale-[0.98] duration-300 h-[70vh] w-[60vw] rounded-xl flex items-center justify-center overflow-hidden">
         <div className="text-3xl font-bold absolute bottom-0 bg-gradient-to-b from-transparent via-black/70 to-black/90 w-full text-center py-24">
           <h1 className="translate-y-12">Not Found 👻</h1>

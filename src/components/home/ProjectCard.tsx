@@ -19,7 +19,7 @@ export const ProjectCard = ({ title, link, description, languages}: ProjectCardP
 						</h1>
 
 						{!link.startsWith("/") && (
-							<p className="text-red-500" title="External site" aria-label="External site">
+							<p className="text-red-500" title="External site">
 								*
 							</p>
 						)}

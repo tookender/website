@@ -57,6 +57,7 @@ export const Sidebar = () => {
       )}
 
       <menu
+        title="Open the sidebar menu"
         id="menu"
         className={`md:flex flex-col min-w-[13.2rem] h-[100dvh] bg-[#191919] duration-500 ease-in-out border-r border-neutral-800 z-50 transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
@@ -80,15 +81,15 @@ export const Sidebar = () => {
             Home
           </h1>
 
-          <SidebarItem text="Home" link="/" title="Navigate to home" aria-label="Navigate to home">
+          <SidebarItem text="Home" link="/" title="Navigate to home">
             <BsPerson className="text-lg" />
           </SidebarItem>
 
-          <SidebarItem text="About" link="/about" title="Info about me" aria-label="Info about me">
+          <SidebarItem text="About" link="/about" title="Info about me">
             <BsFolder className="text-lg" />
           </SidebarItem>
 
-          <SidebarItem text="Korii Bot" link="/bot" title="My Discord bot" aria-label="My Discord bot">
+          <SidebarItem text="Korii Bot" link="/bot" title="My Discord bot">
             <BsHexagonFill className="text-lg" />
           </SidebarItem>
 
@@ -96,15 +97,11 @@ export const Sidebar = () => {
             Miscellaneous
           </h1>
 
-          <SidebarItem text="Dog Pictures" link="/doggo" title="Dog pictures" aria-label="Dog pictures">
+          <SidebarItem text="Dog Pictures" link="/doggo" title="Dog pictures">
             <FaDog className="text-lg" />
           </SidebarItem>
 
-          {/* <SidebarItem text="Contact" link="/contact" title="Contact me" aria-label="Contact me">
-            <BsMailboxFlag className="text-lg" />
-          </SidebarItem> */}
-
-          <SidebarItem text="GitHub" link="https://github.com/tookender" title="My GitHub" aria-label="My GitHub">
+          <SidebarItem text="GitHub" link="https://github.com/tookender" title="My GitHub">
             <BsGithub className="text-lg" />
           </SidebarItem>
 

@@ -31,7 +31,6 @@ function AnimatedProject({ project, index }: { project: ProjectsListProps["proje
         link={project.link}
         description={project.description}
         languages={project.technologies}
-        aria-label={`${project.title} - ${project.description}`}
       />
     </motion.div>
   );
