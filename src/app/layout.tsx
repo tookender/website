@@ -37,6 +37,12 @@ export default function RootLayout({
 
   useEffect(() => {
     setIsLoaded(true);
+
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    void new Audio("/pop.mp3").play().catch(() => null);
   }, [pathname]);
 
   return (
