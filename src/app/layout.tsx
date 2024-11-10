@@ -2,7 +2,6 @@
 
 import "@/styles/globals.css";
 
-import type { Viewport } from "next";
 import { Inter } from "next/font/google";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
