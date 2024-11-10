@@ -11,21 +11,14 @@ import { Toaster } from "react-hot-toast";
 import NextTopLoader from "nextjs-toploader";
 
 import { motion } from "framer-motion";
-import { Sidebar } from "@/components/sidebar/menu";
-import { Footer } from "@/components/footer/footer";
+import { Footer } from "@/components/layout/footer";
+import { Sidebar } from "@/components/layout/sidebar/menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const viewport: Viewport = {
   themeColor: "#10b981",
 };
-
-// // metadata such as title or description is in all page.tsx files
-// export const metadata = {
-//   keywords:
-//     "korino, korino development, korii bot, korino pvp, korino website, web developer, github, typescript",
-//   robots: "all",
-// };
 
 export default function RootLayout({
   children,

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { FaDog, FaHouseChimney } from "react-icons/fa6";
 
@@ -14,8 +15,11 @@ export default function Home() {
           </p>
         </div>
 
-        <img
-          src={"/dogs/dog13.webp"}
+        <Image
+          src="/dogs/dog13.webp"
+          height={1512}
+          width={2016}
+          alt="probably not who you're looking for..."
           className="h-full w-full object-cover rounded-large"
         />
       </div>

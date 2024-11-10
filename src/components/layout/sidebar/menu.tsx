@@ -5,9 +5,10 @@ import { SidebarItem } from "./item";
 
 import { FaDog } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { BsFolder, BsGithub, BsPerson } from "react-icons/bs";
+import { BsFolder, BsGithub, BsHexagonFill, BsPerson } from "react-icons/bs";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -68,8 +69,10 @@ export const Sidebar = () => {
           title="Navigate to home"
           aria-label="Navigate to home"
         >
-          <img
+          <Image
             src="/ender.webp"
+            width={500}
+            height={500}
             className="h-10 w-10 rounded-full"
             alt="My profile picture"
           />
@@ -87,6 +90,10 @@ export const Sidebar = () => {
 
           <SidebarItem text="About" link="/about" title="Info about me" aria-label="Info about me">
             <BsFolder className="text-lg" />
+          </SidebarItem>
+
+          <SidebarItem text="Korii Bot" link="/bot" title="My Discord bot" aria-label="My Discord bot">
+            <BsHexagonFill className="text-lg" />
           </SidebarItem>
 
           <h1 className="text-[15px] mt-6 mb-2 font-semibold text-neutral-400">

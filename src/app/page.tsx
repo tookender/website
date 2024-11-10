@@ -1,12 +1,8 @@
-import { ProjectsList } from "@/components/index/ProjectsList";
-import { TechnologyCard } from "@/components/index/TechnologyCard";
+import { ProjectsList } from "@/components/home/ProjectsList";
+import { TechnologyList } from "@/components/home/TechnologyList";
 
-import { technologies } from "@/lib/technologies";
-
-import Head from "next/head";
 import { Metadata } from "next";
 import { SlLocationPin } from "react-icons/sl";
-import { TechnologyList } from "@/components/index/TechnologyList";
 
 export const metadata: Metadata = {
   title: "Home | Home",
@@ -28,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div>
+    <>
       <section aria-labelledby="intro-heading">
         <div className="flex flex-row items-center gap-1 mb-2 text-neutral-400/80">
           <SlLocationPin aria-hidden="true" />
@@ -69,6 +65,6 @@ export default function Home() {
         
         <ProjectsList />
       </section>
-    </div>
+    </>
   );
 }

@@ -13,7 +13,8 @@
   backface-visibility: hidden;
 }
 
-body, html {
+body,
+html {
   color: white;
   background-color: #171717;
 }
@@ -21,6 +22,32 @@ body, html {
 b {
   font-weight: 600;
   color: rgb(212, 212, 212);
+}
+
+.glow {
+  background-image: conic-gradient(
+    from 180deg at 50% 50%,
+    #a623fe 0deg,
+    #910024 90deg,
+    #a623fe 180deg,
+    #910024 360deg
+  );
+
+  background-size: 200% 200%;
+
+  animation: Animation 5s ease-in-out infinite;
+}
+
+@keyframes Animation {
+  0% {
+    background-position: 10% 0%;
+  }
+  50% {
+    background-position: 91% 100%;
+  }
+  100% {
+    background-position: 10% 0%;
+  }
 }
 
 /* .custom_grid {
