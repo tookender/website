@@ -7,7 +7,6 @@ import { FaDog } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsFolder, BsGithub, BsHexagonFill, BsPerson } from "react-icons/bs";
 
-import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
