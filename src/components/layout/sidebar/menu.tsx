@@ -3,7 +3,7 @@
 import { CopyButtons } from "./copy";
 import { SidebarItem } from "./item";
 
-import { FaDog } from "react-icons/fa6";
+import { FaDog, FaVolcano } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsFolder, BsGithub, BsHexagonFill, BsPerson } from "react-icons/bs";
 
@@ -99,6 +99,10 @@ export const Sidebar = () => {
 
           <SidebarItem text="Dog Pictures" link="/doggo" title="Dog pictures">
             <FaDog className="text-lg" />
+          </SidebarItem>
+
+          <SidebarItem text="Vocab" link="/vocab" title="DO NOT ENTER FRENCH VOCAB TEST">
+            <FaVolcano className="text-lg" />
           </SidebarItem>
 
           <SidebarItem text="GitHub" link="https://github.com/tookender" title="My GitHub">
