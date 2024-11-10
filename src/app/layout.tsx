@@ -16,10 +16,6 @@ import { Sidebar } from "@/components/layout/sidebar/menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const viewport: Viewport = {
-  themeColor: "#10b981",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -41,11 +37,14 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <meta name="keywords" content="korino, " />
         <meta name="darkreader-lock" />
         <meta
           name="keywords"
           content="ender, ender2k89, tookender, korino.dev, korino, korii bot, korii-bot, web developer, full stack developer"
+        />
+        <meta
+          name="theme-color"
+          content="#10b981"
         />
       </head>
 
