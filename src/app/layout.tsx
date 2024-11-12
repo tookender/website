@@ -10,6 +10,7 @@ import { Toaster } from "react-hot-toast";
 import NextTopLoader from "nextjs-toploader";
 
 import { motion } from "framer-motion";
+import { Providers } from "./providers";
 import { Footer } from "@/components/layout/footer";
 import { Sidebar } from "@/components/layout/sidebar/menu";
 
@@ -63,7 +64,9 @@ export default function RootLayout({
             animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
           >
-            {children}
+            <Providers>
+              {children}
+            </Providers>
           </motion.main>
 
           <Footer />
