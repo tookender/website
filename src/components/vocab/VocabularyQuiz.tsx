@@ -6,7 +6,6 @@ interface QuizProps {
   vocabulary: { question: string; answer: string }[];
   userInput: string;
   setUserInput: (input: string) => void;
-  handleKeyPress: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   feedback: string;
   correctAnswer: string;
   highlightedText: string;
@@ -18,7 +17,6 @@ export const VocabularyQuiz: React.FC<QuizProps> = ({
   vocabulary,
   userInput,
   setUserInput,
-  handleKeyPress,
   feedback,
   correctAnswer,
   highlightedText,

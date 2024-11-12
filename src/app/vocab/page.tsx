@@ -39,30 +39,30 @@ const VocabularyTestPage: React.FC = () => {
     };
   }, []);
 
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter" && audio) {
-      audio.play();
-      const answer = vocabulary[currentIndex]?.answer;
+  // const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  //   if (event.key === "Enter" && audio) {
+  //     audio.play();
+  //     const answer = vocabulary[currentIndex]?.answer;
 
-      const normalizedUserInput = normalizeInput(userInput);
-      const normalizedAnswer = normalizeInput(answer || "");
+  //     const normalizedUserInput = normalizeInput(userInput);
+  //     const normalizedAnswer = normalizeInput(answer || "");
 
-      if (normalizedUserInput === normalizedAnswer) {
-        setFeedback("✅ Correct!");
-        setCorrectAnswer("");
-        setHighlightedText("");
-        setTimeout(() => {
-          setFeedback("");
-          setCurrentIndex(currentIndex + 1);
-          setUserInput("");
-        }, 1000);
-      } else {
-        setFeedback("❌ Incorrect!");
-        setCorrectAnswer(answer || "");
-        setHighlightedText(highlightIncorrect(userInput, answer || ""));
-      }
-    }
-  };
+  //     if (normalizedUserInput === normalizedAnswer) {
+  //       setFeedback("✅ Correct!");
+  //       setCorrectAnswer("");
+  //       setHighlightedText("");
+  //       setTimeout(() => {
+  //         setFeedback("");
+  //         setCurrentIndex(currentIndex + 1);
+  //         setUserInput("");
+  //       }, 1000);
+  //     } else {
+  //       setFeedback("❌ Incorrect!");
+  //       setCorrectAnswer(answer || "");
+  //       setHighlightedText(highlightIncorrect(userInput, answer || ""));
+  //     }
+  //   }
+  // };
 
   const handleRetry = () => {
     window.location.reload();
@@ -119,7 +119,6 @@ const VocabularyTestPage: React.FC = () => {
               vocabulary={vocabulary}
               userInput={userInput}
               setUserInput={setUserInput}
-              handleKeyPress={handleKeyPress}
               feedback={feedback}
               correctAnswer={correctAnswer}
               highlightedText={highlightedText}
