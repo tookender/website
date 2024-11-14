@@ -1,128 +1,83 @@
 "use client";
 
 import toast from "react-hot-toast";
-import React, { useEffect, useState, SetStateAction } from "react";
+import React, { useEffect, useState } from "react";
 import { Tabs, Tab } from "@nextui-org/react";
-import { normalizeInput, highlightIncorrect } from "@/lib/vocab";
+import { normalizeInput, highlightIncorrect, handleKeyPress as handleKeyPressUtil, addVocabulary as addVocabularyUtil, deleteVocabulary as deleteVocabularyUtil, saveToLocalStorage as saveToLocalStorageUtil } from "@/lib/vocab";
 import { VocabularyList } from "@/components/vocab/VocabularyList";
 import { VocabularyQuiz } from "@/components/vocab/VocabularyQuiz";
-import { useLocalStorage } from "@uidotdev/usehooks";
+import { useLocalStorageState } from "ahooks";
 
 const VocabularyTestPage: React.FC = () => {
-  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
-  const [vocabulary, setVocabulary] = useState<
-    { question: string; answer: string }[]
-  >([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [userInput, setUserInput] = useState("");
-  const [feedback, setFeedback] = useState("");
-  const [correctAnswer, setCorrectAnswer] = useState("");
-  const [highlightedText, setHighlightedText] = useState("");
-  const [newQuestion, setNewQuestion] = useState("");
-  const [newAnswer, setNewAnswer] = useState("");
-  const [savedVocabulary, saveVocabulary] = useLocalStorage("vocabulary", null);
+  const [state, setState] = useState({
+    audio: null as HTMLAudioElement | null,
+    vocabulary: [] as { question: string; answer: string }[],
+    currentIndex: 0,
+    userInput: "",
+    feedback: "",
+    correctAnswer: "",
+    highlightedText: "",
+    newQuestion: "",
+    newAnswer: "",
+  });
+  const [savedVocabulary, saveVocabulary] = useLocalStorageState("vocabulary");
 
   useEffect(() => {
     if (savedVocabulary) {
-      console.log("exists")
-      setVocabulary(JSON.parse(savedVocabulary));
-    } else {
-      console.log("doesn't exist")
+      setState(prev => ({ ...prev, vocabulary: JSON.parse(savedVocabulary as string) }));
     }
-  }, [savedVocabulary, saveVocabulary]);
+  }, [savedVocabulary]);
 
   useEffect(() => {
     const audioInstance = new Audio("/pop.mp3");
-    setAudio(audioInstance);
+    setState(prev => ({ ...prev, audio: audioInstance }));
     return () => {
       audioInstance.pause();
     };
   }, []);
 
-  // const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-  //   if (event.key === "Enter" && audio) {
-  //     audio.play();
-  //     const answer = vocabulary[currentIndex]?.answer;
-
-  //     const normalizedUserInput = normalizeInput(userInput);
-  //     const normalizedAnswer = normalizeInput(answer || "");
-
-  //     if (normalizedUserInput === normalizedAnswer) {
-  //       setFeedback("✅ Correct!");
-  //       setCorrectAnswer("");
-  //       setHighlightedText("");
-  //       setTimeout(() => {
-  //         setFeedback("");
-  //         setCurrentIndex(currentIndex + 1);
-  //         setUserInput("");
-  //       }, 1000);
-  //     } else {
-  //       setFeedback("❌ Incorrect!");
-  //       setCorrectAnswer(answer || "");
-  //       setHighlightedText(highlightIncorrect(userInput, answer || ""));
-  //     }
-  //   }
-  // };
-
-  const handleRetry = () => {
-    window.location.reload();
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    handleKeyPressUtil(event, state, setState);
   };
 
   const addVocabulary = () => {
-    if (newQuestion && newAnswer) {
-      setVocabulary([
-        ...vocabulary,
-        { question: newQuestion, answer: newAnswer },
-      ]);
-      setNewQuestion("");
-      setNewAnswer("");
-    } else {
-      toast("Invalid question and/or solution", {
-        icon: "❌",
-        style: {
-          borderRadius: "10px",
-          background: "#333",
-          color: "#fff",
-        },
-      });
-    }
+    addVocabularyUtil(state.newQuestion, state.newAnswer, setState, toast);
   };
 
   const deleteVocabulary = (index: number) => {
-    const updatedVocabulary = vocabulary.filter((_, i) => i !== index);
-    setVocabulary(updatedVocabulary);
+    setState(prev => ({ ...prev, vocabulary: deleteVocabularyUtil(prev.vocabulary, index) }));
   };
 
-  const saveToStorage = () => {
-    saveVocabulary(JSON.stringify(vocabulary) as unknown as SetStateAction<null>);
+  const saveToLocalStorage = () => {
+    saveToLocalStorageUtil(state.vocabulary, saveVocabulary);
   };
 
   return (
-    <div className="flex flex-col items-center mt-12 min-h-screen">
+    <div className="flex flex-col items-center md:mt-2 min-h-screen">
       <Tabs variant="underlined" size="lg">
         <Tab key="list" title="Vocabulary List">
           <VocabularyList
-            vocabulary={vocabulary}
+            vocabulary={state.vocabulary}
             deleteVocabulary={deleteVocabulary}
-            newQuestion={newQuestion}
-            newAnswer={newAnswer}
-            setNewQuestion={setNewQuestion}
-            setNewAnswer={setNewAnswer}
+            newQuestion={state.newQuestion}
+            newAnswer={state.newAnswer}
+            setNewQuestion={(newQuestion) => setState(prev => ({ ...prev, newQuestion }))}
+            setNewAnswer={(newAnswer) => setState(prev => ({ ...prev, newAnswer }))}
             addVocabulary={addVocabulary}
-            saveVocabulary={saveToStorage}
+            saveVocabulary={saveToLocalStorage}
           />
         </Tab>
-        <Tab key="quiz" title="Quiz" isDisabled={vocabulary.length === 0}>
-          {vocabulary.length > 0 && (
+        <Tab key="quiz" title="Quiz" isDisabled={state.vocabulary.length === 0}>
+          {state.vocabulary.length > 0 && (
             <VocabularyQuiz
-              currentIndex={currentIndex}
-              vocabulary={vocabulary}
-              userInput={userInput}
-              setUserInput={setUserInput}
-              feedback={feedback}
-              correctAnswer={correctAnswer}
-              highlightedText={highlightedText}
-              handleRetry={handleRetry}
+              currentIndex={state.currentIndex}
+              vocabulary={state.vocabulary}
+              feedback={state.feedback}
+              correctAnswer={state.correctAnswer}
+              highlightedText={state.highlightedText}
+              handleKeyPress={handleKeyPress}
+              userInput={state.userInput}
+              setUserInput={(input) => setState((prev: any) => ({ ...prev, userInput: input }))}
             />
           )}
         </Tab>

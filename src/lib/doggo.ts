@@ -23,10 +23,15 @@ export const dogImages: DogImages = {
   dog16: { description: "zzz...", blurhash: "LmGSltVsWCbv?wjZjZkCt9bcoIaK" },
   dog17: { description: "im too old for this 👴", blurhash: "LmH2vNs9OZRj?wt7jFayyEt7r=kC" },
   dog18: { description: "a bit sleepy....", blurhash: "L7IN{m00J--p0001_NMxu5?v8_-:" },
+  dog19: { description: "wot", blurhash: "LDAcrR%3WX%2~X%Ms:t7-=xuR-fR" },
+  dog20: { description: "heh..", blurhash: "LEFr66}lkWt6pdD%xZfltlIpIoRk" },
+  dog21: { description: "did i hear treat?!", blurhash: "LME1vx~AkWWq-o-ooyR+%Lxus:s." },
+  dog22: { description: "yummy", blurhash: "LhJinE=_oyoJ~ANHNHWBSgIpsnoe" },
+
+  dog11: { description: "RAWRRRR", blurhash: "LRHxKJ?vK69b~8N{NKNGX.JBRjs9" },
   dog2: { description: "hehe hi", blurhash: "LcID5BR*X7s-~At6j?jZ-.xZWBaz" },
   dog3: { description: "huh?", blurhash: "LUHTELoekVxY~AxZj@oLxuxZWBWW" },
   dog5: { description: "let me sleep hooman...", blurhash: "LAGk|4o}*0H=4nNeD%%20Mx]rW.8" },
-  dog11: { description: "RAWRRRR", blurhash: "LRHxKJ?vK69b~8N{NKNGX.JBRjs9" },
 };
 
 export function getRandomDog(full: boolean): string[] {

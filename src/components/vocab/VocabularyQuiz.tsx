@@ -1,63 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Input } from "@nextui-org/react";
 
 interface QuizProps {
   currentIndex: number;
   vocabulary: { question: string; answer: string }[];
-  userInput: string;
-  setUserInput: (input: string) => void;
   feedback: string;
   correctAnswer: string;
   highlightedText: string;
-  handleRetry: () => void;
+  handleKeyPress: (event: React.KeyboardEvent<HTMLInputElement>, userInput: string) => void;
+  userInput: string;
+  setUserInput: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const VocabularyQuiz: React.FC<QuizProps> = ({
   currentIndex,
   vocabulary,
-  userInput,
-  setUserInput,
   feedback,
   correctAnswer,
   highlightedText,
-  handleRetry,
+  handleKeyPress,
+  userInput,
+  setUserInput,
 }) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUserInput(event.target.value);
+  };
+
   return (
-    <div className="w-full">
-      <h1 className="text-3xl font-bold mb-4">Vocabulary Quiz</h1>
-
-      <h2 className="text-2xl mb-4">
-        {currentIndex < vocabulary.length ? (
-          vocabulary[currentIndex].question
-        ) : (
-          <div className="text-4xl flex flex-row font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text">
-            <span className="text-white">🎉</span> <p>Test Complete!</p>{" "}
-            <span className="text-white">🎉</span>
-          </div>
-        )}
-      </h2>
-
-      {currentIndex < vocabulary.length ? (
-        <Input
-          type="text"
-          value={userInput}
-          onChange={(e) => setUserInput(e.target.value)}
-          label="Type your answer"
-          size="sm"
-        />
-      ) : (
-        <Button onClick={handleRetry} color="success">
-          🔄 Retry
-        </Button>
-      )}
+    <div className="md:max-w-[600px] md:w-screen">
+      <h1 className="text-4xl font-bold mb-6">Vocabulary Quiz</h1>
 
       {feedback && (
-        <div className="mt-4">
-          <span className="text-lg">{feedback}</span>
-          {correctAnswer && <span className="text-lg"> Correct answer: {correctAnswer}</span>}
-          {highlightedText && <div dangerouslySetInnerHTML={{ __html: highlightedText }} />}
+        <h1 className={`text-3xl font-bold ${feedback.includes("❌")  ? "text-red-400" : "text-green-400 mb-6"}`}>
+          {feedback}
+        </h1>
+      )}
+
+      {feedback.includes("❌") && (     
+        <div className="flex flex-row gap-1 text-xl mb-6">
+          <p className="font-bold">Solution:</p>
+          <p className="text-xl text-red-200" dangerouslySetInnerHTML={{ __html: highlightedText }}/>
         </div>
       )}
+
+      <div className="flex flex-row gap-1 text-xl mb-2">
+        <p className="font-bold">Question:</p>
+        <p className="select-none">{vocabulary[currentIndex]?.question}</p>
+      </div>
+
+      <Input
+        type="text"
+        value={userInput}
+        onChange={handleInputChange}
+        onKeyPress={(event) => handleKeyPress(event, userInput)}
+        label="Type your answer"
+      />
     </div>
   );
 };

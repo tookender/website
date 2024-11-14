@@ -41,16 +41,15 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
   })
 
   return (
-    <>
-      <h1 className="text-3xl font-bold mb-4">Vocabulary List</h1>
+    <div className="md:max-w-[600px] md:w-screen">
+      <h1 className="text-4xl font-bold mb-6">Vocabulary List</h1>
       <Table aria-label="Vocabulary List Table"
         bottomContent={
           <div className="flex w-full justify-center">
             <Pagination
               isCompact
               showControls
-              showShadow
-              color="secondary"
+              color="default"
               page={page}
               total={pages}
               onChange={(page) => setPage(page)}
@@ -58,7 +57,7 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
           </div>
         }       
         classNames={{
-          wrapper: "min-h-[222px]",
+          wrapper: "max-w-[600px] h-[530px]",
         }}
       >
         <TableHeader>
@@ -111,6 +110,6 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
           Add Question & Solution
         </Button>
       </div>
-    </>
+    </div>
   );
 };
