@@ -45,15 +45,9 @@ export default function RootLayout({
         <meta name="theme-color" content="#10b981" />
 
         <link
-          rel="dark icon"
-          href="/dark_icon.ico"
-          media="(prefers-color-scheme: light)"
-        />
-
-        <link
-          rel="light icon"
-          href="/light_icon.ico"
-          media="(prefers-color-scheme: dark)"
+          rel="icon"
+          type="image/x-icon"
+          href="/favicon.ico"
         />
 
       </head>
