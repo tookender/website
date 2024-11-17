@@ -3,7 +3,7 @@
 import toast from "react-hot-toast";
 import React, { useEffect, useState } from "react";
 import { Tabs, Tab } from "@nextui-org/react";
-import { normalizeInput, highlightIncorrect, handleKeyPress as handleKeyPressUtil, addVocabulary as addVocabularyUtil, deleteVocabulary as deleteVocabularyUtil, saveToLocalStorage as saveToLocalStorageUtil } from "@/lib/vocab";
+import { handleKeyPress as handleKeyPressUtil, addVocabulary as addVocabularyUtil, deleteVocabulary as deleteVocabularyUtil, saveToLocalStorage as saveToLocalStorageUtil, exportVocabularyToJSON, importVocabularyFromJSON } from "@/lib/vocab";
 import { VocabularyList } from "@/components/vocab/VocabularyList";
 import { VocabularyQuiz } from "@/components/vocab/VocabularyQuiz";
 import { useLocalStorageState } from "ahooks";
@@ -21,6 +21,7 @@ const VocabularyTestPage: React.FC = () => {
     newAnswer: "",
   });
   const [savedVocabulary, saveVocabulary] = useLocalStorageState("vocabulary");
+  const buttonClassName = "bg-default hover:bg-default-300 cursor-pointer text-small active:scale-[0.97] px-4 min-w-20 h-10 flex items-center rounded-medium duration-300";
 
   useEffect(() => {
     if (savedVocabulary) {
@@ -50,6 +51,17 @@ const VocabularyTestPage: React.FC = () => {
 
   const saveToLocalStorage = () => {
     saveToLocalStorageUtil(state.vocabulary, saveVocabulary);
+  };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      importVocabularyFromJSON(file, setState);
+    }
+  };
+
+  const handleExport = () => {
+    exportVocabularyToJSON(state.vocabulary);
   };
 
   return (
@@ -82,6 +94,17 @@ const VocabularyTestPage: React.FC = () => {
           )}
         </Tab>
       </Tabs>
+
+      <div className="flex flex-row gap-2 mt-12">
+        <label className={buttonClassName}>
+          Import from JSON
+          <input type="file" accept=".json" onChange={handleFileChange} className="hidden"/>  
+        </label>
+
+        <button className={buttonClassName} onClick={handleExport}>
+          Export as JSON
+        </button>
+      </div>
     </div>
   );
 };

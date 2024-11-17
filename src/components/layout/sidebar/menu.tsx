@@ -3,7 +3,7 @@
 import { CopyButtons } from "./copy";
 import { SidebarItem } from "./item";
 
-import { FaDog, FaVolcano } from "react-icons/fa6";
+import { FaBook, FaDog, FaImage } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsFolder, BsGithub, BsHexagonFill, BsPerson } from "react-icons/bs";
 
@@ -89,8 +89,20 @@ export const Sidebar = () => {
             <BsFolder className="text-lg" />
           </SidebarItem>
 
+          <h1 className="text-[15px] mt-6 mb-2 font-semibold text-neutral-400">
+            Projects
+          </h1>
+
           <SidebarItem text="Korii Bot" link="/bot" title="My Discord bot">
             <BsHexagonFill className="text-lg" />
+          </SidebarItem>
+
+          <SidebarItem text="Vocab" link="/vocab" title="Vocabulary Quiz">
+            <FaBook className="text-lg" />
+          </SidebarItem>
+
+          <SidebarItem text="Image Converter" link="https://converter.korino.dev" title="Free Image Converter">
+            <FaImage className="text-lg" />
           </SidebarItem>
 
           <h1 className="text-[15px] mt-6 mb-2 font-semibold text-neutral-400">
@@ -101,9 +113,6 @@ export const Sidebar = () => {
             <FaDog className="text-lg" />
           </SidebarItem>
 
-          <SidebarItem text="Vocab" link="/vocab" title="DO NOT ENTER FRENCH VOCAB TEST">
-            <FaVolcano className="text-lg" />
-          </SidebarItem>
 
           <SidebarItem text="GitHub" link="https://github.com/tookender" title="My GitHub">
             <BsGithub className="text-lg" />

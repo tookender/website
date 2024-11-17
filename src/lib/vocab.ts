@@ -1,5 +1,5 @@
 export const normalizeInput = (input: string): string => {
-  return input.replace(/’/g, '"').trim();
+  return input.replace(/’/g, '\'').trim();
 };
 
 export const highlightIncorrect = (input: string, answer: string): string => {
@@ -25,9 +25,6 @@ export const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>, sta
 
     const normalizedUserInput = normalizeInput(state.userInput);
     const normalizedAnswer = normalizeInput(answer || "");
-
-    console.log(normalizedUserInput);
-    console.log(answer);
 
     if (normalizedUserInput === normalizedAnswer) {
       setState((prev: any) => ({
@@ -78,4 +75,27 @@ export const deleteVocabulary = (vocabulary: { question: string; answer: string 
 
 export const saveToLocalStorage = (vocabulary: { question: string; answer: string }[], saveVocabulary: (value: string) => void) => {
   saveVocabulary(JSON.stringify(vocabulary));
+};
+
+export const importVocabularyFromJSON = async (file: File, setState: React.Dispatch<React.SetStateAction<any>>) => {
+  const reader = new FileReader();
+  reader.onload = (event) => {
+    const json = event.target?.result;
+    if (json) {
+      const vocabulary = JSON.parse(json as string);
+      setState((prev: any) => ({ ...prev, vocabulary }));
+    }
+  };
+  reader.readAsText(file);
+};
+
+export const exportVocabularyToJSON = (vocabulary: { question: string; answer: string }[]) => {
+  const json = JSON.stringify(vocabulary, null, 2);
+  const blob = new Blob([json], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "vocabulary.json";
+  a.click();
+  URL.revokeObjectURL(url);
 };
