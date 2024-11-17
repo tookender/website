@@ -36,7 +36,7 @@ export default function Home() {
         </h1>
 
         <p className="text-neutral-400/80 md:mt-4 text-pretty">
-          I&apos;m a full-stack developer, who loves creating web-applications, and also Discord bots.
+          I&apos;m a 14 year old full-stack developer, who loves creating web-applications, and also Discord bots.
           I&apos;ve been programming since I was about 10 years old, and I&apos;m currently learning Three.JS
         </p>
       </section>

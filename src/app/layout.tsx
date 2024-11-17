@@ -48,7 +48,7 @@ export default function RootLayout({
         />
       </head>
 
-      <body className={`${inter.className} antialiased flex h-dvh`}>
+      <body className={`${inter.className} antialiased flex h-dvh overflow-x-hidden`}>
         <NextTopLoader color={"linear-gradient(to right, #8668ac, #4d7ce5)"} />
         <Sidebar />
 

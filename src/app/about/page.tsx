@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { AboutMeImages } from "@/components/about/AboutMeImages";
 
 export const metadata: Metadata = {
   title: "Home | About me",
@@ -22,9 +23,14 @@ export default function Home() {
   return (
     <>
       <div className="mx-auto w-full max-w-[950px]">
-        <h1 className="text-5xl font-semibold bg-gradient-to-r from-neutral-400 to-neutral-500 text-transparent bg-clip-text">
-          About Me
-        </h1>
+        <div className="flex flex-row gap-1 text-5xl font-semibold">
+          <h1 className="bg-gradient-to-r from-neutral-400 to-neutral-500 text-transparent bg-clip-text">
+            About Me
+          </h1>
+          <span>
+            ✍️
+          </span>
+        </div>
 
         <p className="text-neutral-300/80 text-pretty mt-4 leading-8 lg:text-xl max-w-[600px]">
           Hey there. I&apos;m Ender, a student and full-stack developer from <b>Poland</b> currently living in <b>Germany</b>.
@@ -44,6 +50,14 @@ export default function Home() {
           I&apos;m currently learning <b>Three.JS</b>, and I&apos;m excited to see what I can create with it.
           I&apos;m also a big fan of <b>Discord bots</b>, and I&apos;ve been playing with them for a while now.
         </p>
+        
+        <br/>
+        
+        <p className="text-neutral-300/80 text-pretty -translate-y-4 leading-8 lg:text-xl max-w-[600px]">
+          As you can most likely guess, I am not currently looking for a job as I am still a minor.
+        </p>
+
+        <AboutMeImages />
       </div>
     </>
   );

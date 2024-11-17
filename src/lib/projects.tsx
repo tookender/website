@@ -28,9 +28,9 @@ export const projects: ProjectItem[] = [
     ].filter((tech): tech is TechnologyItem => tech !== undefined)
   },
   {
-    title: "Image Converter",
-    link: "https://converter.korino.dev",
-    description: "🖼️ Free in-browser image converter",
+    title: "Vocabulary Quiz",
+    link: "/vocab",
+    description: "❓ Vocabulary quiz using local storage and JSON",
     technologies: [
       findTechnology("Next.js"),
       findTechnology("TypeScript"),
@@ -39,9 +39,9 @@ export const projects: ProjectItem[] = [
     ].filter((tech): tech is TechnologyItem => tech !== undefined)
   },
   {
-    title: "Vocabulary Quiz",
-    link: "/vocab",
-    description: "❓ Vocabulary quiz using local storage and JSON",
+    title: "Image Converter",
+    link: "https://converter.korino.dev",
+    description: "🖼️ Free in-browser image converter",
     technologies: [
       findTechnology("Next.js"),
       findTechnology("TypeScript"),
