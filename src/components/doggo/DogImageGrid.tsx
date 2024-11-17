@@ -1,7 +1,7 @@
 "use client";
 
 import { decode } from "blurhash";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useEffect } from "react";
 import { useState } from "react";
 

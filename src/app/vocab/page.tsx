@@ -1,12 +1,22 @@
 "use client";
 
 import toast from "react-hot-toast";
+import { useLocalStorageState } from "ahooks";
 import React, { useEffect, useState } from "react";
+
+import {
+  handleKeyPress as handleKeyPressUtil,
+  addVocabulary as addVocabularyUtil,
+  deleteVocabulary as deleteVocabularyUtil,
+  editVocabulary as editVocabularyUtil,
+  saveToLocalStorage as saveToLocalStorageUtil,
+  exportVocabularyToJSON,
+  importVocabularyFromJSON,
+} from "@/lib/vocab";
+
 import { Tabs, Tab } from "@nextui-org/react";
-import { handleKeyPress as handleKeyPressUtil, addVocabulary as addVocabularyUtil, deleteVocabulary as deleteVocabularyUtil, saveToLocalStorage as saveToLocalStorageUtil, exportVocabularyToJSON, importVocabularyFromJSON } from "@/lib/vocab";
 import { VocabularyList } from "@/components/vocab/VocabularyList";
 import { VocabularyQuiz } from "@/components/vocab/VocabularyQuiz";
-import { useLocalStorageState } from "ahooks";
 
 const VocabularyTestPage: React.FC = () => {
   const [state, setState] = useState({
@@ -22,17 +32,21 @@ const VocabularyTestPage: React.FC = () => {
     newAnswer: "",
   });
   const [savedVocabulary, saveVocabulary] = useLocalStorageState("vocabulary");
-  const buttonClassName = "bg-default hover:bg-default-300 cursor-pointer text-small active:scale-[0.97] px-4 min-w-20 h-10 flex items-center rounded-medium duration-300";
+  const buttonClassName =
+    "bg-default hover:bg-default-300 cursor-pointer text-small active:scale-[0.97] px-4 min-w-20 h-10 flex items-center rounded-medium duration-300";
 
   useEffect(() => {
     if (savedVocabulary) {
-      setState(prev => ({ ...prev, vocabulary: JSON.parse(savedVocabulary as string) }));
+      setState((prev) => ({
+        ...prev,
+        vocabulary: JSON.parse(savedVocabulary as string),
+      }));
     }
   }, [savedVocabulary]);
 
   useEffect(() => {
     const audioInstance = new Audio("/pop.mp3");
-    setState(prev => ({ ...prev, audio: audioInstance }));
+    setState((prev) => ({ ...prev, audio: audioInstance }));
     return () => {
       audioInstance.pause();
     };
@@ -47,7 +61,10 @@ const VocabularyTestPage: React.FC = () => {
   };
 
   const deleteVocabulary = (index: number) => {
-    setState(prev => ({ ...prev, vocabulary: deleteVocabularyUtil(prev.vocabulary, index) }));
+    setState((prev) => ({
+      ...prev,
+      vocabulary: deleteVocabularyUtil(prev.vocabulary, index),
+    }));
   };
 
   const saveToLocalStorage = () => {
@@ -65,6 +82,10 @@ const VocabularyTestPage: React.FC = () => {
     exportVocabularyToJSON(state.vocabulary);
   };
 
+  const editVocabulary = (index: number, newQuestion: string, newAnswer: string) => {
+    editVocabularyUtil(index, newQuestion, newAnswer, setState, saveVocabulary);
+  };
+
   return (
     <div className="flex flex-col items-center md:mt-2 min-h-screen">
       <Tabs variant="underlined" size="lg">
@@ -74,15 +95,25 @@ const VocabularyTestPage: React.FC = () => {
             deleteVocabulary={deleteVocabulary}
             newQuestion={state.newQuestion}
             newAnswer={state.newAnswer}
-            setNewQuestion={(newQuestion) => setState(prev => ({ ...prev, newQuestion }))}
-            setNewAnswer={(newAnswer) => setState(prev => ({ ...prev, newAnswer }))}
+            setNewQuestion={(newQuestion) =>
+              setState((prev) => ({ ...prev, newQuestion }))
+            }
+            setNewAnswer={(newAnswer) =>
+              setState((prev) => ({ ...prev, newAnswer }))
+            }
             addVocabulary={addVocabulary}
             saveVocabulary={saveToLocalStorage}
+            editVocabulary={editVocabulary}
           />
-          <div className="flex flex-row gap-2 mt-12">
+          <div className="flex flex-row gap-2 mt-64">
             <label className={buttonClassName}>
               Import from JSON
-              <input type="file" accept=".json" onChange={handleFileChange} className="hidden"/>  
+              <input
+                type="file"
+                accept=".json"
+                onChange={handleFileChange}
+                className="hidden"
+              />
             </label>
 
             <button className={buttonClassName} onClick={handleExport}>
@@ -101,7 +132,9 @@ const VocabularyTestPage: React.FC = () => {
               highlightedText={state.highlightedText}
               handleKeyPress={handleKeyPress}
               userInput={state.userInput}
-              setUserInput={(input) => setState((prev: any) => ({ ...prev, userInput: input }))}
+              setUserInput={(input) =>
+                setState((prev: any) => ({ ...prev, userInput: input }))
+              }
             />
           )}
         </Tab>

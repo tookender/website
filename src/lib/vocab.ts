@@ -38,7 +38,7 @@ export const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>, sta
       }));
       setTimeout(() => {
         setState((prev: any) => ({ ...prev, showFeedback: false, currentIndex: prev.currentIndex + 1 }));
-      }, 2000);
+      }, 1250);
     } else {
       setState((prev: any) => ({
         ...prev,
@@ -100,4 +100,14 @@ export const exportVocabularyToJSON = (vocabulary: { question: string; answer: s
   a.download = "vocabulary.json";
   a.click();
   URL.revokeObjectURL(url);
+};
+
+export const editVocabulary = (index: number, newQuestion: string, newAnswer: string, setState: React.Dispatch<React.SetStateAction<any>>, saveVocabulary: (value: string) => void) => {
+  setState((prev: any) => {
+    const updatedVocabulary = prev.vocabulary.map((item: { question: string; answer: string }, i: number) => 
+      i === index ? { question: newQuestion, answer: newAnswer } : item
+    );
+    saveVocabulary(JSON.stringify(updatedVocabulary));
+    return { ...prev, vocabulary: updatedVocabulary };
+  });
 };

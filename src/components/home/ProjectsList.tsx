@@ -6,7 +6,7 @@ import { projects } from "@/lib/projects";
 import { TechnologyItem } from "@/types/technologies";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 
 type ProjectsListProps = {
   projects: {

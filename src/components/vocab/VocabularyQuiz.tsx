@@ -1,6 +1,6 @@
 import React from "react";
 import { Input } from "@nextui-org/react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 
 interface QuizProps {
   currentIndex: number;
@@ -31,7 +31,7 @@ export const VocabularyQuiz: React.FC<QuizProps> = ({
 
   return (
     <div className="md:max-w-[600px] md:w-screen">
-      <h1 className="text-4xl font-bold mb-6">Vocabulary Quiz</h1>
+      <h1 className="text-4xl font-bold mb-6 mt-4">Vocabulary Quiz</h1>
 
       {currentIndex < vocabulary.length ? (
         <>
