@@ -29,18 +29,20 @@ export const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>, sta
     if (normalizedUserInput === normalizedAnswer) {
       setState((prev: any) => ({
         ...prev,
+        showFeedback: true,
         feedback: "✅ Correct!",
         correctAnswer: "",
         highlightedText: "",
-        currentIndex: prev.currentIndex + 1,
+        currentIndex: prev.currentIndex,
         userInput: "",
       }));
       setTimeout(() => {
-        setState((prev: any) => ({ ...prev, feedback: "" }));
-      }, 1000);
+        setState((prev: any) => ({ ...prev, showFeedback: false, currentIndex: prev.currentIndex + 1 }));
+      }, 2000);
     } else {
       setState((prev: any) => ({
         ...prev,
+        showFeedback: true,
         feedback: "❌ Incorrect!",
         correctAnswer: answer || "",
         highlightedText: highlightIncorrect(state.userInput, answer || ""),

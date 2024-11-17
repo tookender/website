@@ -14,6 +14,7 @@ const VocabularyTestPage: React.FC = () => {
     vocabulary: [] as { question: string; answer: string }[],
     currentIndex: 0,
     userInput: "",
+    showFeedback: false,
     feedback: "",
     correctAnswer: "",
     highlightedText: "",
@@ -78,12 +79,23 @@ const VocabularyTestPage: React.FC = () => {
             addVocabulary={addVocabulary}
             saveVocabulary={saveToLocalStorage}
           />
+          <div className="flex flex-row gap-2 mt-12">
+            <label className={buttonClassName}>
+              Import from JSON
+              <input type="file" accept=".json" onChange={handleFileChange} className="hidden"/>  
+            </label>
+
+            <button className={buttonClassName} onClick={handleExport}>
+              Export as JSON
+            </button>
+          </div>
         </Tab>
         <Tab key="quiz" title="Quiz" isDisabled={state.vocabulary.length === 0}>
           {state.vocabulary.length > 0 && (
             <VocabularyQuiz
               currentIndex={state.currentIndex}
               vocabulary={state.vocabulary}
+              showFeedback={state.showFeedback}
               feedback={state.feedback}
               correctAnswer={state.correctAnswer}
               highlightedText={state.highlightedText}
@@ -94,17 +106,6 @@ const VocabularyTestPage: React.FC = () => {
           )}
         </Tab>
       </Tabs>
-
-      <div className="flex flex-row gap-2 mt-12">
-        <label className={buttonClassName}>
-          Import from JSON
-          <input type="file" accept=".json" onChange={handleFileChange} className="hidden"/>  
-        </label>
-
-        <button className={buttonClassName} onClick={handleExport}>
-          Export as JSON
-        </button>
-      </div>
     </div>
   );
 };
