@@ -1,5 +1,9 @@
 export const normalizeInput = (input: string): string => {
-  return input.replace(/’/g, '\'').trim();
+  return input.replace(/’/g, '\'').replace(".", "").replace(", ", "").trim().toLowerCase();
+};
+
+export const normalizeAnswer = (answer: string): string => {
+  return answer.replace(", ", "").replace(".", "").trim().toLowerCase();
 };
 
 export const highlightIncorrect = (input: string, answer: string): string => {
@@ -24,7 +28,7 @@ export const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>, sta
     const answer = state.vocabulary[state.currentIndex]?.answer;
 
     const normalizedUserInput = normalizeInput(state.userInput);
-    const normalizedAnswer = normalizeInput(answer || "");
+    const normalizedAnswer = normalizeAnswer(answer);
 
     if (normalizedUserInput === normalizedAnswer) {
       setState((prev: any) => ({

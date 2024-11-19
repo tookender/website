@@ -36,6 +36,10 @@ export const DoggoClient = () => {
       </h1>
 
       <p className="text-center text-base md:text-lg xl:text-xl mt-2 mb-12 text-neutral-300">
+        he is a <b>yorkshire terrir</b> and his name is <b>Melman</b>
+      </p>
+
+      <p className="text-center text-base md:text-lg xl:text-xl mt-2 text-neutral-300">
         you may click on any image to view it in full size
       </p>
 
