@@ -96,7 +96,7 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
               <TableCell>{item.answer}</TableCell>
               <TableCell className="flex flex-row gap-2">
                 <Button
-                  onClick={() => handleEditClick(index)}
+                  onClick={() => handleEditClick(index + (page - 1) * rowsPerPage)}
                   isIconOnly className="text-blue-400" size="sm" title="Edit Vocabulary"
                 >
                   <FaPen/>
