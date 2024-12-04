@@ -5,14 +5,14 @@ import { motion } from "motion/react";
 import { useEffect } from "react";
 import { useState } from "react";
 
-type DogImageGridProps = {
+type DogGridProps = {
   dogImages: { [key: string]: { blurhash: string; description: string } };
   loadedImages: { [key: string]: boolean };
   handleImageLoad: (dogKey: string) => void;
   setSelectedImage: (image: string | null) => void;
 };
 
-export const DogImageGrid = ({ dogImages, loadedImages, handleImageLoad, setSelectedImage }: DogImageGridProps) => {
+export const DogGrid = ({ dogImages, loadedImages, handleImageLoad, setSelectedImage }: DogGridProps) => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {

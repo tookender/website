@@ -1,5 +1,5 @@
-import { ProjectsList } from "@/components/home/ProjectsList";
-import { TechnologyList } from "@/components/home/TechnologyList";
+import { ProjectsList } from "@/components/home/projects-list";
+import { TechnologyList } from "@/components/home/technology-list";
 
 import { Metadata } from "next";
 import { SlLocationPin } from "react-icons/sl";
@@ -28,15 +28,21 @@ export default function Home() {
       <section>
         <div className="flex flex-row items-center gap-1 mb-2 text-neutral-400/80">
           <SlLocationPin aria-hidden="true" />
-          <p>Germany</p>
+          <p>NRW, Germany</p>
         </div>
 
-        <h1 className="flex flex-row text-4xl md:text-5xl leading-[60px] font-semibold">
-          Hey, I&apos;m Ender 👋
-        </h1>
+        <div className="flex flex-row text-4xl md:text-5xl leading-[60px] font-semibold">
+          <h1>
+            Hey, I&apos;m Ender
+          </h1>
+
+          <p className="wave-animation origin-bottom-right inline-block cursor-pointer">
+            👋
+          </p>
+        </div>
 
         <p className="text-neutral-400/80 md:mt-4 text-pretty">
-          I&apos;m a 14 year old full-stack developer, who loves creating web-applications, and also Discord bots.
+          I&apos;m a full-stack developer, who loves creating web-applications, and also Discord bots.
           I&apos;ve been programming since I was about 10 years old, and I&apos;m currently learning Three.JS
         </p>
       </section>

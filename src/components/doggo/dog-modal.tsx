@@ -2,12 +2,12 @@
 
 import { motion, AnimatePresence } from "motion/react";
 
-type DogImageModalProps = {
+type DogModalProps = {
   selectedImage: string | null;
   setSelectedImage: (image: string | null) => void;
 };
 
-export const DogImageModal = ({ selectedImage, setSelectedImage }: DogImageModalProps) => {
+export const DogModal = ({ selectedImage, setSelectedImage }: DogModalProps) => {
   return (
     <AnimatePresence>
       {selectedImage && (

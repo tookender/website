@@ -1,15 +1,10 @@
-"use client";
-
 import "@/styles/globals.css";
+import { SessionProvider } from "next-auth/react";
 
 import { Inter } from "next/font/google";
-import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
-
 import { Toaster } from "react-hot-toast";
 import NextTopLoader from "nextjs-toploader";
 
-import { motion } from "motion/react";
 import { Providers } from "./providers";
 import { Footer } from "@/components/layout/footer";
 import { Sidebar } from "@/components/layout/sidebar/menu";
@@ -21,19 +16,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    setIsLoaded(true);
-
-    if (typeof window === "undefined") {
-      return;
-    }
-
-    void new Audio("/pop.mp3").play().catch(() => null);
-  }, [pathname]);
-
   return (
     <html lang="en" className="dark">
       <head>
@@ -44,37 +26,24 @@ export default function RootLayout({
         />
         <meta name="theme-color" content="#10b981" />
 
-        <link
-          rel="icon"
-          type="image/x-icon"
-          href="/favicon.ico"
-        />
-
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       </head>
 
       <body
         className={`${inter.className} antialiased flex h-dvh overflow-x-hidden`}
       >
-        <NextTopLoader color={"linear-gradient(to right, #8668ac, #4d7ce5)"} />
-        <Sidebar />
+        <SessionProvider>
+          <NextTopLoader color={"linear-gradient(to right, #8668ac, #4d7ce5)"} />
+          <Sidebar />
 
-        <div className="w-full overflow-y-auto p-4 flex flex-col">
-          <div className="min-h-12" />
+          <div className="w-full overflow-y-auto p-4 flex flex-col">
+            <div className="min-h-12" />
 
-          <Toaster />
-
-          <motion.main
-            className="mx-auto w-full max-w-[950px]"
-            key={pathname}
-            initial={{ opacity: 0, y: 20 }}
-            animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.3 }}
-          >
+            <Toaster />
             <Providers>{children}</Providers>
-          </motion.main>
-
-          <Footer />
-        </div>
+            <Footer />
+          </div>
+        </SessionProvider>
       </body>
     </html>
   );
