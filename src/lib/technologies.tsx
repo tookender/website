@@ -1,6 +1,6 @@
 import { TechnologyItem } from "@/types/technologies";
-import { FaMattressPillow } from "react-icons/fa6";
-import { SiPython, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiGit, SiDocker, SiPostgresql, SiAstro } from "react-icons/si";
+import { FaMarkdown, FaMattressPillow } from "react-icons/fa6";
+import { SiPython, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiGit, SiDocker, SiPostgresql, SiAstro, SiSupabase } from "react-icons/si";
 
 export const technologies: TechnologyItem[] = [
   {
@@ -62,5 +62,17 @@ export const technologies: TechnologyItem[] = [
     description: "image processing",
     background: "bg-pink-300/20",
     icon: <FaMattressPillow className="text-pink-300" />
+  },
+  {
+    text: "Markdown",
+    description: "image processing",
+    background: "bg-white-200/20",
+    icon: <FaMarkdown className="text-white-200" />
+  },
+  {
+    text: "Supabase",
+    description: "image processing",
+    background: "bg-green-400/20",
+    icon: <SiSupabase className="text-green-400" />
   }
 ]; 

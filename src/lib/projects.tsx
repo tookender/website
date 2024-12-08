@@ -39,6 +39,17 @@ export const projects: ProjectItem[] = [
     ].filter((tech): tech is TechnologyItem => tech !== undefined)
   },
   {
+    title: "Notes-taking App",
+    link: "/notes",
+    description: "📝 In-browser App for taking notes using Markdown",
+    technologies: [
+      findTechnology("TypeScript"),
+      findTechnology("Markdown"),
+      findTechnology("PostgreSQL"),
+      findTechnology("Supabase"),
+    ].filter((tech): tech is TechnologyItem => tech !== undefined)
+  },
+  {
     title: "Image Converter",
     link: "https://converter.korino.dev",
     description: "🖼️ Free in-browser image converter",
