@@ -15,7 +15,7 @@ const config: Config = {
       ...defaultTheme.screens
     }
   },
-  plugins: [nextui()],
+  plugins: [nextui(), require("@tailwindcss/typography")],
   darkMode: "class",
 };
 

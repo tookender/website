@@ -39,7 +39,16 @@ export default function RootLayout({
           <div className="w-full overflow-y-auto p-4 flex flex-col">
             <div className="min-h-12" />
 
-            <Toaster />
+            <Toaster
+              position="bottom-right"
+              toastOptions={{
+                style: {
+                  background: "#27272a",
+                  color: "#fff",
+                  borderRadius: "8px",
+                },
+              }}
+            />
             <Providers>{children}</Providers>
             <Footer />
           </div>

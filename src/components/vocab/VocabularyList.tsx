@@ -68,6 +68,7 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
     <div className="md:max-w-[600px] md:w-screen">
       <h1 className="text-4xl font-bold mb-6 mt-4">Vocabulary List</h1>
       <Table aria-label="Vocabulary List Table"
+        shadow="none"
         bottomContent={
           <div className="flex w-full justify-center">
             <Pagination
@@ -81,7 +82,7 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
           </div>
         }       
         classNames={{
-          wrapper: "max-w-[700px] min-h-[530px]",
+          wrapper: "max-w-[700px] min-h-[530px] bg-[#191919] border",
         }}
       >
         <TableHeader>

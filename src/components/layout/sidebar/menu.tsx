@@ -5,18 +5,27 @@ import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react"
 
 import { GiHamburgerMenu } from "react-icons/gi";
-import { FaBook, FaDog, FaImage } from "react-icons/fa6";
+import { FaBook, FaDog, FaImage, FaPen } from "react-icons/fa6";
 import { BsFolder, BsGithub, BsHexagonFill, BsPerson } from "react-icons/bs";
 
 import Image from "next/image";
 import { CopyButtons } from "./copy";
 import { SidebarItem } from "./item";
 import { SignIn } from "@/components/auth/sign-in";
+import { SignOut } from "@/components/auth/sign-out";
+import {Popover, PopoverTrigger, PopoverContent } from "@nextui-org/react";
 
 export const Sidebar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const { data: session } = useSession()
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const setLoaded = () => setIsLoaded(true);
+  
+  useEffect(() => {
+    setTimeout(setLoaded, 1000)
+  })
 
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -60,7 +69,6 @@ export const Sidebar = () => {
       )}
 
       <menu
-        title="Open the sidebar menu"
         id="menu"
         className={`md:flex flex-col justify-between min-w-[13.2rem] h-[100dvh] bg-[#191919] duration-500 ease-in-out border-r border-neutral-800 z-50 transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
@@ -105,6 +113,10 @@ export const Sidebar = () => {
               <FaBook className="text-lg" />
             </SidebarItem>
 
+            <SidebarItem text="Notes" link="/notes" title="Notes-taking App">
+              <FaPen className="text-lg" />
+            </SidebarItem>
+
             <SidebarItem text="Image Converter" link="https://converter.korino.dev" title="Free Image Converter">
               <FaImage className="text-lg" />
             </SidebarItem>
@@ -126,21 +138,26 @@ export const Sidebar = () => {
           </div>
         </div>
 
-        <div className="flex flex-row items-center h-[52px] w-full border-t border-neutral-800">
+        <div className={`flex flex-row items-center h-[52px] w-full border-t border-neutral-800 ${!session?.user ? "justify-center" : ""}`}>
           {session?.user ? (
-            <div>
-              <div className="flex flex-row items-center justify-center">
-                <Image alt="Profile Picture" height={32} width={32} className="w-8 h-8 rounded-full" src={session.user.image ? session.user.image : "/dogs/dog13.webp"}/>
-                <h1 className="text-sm font-semibold text-neutral-200">
-                  {session.user.name}
-                </h1>
-              </div>
-              
-            </div>
-          ) : (
-            <SignIn/>
+            <Popover placement="top" showArrow={true}>
+              <PopoverTrigger className="ring-0">
+                <button className="flex flex-row items-center justify-center gap-2 mx-2 hover:bg-[#242424] pl-2 pr-4 py-1 duration-200 cursor-pointer rounded-md">
+                  <img alt="Profile Picture" height={32} width={32} className="w-8 h-8 rounded-full" src={session.user.image ? session.user.image : "/dogs/dog13.webp"}/>
+                  <h1 className="text-sm font-semibold text-neutral-200">
+                    {session.user.name}
+                  </h1>
+                </button>
+              </PopoverTrigger>
+              <PopoverContent>
+                <div className="px-1 py-2">
+                  <SignOut/>
+                </div>
+              </PopoverContent>
+            </Popover>
+            ) : (
+            <SignIn isLoaded={isLoaded}/>
           )}
-          
         </div>
       </menu>
 
