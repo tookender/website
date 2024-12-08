@@ -3,6 +3,7 @@ import { Textarea } from "@nextui-org/react";
 
 import emoji from "remark-emoji";
 import remarkGfm from "remark-gfm";
+import remarkBreaks from "remark-breaks";
 import { remarkAlert } from "remark-github-blockquote-alert";
 
 import ReactMarkdown from "react-markdown";
@@ -50,7 +51,7 @@ export default function NoteEditor({ defaultContent, defaultTitle }: NoteEditorP
         className={`prose prose-invert max-w-none ${isEditing ? "hidden" : ""}`}
         onClick={() => setIsEditing(true)} // Enter editing mode on click
       >
-        <ReactMarkdown remarkPlugins={[[remarkGfm], [emoji], [remarkAlert]]}>{content}</ReactMarkdown>
+        <ReactMarkdown remarkPlugins={[[remarkGfm], [emoji], [remarkAlert], [remarkBreaks]]}>{content}</ReactMarkdown>
       </div>
     </>
   );
