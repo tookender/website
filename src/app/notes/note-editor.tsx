@@ -1,13 +1,13 @@
 "use client";
-import { Textarea } from "@nextui-org/react";
 
 import emoji from "remark-emoji";
 import remarkGfm from "remark-gfm";
 import remarkBreaks from "remark-breaks";
 import { remarkAlert } from "remark-github-blockquote-alert";
 
-import ReactMarkdown from "react-markdown";
 import { useState } from "react";
+import ReactMarkdown from "react-markdown";
+import { Textarea } from "@nextui-org/react";
 
 type NoteEditorProps = {
   defaultContent: string;

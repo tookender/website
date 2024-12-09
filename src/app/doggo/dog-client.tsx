@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { dogImages } from "@/lib/doggo";
-import { DogGrid } from "@/components/doggo/dog-grid";
-import { DogModal } from "@/components/doggo/dog-modal";
+
+import { DogGrid } from "./dog-grid";
+import { DogModal } from "./dog-modal";
 
 type LoadedImagesType = { [key: string]: boolean };
 

@@ -1,9 +1,10 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
-import { NextUIProvider } from "@nextui-org/react";
 import { motion } from "motion/react";
 import { useState, useEffect } from "react";
+
+import { NextUIProvider } from "@nextui-org/react";
+import { usePathname, useRouter } from "next/navigation";
 
 export function Providers({children}: { children: React.ReactNode }) {
   const router = useRouter();

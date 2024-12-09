@@ -1,9 +1,11 @@
 import { auth } from "@/auth";
-import { getNote, modifyNote } from "@/actions/notes";
 import { BsArrowLeft } from "react-icons/bs";
-import { revalidatePath } from "next/cache";
+import { getNote, modifyNote } from "@/actions/notes";
+
 import { redirect } from "next/navigation";
-import NoteEditor from "@/components/NoteEditor";
+import { revalidatePath } from "next/cache";
+
+import NoteEditor from "../note-editor";
 
 async function handleSubmit(data: FormData) {
   "use server";

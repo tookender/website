@@ -1,7 +1,7 @@
 import { auth } from "@/auth";
-import { getNotes, createNote, modifyNote } from "@/actions/notes";
 import { redirect } from "next/navigation";
-import ToastHandler from "@/components/ToastHandler";
+import ToastHandler from "./toast-handler";
+import { getNotes, createNote } from "@/actions/notes";
 
 export default async function NotesDashboard() {
   const session = await auth();

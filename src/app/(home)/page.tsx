@@ -1,8 +1,8 @@
-import { ProjectsList } from "@/components/home/projects-list";
-import { TechnologyList } from "@/components/home/technology-list";
-
 import { Metadata } from "next";
 import { SlLocationPin } from "react-icons/sl";
+
+import { ProjectsList } from "./projects-list";
+import { TechnologyList } from "./technology-list";
 
 export const metadata: Metadata = {
   title: "Home | Home",

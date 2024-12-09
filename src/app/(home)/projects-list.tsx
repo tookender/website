@@ -1,7 +1,6 @@
 "use client";
 
 import { projects } from "@/lib/projects";
-
 import { Tooltip } from "@/components/tooltip";
 import { motion, AnimatePresence } from "motion/react";
 

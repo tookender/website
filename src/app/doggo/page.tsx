@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { DoggoClient } from "@/components/doggo/dog-client";
+import { DoggoClient } from "./dog-client";
 
 export const metadata: Metadata = {
   title: "doggo pictures",

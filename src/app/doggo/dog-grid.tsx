@@ -2,8 +2,7 @@
 
 import { decode } from "blurhash";
 import { motion } from "motion/react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type DogGridProps = {
   dogImages: { [key: string]: { blurhash: string; description: string } };

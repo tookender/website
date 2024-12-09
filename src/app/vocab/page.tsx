@@ -15,8 +15,8 @@ import {
 } from "@/lib/vocab";
 
 import { Tabs, Tab } from "@nextui-org/react";
-import { VocabularyList } from "@/components/vocab/VocabularyList";
-import { VocabularyQuiz } from "@/components/vocab/VocabularyQuiz";
+import { VocabularyList } from "./vocabulary-list";
+import { VocabularyQuiz } from "./vocabulary-quiz";
 
 const VocabularyTestPage: React.FC = () => {
   const [state, setState] = useState({
