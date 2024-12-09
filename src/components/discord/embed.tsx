@@ -22,7 +22,7 @@ export const Embed = ({
     const emoteRegex = /<emote:([^>]+)>/g;
 
     // Replace each emote placeholder with its corresponding image tag
-    let newText = text.replace(emoteRegex, (match, emoteName) => {
+    const newText = text.replace(emoteRegex, (match, emoteName) => {
       return `<img src="/emotes/${emoteName}.webp" class="max-h-[28px]" width="${height}" height="${height}">`;
     });
     return newText;
