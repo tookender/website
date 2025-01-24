@@ -56,3 +56,17 @@ export const CopyButtons = ({ className }: CopyButtonProps) => {
 		</>
 	)
 };
+
+export const MinimalCopyButtons = ({ className }: CopyButtonProps) => {
+	return (
+		<>
+			<button className="hover:text-white duration-300 p-2 rounded-md" onClick={copyDiscord} title="Copy my Discord username to clipboard">
+				<BsDiscord/>
+			</button>
+
+			{/* <button className="hover:text-white duration-300 p-2 rounded-md" onClick={copyEmail} title="Copy my E-Mail address to clipboard">
+				<BsMailbox/>
+			</button> */}
+		</>
+	)
+};

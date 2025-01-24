@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { profiles } from "@/lib/profiles";
-import { Tooltip } from "@nextui-org/react";
+import { Tooltip } from "@heroui/react";
 import { TbCheck } from "react-icons/tb";
 
 interface MessageProps {

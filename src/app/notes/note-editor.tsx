@@ -7,7 +7,7 @@ import { remarkAlert } from "remark-github-blockquote-alert";
 
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
-import { Textarea } from "@nextui-org/react";
+import { Textarea } from "@heroui/react";
 
 type NoteEditorProps = {
   defaultContent: string;

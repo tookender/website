@@ -1,8 +1,11 @@
-import { Image } from "@nextui-org/react";
+import { Image } from "@heroui/react";
 import React from "react";
 
 interface EmbedProps {
-  title: string;
+  title?: string;
+  description?: string;
+  authorText?: string;
+  authorPicture?: string;
   fields?: [string, string[]][];
   picture?: string;
   pictureId?: string;
@@ -12,6 +15,9 @@ interface EmbedProps {
 
 export const Embed = ({
   title,
+  description,
+  authorText,
+  authorPicture,
   fields,
   picture,
   pictureId,
@@ -43,7 +49,7 @@ export const Embed = ({
       /`(.*?)`/g,
       '<span class="bg-black/30 px-1 rounded-sm font-code">$1</span>'
     );
-    newText = newText.replace(/\n/g, "<br>");
+    newText = newText.replace("\\n", "<br/>");
     return newText;
   };
 
@@ -52,10 +58,25 @@ export const Embed = ({
       <div className="w-1 rounded-l-md bg-[#10B981]" />
 
       <div className="flex flex-col">
-        <h1
-          className="mt-3 flex flex-row gap-2 text-base font-bold sm:text-lg"
-          dangerouslySetInnerHTML={{ __html: formatText(title) }}
-        ></h1>
+        {authorText && (
+          <div>
+            <div className="flex flex-row gap-1 items-center mt-4 mb-2">
+              <img src={authorPicture} className="w-6 h-6 rounded-full" />
+              <p>{authorText}</p>
+            </div>
+          </div>
+        )}
+
+        {title && (
+          <h1
+            className="mt-3 flex flex-row gap-2 text-base font-bold sm:text-lg"
+            dangerouslySetInnerHTML={{ __html: formatText(title) }}
+          ></h1>
+        )}
+
+        {description && (
+          <p className="flex flex-row gap-1" dangerouslySetInnerHTML={{ __html: formatText(description, 24) }}></p>
+        )}
 
         <div className="mt-2 flex flex-col gap-2 text-sm font-light ml:flex-row sm:gap-8 sm:text-base">
           {/* we don't know the height/width of the image */}
@@ -83,7 +104,11 @@ export const Embed = ({
             ))}
         </div>
 
-        <p className="mb-3 mt-2 text-neutral-300/80 text-xs font-medium">{footer}</p>
+        {footer && (
+          <p className="mb-3 mt-2 text-neutral-300/80 text-xs font-medium">
+            {footer}
+          </p>
+        )}
       </div>
     </div>
   );

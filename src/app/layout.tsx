@@ -8,6 +8,7 @@ import NextTopLoader from "nextjs-toploader";
 import { Providers } from "./providers";
 import { Footer } from "@/components/layout/footer";
 import { Sidebar } from "@/components/layout/sidebar/menu";
+import { NavigationBar } from "@/components/layout/navbar/menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,11 +31,11 @@ export default function RootLayout({
       </head>
 
       <body
-        className={`${inter.className} antialiased flex h-dvh overflow-x-hidden`}
+        className={`${inter.className} antialiased flex flex-col h-dvh overflow-x-hidden`}
       >
         <SessionProvider>
           <NextTopLoader color={"linear-gradient(to right, #8668ac, #4d7ce5)"} />
-          <Sidebar />
+          <NavigationBar />
 
           <div className="w-full overflow-y-auto p-4 flex flex-col">
             <div className="min-h-12" />

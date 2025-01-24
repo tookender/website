@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { FaPen, FaTrashCan } from "react-icons/fa6";
-import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Button, Input, Pagination } from "@nextui-org/react";
+import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Button, Input, Pagination } from "@heroui/react";
 
 interface VocabularyListProps {
     vocabulary: { question: string; answer: string }[];

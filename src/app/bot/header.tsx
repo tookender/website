@@ -1,4 +1,4 @@
-import { Button } from "@nextui-org/react";
+import { Button } from "@heroui/react";
 import { SiDiscord } from "react-icons/si";
 import { TbArrowRight, TbSettings } from "react-icons/tb";
 

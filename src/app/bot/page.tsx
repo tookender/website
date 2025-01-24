@@ -1,8 +1,8 @@
 "use client";
 // import { Metadata } from "next";
 import { Header } from "./header";
-import { botTabs } from "@/lib/bot-tabs";
-import { Tabs, Tab } from "@nextui-org/react";
+import { botTabs, mobileBotTabs } from "@/lib/bot-tabs";
+import { Tabs, Tab } from "@heroui/react";
 
 // export const metadata: Metadata = {
 //   title: "Korii Bot",
@@ -42,13 +42,33 @@ export default function Home() {
         <p className="hidden text-[#DB4039]" />
         <p className="hidden text-[#F6B5FA]" />
 
-        <div className="mx-auto mt-12 flex flex-col justify-center gap-2 px-8 sm:mt-16 md:mt-24 w-full">
+        <div className="mx-auto mt-12 hidden flex-col justify-center gap-2 px-8 sm:mt-16 md:mt-24 w-full sm:flex">
           <Tabs
             defaultSelectedKey="user_info"
             aria-label="Feature Showcase"
             className="overflow-auto"
           >
             {botTabs.map(({ key, title, component: Component }) => (
+              <Tab
+                key={key}
+                title={title}
+                className="flex flex-col gap-2 rounded-lg border"
+              >
+                <TabContainer>
+                  <Component />
+                </TabContainer>
+              </Tab>
+            ))}
+          </Tabs>
+        </div>
+
+        <div className="mx-auto mt-12 flex flex-col justify-center gap-2 px-8 sm:mt-16 md:mt-24 w-full sm:hidden">
+          <Tabs
+            defaultSelectedKey="moderation"
+            aria-label="Feature Showcase"
+            className="overflow-auto"
+          >
+            {mobileBotTabs.map(({ key, title, component: Component }) => (
               <Tab
                 key={key}
                 title={title}

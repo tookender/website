@@ -13,7 +13,7 @@ import { CopyButtons } from "./copy";
 import { SidebarItem } from "./item";
 import { SignIn } from "@/components/auth/sign-in";
 import { SignOut } from "@/components/auth/sign-out";
-import {Popover, PopoverTrigger, PopoverContent } from "@nextui-org/react";
+import {Popover, PopoverTrigger, PopoverContent } from "@heroui/react";
 
 export const Sidebar = () => {
   const pathname = usePathname();

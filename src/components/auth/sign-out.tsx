@@ -1,5 +1,5 @@
 "use client"
-import { Button, User } from "@nextui-org/react"
+import { Button, User } from "@heroui/react"
 import { signOut } from "next-auth/react"
 import { FaUser } from "react-icons/fa6"
  

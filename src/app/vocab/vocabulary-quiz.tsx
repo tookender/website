@@ -1,91 +1,93 @@
-import React from "react";
-import { Input } from "@nextui-org/react";
-import { AnimatePresence, motion } from "motion/react";
+import { Table } from "@heroui/react";
+import React, { useState } from "react";
 
-interface QuizProps {
-  currentIndex: number;
-  vocabulary: { question: string; answer: string }[];
-  showFeedback: boolean;
-  feedback: string;
-  correctAnswer: string;
-  highlightedText: string;
-  handleKeyPress: (event: React.KeyboardEvent<HTMLInputElement>, userInput: string) => void;
-  userInput: string;
-  setUserInput: React.Dispatch<React.SetStateAction<string>>;
+interface VocabularyItem {
+  question: string;
+  answer: string;
 }
 
-export const VocabularyQuiz: React.FC<QuizProps> = ({
-  currentIndex,
-  vocabulary,
-  showFeedback,
-  feedback,
-  correctAnswer,
-  highlightedText,
-  handleKeyPress,
-  userInput,
-  setUserInput,
-}) => {
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUserInput(event.target.value);
+interface QuizProps {
+  vocabulary: VocabularyItem[];
+}
+
+export const VocabularyQuiz: React.FC<QuizProps> = ({ vocabulary }) => {
+  const [visibleIndices, setVisibleIndices] = useState<number[]>([]);
+  const [scores, setScores] = useState<Record<number, "correct" | "incorrect">>({});
+
+  const toggleVisibility = (index: number) => {
+    const newVisibleIndices = [...visibleIndices];
+    if (newVisibleIndices.includes(index)) {
+      newVisibleIndices.splice(newVisibleIndices.indexOf(index), 1);
+    } else {
+      newVisibleIndices.push(index);
+    }
+    setVisibleIndices(newVisibleIndices);
   };
+
+  const handleScore = (index: number, type: "correct" | "incorrect") => {
+    setScores(prev => ({
+      ...prev,
+      [index]: type
+    }));
+  };
+
+  const totalCorrect = Object.values(scores).filter(score => score === "correct").length;
+  const totalIncorrect = Object.values(scores).filter(score => score === "incorrect").length;
 
   return (
     <div className="md:max-w-[600px] md:w-screen">
-      <h1 className="text-4xl font-bold mb-6 mt-4">Vocabulary Quiz</h1>
-
-      {currentIndex < vocabulary.length ? (
-        <>
-          <div className="flex flex-row gap-1 text-xl mb-2">
-            <p className="font-bold">Question:</p>
-            <p className="select-none">{vocabulary[currentIndex]?.question}</p>
-          </div>
-
-          <Input
-            type="text"
-            value={userInput}
-            onChange={handleInputChange}
-            onKeyPress={(event) => handleKeyPress(event, userInput)}
-            label="Type your answer"
-          />
-
-          <AnimatePresence>
-            {showFeedback && (
-              <motion.h1
-                key="feedback"
-                exit={{ opacity: 0, y: 20 }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.2 }}
-                className={`text-3xl font-bold mt-6 ${feedback.includes("❌")  ? "text-red-400" : "text-green-400 mb-6"}`}>
-                {feedback}
-              </motion.h1>
-            )}
-
-            {feedback.includes("❌") && (     
-              <motion.div
-                key="solution"
-                exit={{ opacity: 0, y: 20 }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.2 }}
-                className="flex flex-row gap-1 text-xl mb-6">
-                <p className="font-bold">Solution:</p>
-                <p className="text-xl text-red-200" dangerouslySetInnerHTML={{ __html: highlightedText }}/>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </>
-      ) : (
-        <>
-          <h1 className="font-bold text-2xl bg-gradient-to-r from-cyan-500 via-purple-400 to-red-500 text-transparent bg-clip-text">
-            <b>🎉</b> You have completed your quiz!
+      <div className="flex flex-row justify-between paper">
+        <div className="flex flex-col">
+          <h1 className="text-lg font-bold mb-2 text-neutral-900">
+            Questions
           </h1>
 
-          <p className="font-semibold text-lg text-neutral-300/80">
-            Refresh the page to do the quiz again.
-          </p>
-        </>
-      )}
+          <div className="text-neutral-800">
+            {vocabulary.map((item, index) => (
+              <div className="flex flex-row gap-4 justify-between" key={index}>
+                <button
+                  className={`inline-block mb-0.5 ${visibleIndices.includes(index) ? "bg-green-300/40 text-neutral-800 rounded-md" : "bg-green-300 text-transparent rounded-md"}`}
+                  onClick={() => toggleVisibility(index)}>{item.question}</button>
+                <br/>
+
+                <div className="mb-1">
+                  <button 
+                    className={`p-1 rounded-tl-md rounded-bl-md border-r border-neutral-400 ${scores[index] === "correct" ? "bg-green-500" : "bg-neutral-300/70"}`}
+                    onClick={() => handleScore(index, "correct")}>
+                    ✅
+                  </button>
+
+                  <button 
+                    className={`p-1 rounded-tr-md rounded-br-md ${scores[index] === "incorrect" ? "bg-red-500" : "bg-neutral-300/70"}`}
+                    onClick={() => handleScore(index, "incorrect")}>
+                    ❌
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-4 text-neutral-700">
+            <p>Correct: {totalCorrect}</p>
+            <p>Incorrect: {totalIncorrect}</p>
+          </div>
+        </div>
+
+        <div className="flex flex-col">
+          <h1 className="text-lg font-bold mb-2 text-neutral-900">
+            Solutions
+          </h1>
+
+          <div className="text-neutral-800">
+            {vocabulary.map((item) => (
+              <>
+                <p className="inline-block mb-[12.5px]">{item.answer}</p>
+                <br/>
+              </>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

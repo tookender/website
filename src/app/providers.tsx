@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { useState, useEffect } from "react";
 
-import { NextUIProvider } from "@nextui-org/react";
+import { HeroUIProvider } from "@heroui/react";
 import { usePathname, useRouter } from "next/navigation";
 
 export function Providers({children}: { children: React.ReactNode }) {
@@ -28,9 +28,9 @@ export function Providers({children}: { children: React.ReactNode }) {
       animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.3 }}
     >
-      <NextUIProvider navigate={router.push}>
+      <HeroUIProvider navigate={router.push}>
         {children}
-      </NextUIProvider>
+      </HeroUIProvider>
     </motion.main>
 
   )

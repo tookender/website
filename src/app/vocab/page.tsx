@@ -14,7 +14,7 @@ import {
   importVocabularyFromJSON,
 } from "@/lib/vocab";
 
-import { Tabs, Tab } from "@nextui-org/react";
+import { Tabs, Tab } from "@heroui/react";
 import { VocabularyList } from "./vocabulary-list";
 import { VocabularyQuiz } from "./vocabulary-quiz";
 
@@ -124,17 +124,7 @@ const VocabularyTestPage: React.FC = () => {
         <Tab key="quiz" title="Quiz" isDisabled={state.vocabulary.length === 0}>
           {state.vocabulary.length > 0 && (
             <VocabularyQuiz
-              currentIndex={state.currentIndex}
               vocabulary={state.vocabulary}
-              showFeedback={state.showFeedback}
-              feedback={state.feedback}
-              correctAnswer={state.correctAnswer}
-              highlightedText={state.highlightedText}
-              handleKeyPress={handleKeyPress}
-              userInput={state.userInput}
-              setUserInput={(input) =>
-                setState((prev: any) => ({ ...prev, userInput: input }))
-              }
             />
           )}
         </Tab>
