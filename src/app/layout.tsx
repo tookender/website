@@ -7,7 +7,6 @@ import NextTopLoader from "nextjs-toploader";
 
 import { Providers } from "./providers";
 import { Footer } from "@/components/layout/footer";
-import { Sidebar } from "@/components/layout/sidebar/menu";
 import { NavigationBar } from "@/components/layout/navbar/menu";
 
 const inter = Inter({ subsets: ["latin"] });
