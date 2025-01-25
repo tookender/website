@@ -34,48 +34,12 @@ import {
 import { RiEdit2Fill } from "react-icons/ri";
 
 export function NavigationBar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
-  const { data: session } = useSession();
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  const setLoaded = () => setIsLoaded(true);
-
-  useEffect(() => {
-    setTimeout(setLoaded, 1000);
-  });
-
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-  };
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
   const handleRouteChange = () => {
-    setIsOpen(false);
+    setIsMenuOpen(false);
   };
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const menu = document.getElementById("menu");
-      const button = document.getElementById("button");
-      if (
-        isOpen &&
-        menu &&
-        !menu.contains(event.target as Node) &&
-        button &&
-        !button.contains(event.target as Node)
-      ) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen]);
 
   // close sidebar menu when route changes aka the user clicks on a site
   useEffect(() => {
