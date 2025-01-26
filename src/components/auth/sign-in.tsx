@@ -23,7 +23,7 @@ export const SignIn = ({isLoaded}: SignInProps) => {
             </p>
           </div>
         } className="p-4" delay={200} closeDelay={100} showArrow={true} placement={"bottom-end"}>
-          <button className="w-8 h-8 bg-[#3f3f46] rounded-full" onClick={() => signIn("discord")}>?</button>
+          <button className="w-8 h-8 bg-[#3f3f46] rounded-full border" onClick={() => signIn("discord")}>?</button>
         </Tooltip>
       ) : (
         <div role="status">

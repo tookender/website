@@ -61,6 +61,6 @@ b {
 }
 
 
-button[data-key="user_info"], button[data-key="server_info"], button[data-key="moderation"], button[data-key="fun"], button[data-key="happiness"] {
+button[data-key="user_info"], button[data-key="server_info"], button[data-key="moderation"], button[data-key="fun"], button[data-key="happiness"], button[data-key="economy"] {
   border: none;
 }

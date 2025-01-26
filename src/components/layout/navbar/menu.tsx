@@ -115,7 +115,7 @@ export function NavigationBar() {
               </Tooltip>
 
 
-              <p className="text-sm text-neutral-300/70 p-1 md:p-2">
+              <p className="text-sm text-neutral-300/70 p-1 md:p-2 select-none">
                 /
               </p>
 
