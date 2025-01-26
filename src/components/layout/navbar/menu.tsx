@@ -30,10 +30,20 @@ import {
   Popover,
   PopoverTrigger,
   PopoverContent,
+  Tooltip,
 } from "@heroui/react";
 import { RiEdit2Fill } from "react-icons/ri";
 
+function nameForPath(path: string) {
+  if (path == "/") {
+    return "home"
+  } else {
+    return path.replace("/", "");
+  }
+}
+
 export function NavigationBar() {
+  const { data: session } = useSession()
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
@@ -54,13 +64,14 @@ export function NavigationBar() {
     >
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle
+          className=""
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         />
 
+        {/* Mobile Brand */}
         <NavbarBrand>
-          <a
-            className="flex flex-row p-4 gap-2 items-center active:scale-95 duration-300"
-            href="/"
+          <div
+            className="ml-2 flex flex-row gap-2 items-center"
           >
             <Image
               src="/ender.webp"
@@ -70,24 +81,52 @@ export function NavigationBar() {
               alt="My profile picture"
             />
 
-            <p className="font-bold text-inherit">tookender</p>
-          </a>
+            {/* <p className="text-sm font-bold text-inherit">ender</p> */}
+            <button className="flex flex-col text-start py-2 pl-2 pr-12 sm:px-24 hover:bg-[#242424] rounded-lg duration-100">
+              <p className="text-sm text-neutral-300/70">
+                korino /
+              </p>
+
+              <p className="text-sm">
+                {nameForPath(pathname)}
+              </p>
+            </button>
+          </div>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarBrand className="hidden sm:flex">
-        <button className="flex flex-row p-4 gap-2 items-center active:scale-95 duration-300">
-          <Image
-            src="/ender.webp"
-            width={500}
-            height={500}
-            className="h-10 w-10 rounded-full"
-            alt="My profile picture"
-          />
+        {/* Desktop Brand */}
+        <NavbarBrand className="hidden sm:flex">
+          <div className="flex flex-row gap-2 items-center">
+            <Image
+              src="/ender.webp"
+              width={500}
+              height={500}
+              className="h-10 w-10 rounded-full"
+              alt="My profile picture"
+            />
 
-          <p className="font-bold text-inherit">ender</p>
-        </button>
-      </NavbarBrand>
+            {/* <p className="font-bold text-inherit">ender</p> */}
+            <div className="flex flex-row text-start">
+              <Tooltip content="Navigate back to homepage" delay={1500} closeDelay={100} showArrow={true}>
+                <a className="text-sm text-neutral-300/70 p-1 md:p-2 hover:bg-[#242424] rounded-lg duration-100" href="/">
+                  korino
+                </a>
+              </Tooltip>
+
+
+              <p className="text-sm text-neutral-300/70 p-1 md:p-2">
+                /
+              </p>
+
+              <Tooltip content={`Navigate to ${nameForPath(pathname)}`} delay={1500} closeDelay={100} showArrow={true}>
+                <a className="text-sm p-1 md:p-2 hover:bg-[#242424] rounded-lg duration-100" href={pathname}>
+                  {nameForPath(pathname)}
+                </a>
+              </Tooltip>
+            </div>
+          </div>
+        </NavbarBrand>
 
       <NavbarContent className="hidden sm:flex gap-2" justify="center">
         <CustomNavbarItem text="Home" link="/" title="The home-page">
@@ -157,14 +196,6 @@ export function NavigationBar() {
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
-
-        {/* <CustomNavbarItem
-          text="Doggo"
-          link="/doggo"
-          title="Pictures of my dog"
-        >
-          <FaDog className="text-lg" />
-        </CustomNavbarItem> */}
       </NavbarContent>
 
       <NavbarContent justify="end">
@@ -180,7 +211,7 @@ export function NavigationBar() {
           </a>
         </NavbarItem>
 
-        {/* <NavbarItem>
+        <NavbarItem>
           {session?.user ? (
             <Popover placement="top" showArrow={true}>
               <PopoverTrigger className="ring-0">
@@ -209,9 +240,9 @@ export function NavigationBar() {
               </PopoverContent>
             </Popover>
           ) : (
-            <SignIn isLoaded={isLoaded} />
+            <SignIn isLoaded={true} />
           )}
-        </NavbarItem> */}
+        </NavbarItem>
       </NavbarContent>
 
       <NavbarMenu className="text-lg">

@@ -1,4 +1,5 @@
 "use client"
+import { Tooltip } from "@heroui/react";
 import { signIn } from "next-auth/react"
 
 interface SignInProps {
@@ -9,7 +10,21 @@ export const SignIn = ({isLoaded}: SignInProps) => {
   return (
     <>
       {isLoaded ? (
-        <button className="w-8 h-8 bg-[#3f3f46] rounded-full" onClick={() => signIn("discord")}>?</button>
+        <Tooltip content={
+          <div>
+            <h1 className="font-bold text-base">
+              Sign in using Discord
+            </h1>
+
+            <p className="text-sm ">
+              Press this button to sign in using
+              <br/>
+              Discord to access exclusive features.
+            </p>
+          </div>
+        } className="p-4" delay={200} closeDelay={100} showArrow={true} placement={"bottom-end"}>
+          <button className="w-8 h-8 bg-[#3f3f46] rounded-full" onClick={() => signIn("discord")}>?</button>
+        </Tooltip>
       ) : (
         <div role="status">
           <svg aria-hidden="true" className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
