@@ -66,7 +66,6 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
 
   return (
     <div className="md:max-w-[600px] md:w-screen">
-      <h1 className="text-4xl font-bold mb-6 mt-4">Vocabulary List</h1>
       <Table aria-label="Vocabulary List Table"
         shadow="none"
         bottomContent={

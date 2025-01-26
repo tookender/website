@@ -58,7 +58,7 @@ export function NavigationBar() {
 
   return (
     <Navbar
-      className="bg-transparent border-b"
+      className="fixed bg-[#171717]/80 backdrop-blur-sm border-b"
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
     >

@@ -15,8 +15,9 @@ import {
 } from "@/lib/vocab";
 
 import { Tabs, Tab } from "@heroui/react";
-import { VocabularyList } from "./vocabulary-list";
-import { VocabularyQuiz } from "./vocabulary-quiz";
+import { VocabularyList } from "./list";
+import { VocabularySelfTest } from "./self-test";
+import { VocabularyQuiz } from "./quiz";
 
 const VocabularyTestPage: React.FC = () => {
   const [state, setState] = useState({
@@ -121,9 +122,28 @@ const VocabularyTestPage: React.FC = () => {
             </button>
           </div>
         </Tab>
+
         <Tab key="quiz" title="Quiz" isDisabled={state.vocabulary.length === 0}>
           {state.vocabulary.length > 0 && (
             <VocabularyQuiz
+              currentIndex={state.currentIndex}
+              vocabulary={state.vocabulary}
+              showFeedback={state.showFeedback}
+              feedback={state.feedback}
+              correctAnswer={state.correctAnswer}
+              highlightedText={state.highlightedText}
+              handleKeyPress={handleKeyPress}
+              userInput={state.userInput}
+              setUserInput={(input) =>
+                setState((prev: any) => ({ ...prev, userInput: input }))
+              }
+            />
+          )}
+        </Tab>
+
+        <Tab key="selftest" title="Self Test" isDisabled={state.vocabulary.length === 0}>
+          {state.vocabulary.length > 0 && (
+            <VocabularySelfTest
               vocabulary={state.vocabulary}
             />
           )}

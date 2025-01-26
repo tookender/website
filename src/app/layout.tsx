@@ -37,7 +37,7 @@ export default function RootLayout({
           <NavigationBar />
 
           <div className="w-full overflow-y-auto p-4 flex flex-col">
-            <div className="min-h-12" />
+            <div className="min-h-24" />
 
             <Toaster
               position="bottom-right"
