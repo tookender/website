@@ -46,7 +46,7 @@ export const VocabularySelfTest: React.FC<QuizProps> = ({ vocabulary }) => {
               <div className="flex flex-row gap-4 justify-between" key={index}>
                 <button
                   className={`inline-block mb-0.5 ${visibleIndices.includes(index) ? "bg-green-300/20 text-neutral-200 rounded-md" : "bg-green-300 text-transparent rounded-md"}`}
-                  onClick={() => toggleVisibility(index)}>{item.solution}</button>
+                  onClick={() => toggleVisibility(index)}>{item.answer}</button>
                 <br/>
 
                 <div className="mb-1">
