@@ -38,7 +38,7 @@ export const VocabularySelfTest: React.FC<QuizProps> = ({ vocabulary }) => {
       <div className="flex flex-row justify-between dark-paper">
         <div className="flex flex-col">
           <h1 className="text-lg font-bold mb-2 text-neutral-300">
-            Questions
+            Solutions
           </h1>
 
           <div className="text-neutral-200">
@@ -46,7 +46,7 @@ export const VocabularySelfTest: React.FC<QuizProps> = ({ vocabulary }) => {
               <div className="flex flex-row gap-4 justify-between" key={index}>
                 <button
                   className={`inline-block mb-0.5 ${visibleIndices.includes(index) ? "bg-green-300/20 text-neutral-200 rounded-md" : "bg-green-300 text-transparent rounded-md"}`}
-                  onClick={() => toggleVisibility(index)}>{item.question}</button>
+                  onClick={() => toggleVisibility(index)}>{item.solution}</button>
                 <br/>
 
                 <div className="mb-1">
@@ -74,13 +74,13 @@ export const VocabularySelfTest: React.FC<QuizProps> = ({ vocabulary }) => {
 
         <div className="flex flex-col">
           <h1 className="text-lg font-bold mb-2 text-neutral-300">
-            Solutions
+            Questions
           </h1>
 
           <div className="text-neutral-200">
             {vocabulary.map((item) => (
               <>
-                <p className="inline-block mb-[12.5px]">{item.answer}</p>
+                <p className="inline-block mb-[12.5px]">{item.question}</p>
                 <br/>
               </>
             ))}
