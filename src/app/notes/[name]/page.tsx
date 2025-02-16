@@ -1,4 +1,3 @@
-import { auth } from "@/auth";
 import { BsArrowLeft } from "react-icons/bs";
 import { getNote, modifyNote } from "@/actions/notes";
 
@@ -6,17 +5,19 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 
 import NoteEditor from "../note-editor";
+import { auth } from "@/auth";
+import { headers } from "next/headers";
 
 async function handleSubmit(data: FormData) {
   "use server";
-  const session = await auth();
+  const session = await auth.api.getSession({ headers: headers() });
   const content = data.get("content") as string;
   const oldNoteName = data.get("oldNoteName") as string;
   const newNoteName = data.get("newNoteName") as string;
 
   console.log(content);
 
-  await modifyNote(oldNoteName, newNoteName, session?.user?.id as string, content);
+  await modifyNote(oldNoteName, newNoteName, session?.user.id as string, content);
   revalidatePath("/");
 
   if (newNoteName !== oldNoteName) {
@@ -25,11 +26,11 @@ async function handleSubmit(data: FormData) {
 }
 
 export default async function NotesSlug({ params }: { params: Promise<{ name: string }> }) {
-  const session = await auth();
+  const session = await auth.api.getSession({ headers: headers() });
   const name = decodeURIComponent((await params).name);
 
   if (session?.user) {
-    const note = getNote(name, session.user.id as string);
+    const note = getNote(name, session?.user.id as string);
     const noteContent = (await note)[0].content;
 
     return (

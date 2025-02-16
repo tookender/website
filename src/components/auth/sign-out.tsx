@@ -1,10 +1,14 @@
 "use client"
-import { Button, User } from "@heroui/react"
-import { signOut } from "next-auth/react"
+import { Button } from "@heroui/react"
 import { FaUser } from "react-icons/fa6"
- 
+import { signOut } from "@/lib/auth-client";
+
+const signInDiscord = async () => {
+  await signOut();
+};
+
 export const SignOut = () => {
   return (
-    <Button color="danger" variant="bordered" startContent={<FaUser/>} onClick={() => signOut()}>Sign Out</Button>
+    <Button variant="bordered" startContent={<FaUser/>} onClick={() => signOut()}>Sign Out</Button>
   )
 }

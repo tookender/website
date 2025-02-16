@@ -10,6 +10,9 @@ const config: Config = {
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      "time": ["TimeTraveler", "Arial"]
+    },
     screens: {
       "xs": "475px",
       "ml": "920px",

@@ -1,5 +1,4 @@
 import "@/styles/globals.css";
-import { SessionProvider } from "next-auth/react";
 
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
@@ -32,27 +31,25 @@ export default function RootLayout({
       <body
         className={`${inter.className} antialiased flex flex-col h-dvh overflow-x-hidden`}
       >
-        <SessionProvider>
-          <NextTopLoader color={"linear-gradient(to right, #8668ac, #4d7ce5)"} />
-          <NavigationBar />
+        <NextTopLoader color={"linear-gradient(to right, #8668ac, #4d7ce5)"} />
+        <NavigationBar />
 
-          <div className="w-full overflow-y-auto p-4 flex flex-col">
-            <div className="min-h-24" />
+        <div className="w-full overflow-y-auto p-4 flex flex-col">
+          <div className="min-h-24" />
 
-            <Toaster
-              position="bottom-right"
-              toastOptions={{
-                style: {
-                  background: "#27272a",
-                  color: "#fff",
-                  borderRadius: "8px",
-                },
-              }}
-            />
-            <Providers>{children}</Providers>
-            <Footer />
-          </div>
-        </SessionProvider>
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              style: {
+                background: "#27272a",
+                color: "#fff",
+                borderRadius: "8px",
+              },
+            }}
+          />
+          <Providers>{children}</Providers>
+          <Footer />
+        </div>
       </body>
     </html>
   );

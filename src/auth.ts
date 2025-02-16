@@ -1,20 +1,19 @@
-import NextAuth from "next-auth";
-import Discord from "next-auth/providers/discord";
-// import Google from "next-auth/providers/google";
-import { SupabaseAdapter } from "@auth/supabase-adapter";
-
-export const { handlers, auth, signIn, signOut } = NextAuth({
-  providers: [Discord],
-  adapter: SupabaseAdapter({
-    url: process.env.SUPABASE_URL as string,
-    secret: process.env.SUPABASE_SERVICE_ROLE_KEY as string,
-  }),
-  callbacks: {
-    async session({ session, user }) {
-      if (session.user) {
-        session.user.id = user.id;
-      }
-      return session;
-    },
+import { Pool } from "pg";
+import { betterAuth } from "better-auth";
+ 
+export const auth = betterAuth({
+  socialProviders: {
+    discord: { 
+      clientId: process.env.DISCORD_ID as string, 
+      clientSecret: process.env.DISCORD_SECRET as string, 
   },
-});
+  },
+  database: new Pool({
+    host: process.env.DATABASE_HOST as string,
+    user: process.env.DATABASE_USER as string,
+    password: process.env.DATABASE_PASSWORD as string,
+    database: process.env.DATABASE_NAME as string,
+    port: parseInt(process.env.DATABASE_PORT as string),
+    max: 20,
+  })
+})

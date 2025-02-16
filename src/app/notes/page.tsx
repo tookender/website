@@ -1,14 +1,15 @@
-import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import ToastHandler from "./toast-handler";
 import { getNotes, createNote } from "@/actions/notes";
+import { auth } from "@/auth";
+import { headers } from "next/headers";
 
 export default async function NotesDashboard() {
-  const session = await auth();
-
+  const session = await auth.api.getSession({ headers: headers() })
+  
   async function handleCreateNote() {
     "use server";
-    const notes = await getNotes(session?.user?.id as string);
+    const notes = await getNotes(session?.user.id as string);
     
     const existingNote = notes.find(note => note.name === "New Note");
     if (existingNote) {
